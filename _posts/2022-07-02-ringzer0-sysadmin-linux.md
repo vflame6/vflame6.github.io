@@ -265,8 +265,10 @@ It is a `python` file and we can write in it. Now we have several ways to move n
 morpheus@sysadmin-track:/backup$ vim /tmp/Gathering.py # vim is cool!
 morpheus@sysadmin-track:/backup$ cat /tmp/gather.log
 BASE ?
-'BASE64 STRING' # EDITED
+'BASE64 EDITED STRING' # EDITED
 ... output ...
+morpheus@sysadmin-track:/backup$ echo 'BASE64 EDITED STRING' | base64 -d && echo
+FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX #EDITED
 ```
 
 Decode base64 string and get the flag!
