@@ -38,9 +38,7 @@ twitter:
   username: none            # change to your twitter username
 
 social:
-  # Change to your full name.
-  # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: flame
+ name: flame
   email: multi.zadiak@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
@@ -50,13 +48,13 @@ social:
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-google_site_verification: 8OPrAwS4DE6NtgmrNaTdqFanRuiD1vfsR3hWMox-Eh8              # fill in to your verification string
+google_site_verification: 8OPrAwS4DE6NtgmrNaTdqFanRuiD1vfsR3hWMox-Eh8
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id:                 # fill in your Google Analytics ID
+  id: 'G-BERYYW15S9'
   # Google Analytics pageviews report settings
   pv:
     proxy_endpoint:   # fill in the Google Analytics superProxy endpoint of Google App Engine
