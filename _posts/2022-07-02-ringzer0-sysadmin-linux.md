@@ -17,7 +17,6 @@ $ ssh $LOGIN@$HOSTNAME -p $PORT [-i $private_key]
 ![The 1st challenge](/assets/ringzer0/sysadmin_linux/level1.png)
 
 ## Solution
-
 In this challenge we just have to explore the system. We will find the flag in `process list`.
 
 ```bash
@@ -31,7 +30,6 @@ morpheus@sysadmin-track:~$ ps -ax
 ![the 2nd challenge](/assets/ringzer0/sysadmin_linux/level2.png)
 
 ## Solution
-
 We have to find the password, so we can search by string with `grep`
 
 ![grep string searching](/assets/ringzer0/sysadmin_linux/grep_architect.png)
@@ -59,7 +57,6 @@ FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # EDITED
 ![The 3rd challenge](/assets/ringzer0/sysadmin_linux/level3.png)
 
 ## Solution
-
 The authors specified the user for that flag. We note it and search for `readble` files that user `owns`.
 
 ```bash
@@ -112,7 +109,6 @@ mysql> select * from flag;
 ![The 4th challenge](/assets/ringzer0/sysadmin_linux/level4.png)
 
 ## Solution
-
 Note that we just need an access to the account. So we don't have to find password. Maybe look for a ssh `private key`?
 
 ```bash
@@ -139,8 +135,7 @@ The flag was encoded by `base64`, so we docode it with a command.
 ![The 5th challenge](/assets/ringzer0/sysadmin_linux/level5.png)
 
 ## Solution
-
-At first, we list all files in oracles folder.
+At first, we list all files in oracle's folder.
 
 ![oracles folder](/assets/ringzer0/sysadmin_linux/oracle_files.png)
 
@@ -163,7 +158,6 @@ FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # EDITED
 ![The 6th challenge](/assets/ringzer0/sysadmin_linux/level6.png)
 
 ## Solution
-
 In this challenge, we have a file called phonebook, we can see a `path` here.
 
 ```bash
@@ -217,8 +211,7 @@ don't forget to remove this :)
 ![The 7th challenge](/assets/ringzer0/sysadmin_linux/level7.png)
 
 ## Solution
-
-We have to check user process list there.
+We have to check user's process list there.
 
 ![neos processes](/assets/ringzer0/sysadmin_linux/neo_processes.png)
 
@@ -239,7 +232,6 @@ clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=10, tv_nsec=0}, 0x7ffe4a1b4430) = 0
 ![The 8th challenge](/assets/ringzer0/sysadmin_linux/level8.png)
 
 ## Solution
-
 Here we have to search something associated with cypher.
 
 ```bash
@@ -259,7 +251,7 @@ cypher has a `cronjob`, let's explore the script.
 
 ![cyphers script](/assets/ringzer0/sysadmin_linux/cypher_script.png)
 
-It is a `python` file and we can write in it. Now we have several ways to move next, i.e. get a reverse shell, but I choosed just to read files in cyphers home directory. We modify the file to output content in /tmp/gather.log and wait...
+It is a `python` file and we can write in it. Now we have several ways to move next, i.e. get a reverse shell, but I choosed just to read files in cypher's home directory. We modify the file to output content in /tmp/gather.log and wait...
 
 ```bash
 morpheus@sysadmin-track:/backup$ vim /tmp/Gathering.py # vim is cool!
