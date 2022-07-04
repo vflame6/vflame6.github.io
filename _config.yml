@@ -97,9 +97,9 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: vflame6/vflame6.github.io            # <gh-username>/<repo>
-    repo_id:
+    repo_id: R_kgDOHjh1nQ
     category: Comments
-    category_id:
+    category_id: DIC_kwDOHjh1nc4CQCRR
     mapping:          # optional, default to 'pathname'
     input_position:   # optional, default to 'bottom'
     lang:             # optional, default to the value of `site.lang`
