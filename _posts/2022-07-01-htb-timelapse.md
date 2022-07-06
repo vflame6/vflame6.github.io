@@ -2,7 +2,7 @@
 layout: post
 title: HackTheBox - Timelapse
 category: HackTheBox
-tags: Machines SMB LAPS Brute-Force
+tags: Machines SMB LAPS Brute-Force Windows
 date: 2022-07-01 17:02 +0300
 ---
 
