@@ -2,7 +2,7 @@
 layout: post
 title: HackTheBox - RouterSpace
 category: HackTheBox
-tags: Machines Linux APK CVE
+tags: machines linux apk cve
 date: 2022-07-08 22:36 +0300
 ---
 
