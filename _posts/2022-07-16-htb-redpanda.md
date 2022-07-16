@@ -67,7 +67,18 @@ http://redpanda.htb:8080 [200 OK] Content-Language[en-US], Country[RESERVED][ZZ]
 
 As we can see, there is nothing interesting for us.
 
-We have a search console at the root page. Looks like it is filtering the input, but let's intercept the request with `BurpSuite`. We start a proxy and sending request to the Repeater.
+We have a search console at the root page.
+
+
+We can input empty string, and the search console will return Greg red panda with a link to an author statistics.
+
+![Greg red panda](/assets/hackthebox/redpanda/greg_red_panda.png)
+
+# user.txt
+
+## Enumeration
+
+Looks like the search console is filtering the input, but let's intercept the request with `BurpSuite`. We start a proxy and sending request to the Repeater.
 
 ![Trying to inject code](/assets/hackthebox/redpanda/Burp1.png)
 
@@ -81,15 +92,7 @@ name=test&&ping -c 4 <YOUR_IP>
 
 Unluckly, it haven't worked for us.
 
-We can input empty string, and the search console will return Greg red panda with a link to an author statistics.
-
-![Greg red panda](/assets/hackthebox/redpanda/greg_red_panda.png)
-
-# user.txt
-
-## Enumeration
-
-Looks like there is nothing interesting for us, so let's enumerate search console harder. We are trying to perform `Template injection` attack here by inputting `${7*7}`, but the application bans it. Next, we try to input `#{7*7}` and there it is! Also, we have to url encode our request.
+Looks like there is nothing more interesting for us, so let's enumerate search console harder. We are trying to perform `Template injection` attack here by inputting `${7*7}`, but the application bans it. Next, we try to input `#{7*7}` and there it is! Also, we have to url encode our request.
 
 ![Template injection](/assets/hackthebox/redpanda/template_injection.png)
 
