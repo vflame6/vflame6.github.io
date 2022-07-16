@@ -198,7 +198,7 @@ Next, we can see how the app parses logs:
 
 ![Log parser](/assets/hackthebox/redpanda/user_agent_handler.png)
 
-We note that `line` is a string passed to a function. We can poison it by by adding an extra `||` to our user agent and then providing a URI.
+We note that `line` is a string passed to a function. We can poison it by adding an extra `||` to our user agent and then providing a URI.
 
 So, now we have all the information to perform our plan:
 
