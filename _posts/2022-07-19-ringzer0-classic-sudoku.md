@@ -18,7 +18,7 @@ ssh -p 10143 sudoku@challenges.ringzer0team.com
 
 ![The challenge](/assets/ringzer0/coding_challenges/classic-sudoku/challenge.png)
 
-We have to solve 3x3 Sudoku challenge in less than 10 seconds. I don't think human can do it easily, so we need some coding here and we will use Python3. Let’s solve it step-by-step 👨‍💻
+We have to solve 3x3 Sudoku challenge in less than 10 seconds. I don't think human can do it easily, so we need some coding here and we will use `Python3`. Let’s solve it step-by-step 👨‍💻
 
 # Configuration
 
