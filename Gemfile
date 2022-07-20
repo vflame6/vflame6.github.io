@@ -22,3 +22,5 @@ gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 gem "webrick", "~> 1.7"
 
 gem 'jekyll-compose', group: [:jekyll_plugins]
+
+gem "jekyll-feed"
