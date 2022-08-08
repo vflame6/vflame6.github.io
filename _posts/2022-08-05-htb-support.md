@@ -232,7 +232,7 @@ With some basic enumeration we can see nothing interesting. So I've decided to u
 Unfortunately, this doesn't work for me. BloodHound always gives "BAD JSON FILE" error and I don't know how to fix it. So, I've used `bloodhound-python` script to collect data. It grabs less data than SharpHound, but it is enough for this machine.
 
 ```zsh
-$ bloodhound-python -v -u 'support' -p 'Ironside47pleasure40Watchful' -ns 10.10.11.174 -d support.htb -c All
+$ bloodhound-python -v -u 'support' -p 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX' -ns 10.10.11.174 -d support.htb -c All
 $ ll
 total 180K
  12K -rw-r--r--  1 kali kali  11K Aug  5 10:22  20220805102215_computers.json
