@@ -128,6 +128,8 @@ curl -k https://streamio.htb/admin/
 
 On login page it is hard to do something manually, so I've decided to pass it into `SQLMAP` tool. And it did find the injection, but it was `TIME-BASED` Microsoft SQL server injection. It was so boring to wait for the results, and you have to be lucky to dump the credentials you really need.
 
+![Login page](/assets/hackthebox/streamio/login_page.png)
+
 ```bash
 sqlmap -u 'https://streamio.htb/login.php' --data='username=test&password=test' --batch --dbms='Microsoft SQL Server' --tables
 ```
