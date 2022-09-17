@@ -31,14 +31,14 @@ description: >-
 url: 'https://vflame6.github.io'
 
 github:
-  username: vflame6             # change to your github username
+  username: vflame6 
 
 twitter:
-  username: none            # change to your twitter username
+  username: none            
 
 social:
   name: flame
-  email: multi.zadiak@gmail.com             # change to your email address
+  email:            
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/username      # change to your twitter homepage
