@@ -21,12 +21,12 @@ timezone: Europe/Moscow
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: flame's blog
+title: vflame6's blog
 
 tagline: Cybersecurity enthusiast
 
 description: >-
-  flame bloggin cybersecurity, pentest, ctfs related content.
+  vflame6 bloggin cybersecurity, pentest, ctfs related content.
 
 url: 'https://vflame6.github.io'
 
