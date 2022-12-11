@@ -30,11 +30,9 @@ It is very useful to append `/etc/hosts/` with ip address of the machine. It is 
 
 ## Port scan
 
-As always, we start with port scanning. I've updated my nmap bash script with a new feature - [nmap-bootstrap-xsl](https://github.com/honze-net/nmap-bootstrap-xsl). It is a tool to visualize your nmap scans. You have to insert a `--stylesheet` argument in your scan to use it. Also, I've added a `PN` toggle to my script.
+As always, we start with port scanning. I've updated my nmap bash script with a new feature - [nmap-bootstrap-xsl](https://github.com/honze-net/nmap-bootstrap-xsl). It is a tool to visualize your nmap scans. You have to insert a `--stylesheet` argument in your scan to use it. Also, I've added a `PN` toggle to my script. The script **fnmap.sh** is listed below
 
-<details><summary><b>fnmap.sh</b></summary>
-
-{% highlight bash linenos %}
+```bash
 #!/bin/bash
 
 if [[ $# != 1 ]]
@@ -56,9 +54,7 @@ $ports
 "
 filename="$1_scan" 
 sudo nmap -p$ports -T4 $PN -A -oA $filename --stylesheet https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl $1
-{% endhighlight %}
-
-</details>
+```
 
 Here is classic in-terminal version:
 
@@ -364,9 +360,10 @@ evil-winrm -u WSUSDemo -p 'Password123!' -i dc.outdated.htb
 
 ![Got root!](/assets/hackthebox/outdated/root_flag.png)
 
-
 # Conclusion
 
+There are a few Windows machines on the HackTheBox now, all latest releases was Linux and that's sad. But I think it has a reason...
 
+The machine was nice, I've liked to learn about new attacks and vulnerabilities, like Follina. Thanks to the author for the machine!
 
 Thank you for reading, I hope it was useful for you ❤️
