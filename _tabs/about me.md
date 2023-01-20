@@ -4,17 +4,24 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-### My name is Max. I am a student of the SPbSUT, Russia🇷🇺.
+My name is Max. I am a student of the SPbSUT, Russia🇷🇺.
 
-### I'm interested in penetration testing and studying for that job role👨‍💻.
+I'm interested in penetration testing and studying for that job role👨‍💻. In my free time I play CTFs, studying on tryhackme.com or doing labs on HackTheBox. I'm also interested in Java programming.
+
+I hope you will enjoy this blog! Let's become better together :)
 
 ---
 
-### My stats:
+### My stats and links:
 
-<script src="https://tryhackme.com/badge/1026785"></script>
+* [HackTheBox profile](https://app.hackthebox.com/profile/973692)
+* [TryHackMe profile](https://tryhackme.com/p/vflamie)
+* [Stepik profile](https://stepik.org/users/349814193)
+* [FreeCodeCamp profile](https://www.freecodecamp.org/vflame6)
 
 ![](https://www.hackthebox.eu/badge/image/973692){: .normal}
+
+<script src="https://tryhackme.com/badge/1026785"></script>
 
 ---
 
