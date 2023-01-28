@@ -22,7 +22,7 @@ You have to be accurate here, you must understand that your machine is becoming 
 It is very useful to append `/etc/hosts/` with ip address of the machine. It is useful to get subdomains and to not memorize the address every time.
 
 ```zsh
-┌──(kali㉿workstation)-[~/Faculty]
+┌──(kali㉿workstation)-[~]
 └─$ echo "10.10.11.175\toutdated.htb" | sudo tee -a /etc/hosts
 ```
 
