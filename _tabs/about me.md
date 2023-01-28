@@ -6,7 +6,7 @@ order: 4
 
 My name is Max. I am a student of the SPbSUT, Russia🇷🇺.
 
-I'm interested in penetration testing and studying for that job role👨‍💻. In my free time I play CTFs, studying on tryhackme.com or doing labs on HackTheBox. I'm also interested in Java programming.
+I'm a junior penetration tester👨‍💻. My goal is to become better in pentesting. In my free time I play CTFs, studying on tryhackme.com or doing labs on HackTheBox. I'm also interested in Java programming.
 
 I hope you will enjoy this blog! Let's become better together :)
 
