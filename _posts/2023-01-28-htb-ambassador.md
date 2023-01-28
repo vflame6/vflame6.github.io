@@ -6,7 +6,7 @@ tags: web python git consul
 date: 2023-01-28 20:28 +0300
 ---
 
-![Machine logo](/assets/hackthebox/ambassador/Ambassador.png)
+![Machine logo](/assets/hackthebox/ambassador/Ambassador.png){:height="400px" width="600px"}
 
 # Configuration
 
@@ -32,35 +32,32 @@ It is very useful to append `/etc/hosts/` with ip address of the machine. It is 
 
 As always, we start with port scanning. I've updated my nmap bash script with a new feature - [nmap-bootstrap-xsl](https://github.com/honze-net/nmap-bootstrap-xsl). It is a tool to visualize your nmap scans. You have to insert a `--stylesheet` argument in your scan to use it. Also, I've added a `PN` toggle to my script.
 
-<details>
-    <summary>fnmap.sh</summary>
+```bash
+$ cat fnmap.sh
+#!/bin/bash
 
-    {% highlight bash linenos %}
-    #!/bin/bash
+if [[ $# != 1 ]]
+then
+    echo -e "\e[0;31m[!]\e[0m Not specified a host or incorrect use."
+    exit 1
+fi
 
-    if [[ $# != 1 ]]
-    then
-        echo -e "\e[0;31m[!]\e[0m Not specified a host or incorrect use."
-        exit 1
-    fi
+echo "Treat all hosts as online -- skip host discovery (Y/N)?"
+read answer
+PN=""
+if [ "$answer" != "${answer#[Yy]}" ] ; then
+    PN="-Pn";
+fi
 
-    echo "Treat all hosts as online -- skip host discovery (Y/N)?"
-    read answer
-    PN=""
-    if [ "$answer" != "${answer#[Yy]}" ] ; then
-        PN="-Pn";
-    fi
+ports=$(nmap -p- $PN --min-rate=500 $1 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
+echo "Ports found:
+$ports
+"
+filename="$1_scan" 
+sudo nmap -p$ports -T4 $PN -A -oA $filename --stylesheet https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl $1
+```
 
-    ports=$(nmap -p- $PN --min-rate=500 $1 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
-    echo "Ports found:
-    $ports
-    "
-    filename="$1_scan" 
-    sudo nmap -p$ports -T4 $PN -A -oA $filename --stylesheet https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl $1
-    {% endhighlight %}
-</details>
-
-You can find the script in my GitHub [repository](https://github.com/vflame6/kali-scripts/blob/main/fnmap.sh).
+You can find the script in my GitHub [repository](https://github.com/vflame6/kali-scripts/blob/main/fnmap.sh). I'm going to update this repo by updating old scripts and addind new scripts in the future. Now, let's do the scan.
 
 ```bash
 $ fnmap ambassador.htb
