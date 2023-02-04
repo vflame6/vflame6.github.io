@@ -1,0 +1,15 @@
+<style type="text/css">
+    .centerImage {
+        text-align: center;
+        display: block;
+    }
+
+    .centerCaption {
+        text-align: center;
+    }
+</style>
+
+<figure class="image">
+    <img src="{{ include.url }}" alt="{{ include.description }}" class="centerImage">
+    <figcaption class="centerCaption">{{ include.description }}</figcaption>
+</figure>
