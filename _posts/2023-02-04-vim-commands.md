@@ -6,9 +6,19 @@ tags: vim editing productivity
 date: 2023-02-04 03:18 +0300
 ---
 
+Hi! Today I want to talk and share my notes about `Vim`. You can find notes about basic Vim command here. There won't be settings commands like `:set number`, we will explore them later. Here I want to show you basic Vim usage.
+
 ![You opened Vim for the first time](/assets/tools/vim-commands/open_vim_first_time.jpeg)
 
-Today I want to share my notes about `Vim` basic commands with you. There won't be settings commands like `:set number`, we will explore them later. Here I want to show you basic Vim usage.
+## First steps
+
+### What is Vim?
+
+Vim is a text editor, created to work with text faster and more effictevily. In my opinion, you can become 10 times faster with typing/redacting your texts with Vim. It has a lot of cool features to make you perform a changes quickly by simple combinations of commands.
+
+It is very useful to study Vim and combine it with blind 10 fingers typing. Take your time to reach that level and you will work with your texts like on steroids 🔥.
+
+### Install and start Vim
 
 I used a default Vim without configurations on the Ubuntu desktop VM. You can install it with apt.
 
@@ -16,9 +26,7 @@ I used a default Vim without configurations on the Ubuntu desktop VM. You can in
 sudo apt install vim
 ```
 
-## First steps
-
-### Start Vim
+You can start Vim in 2 different ways: open it in current terminal session, or like a new window application. When you choose, specify the filename to enter Vim.
 
 ```bash
 # Current terminal window
