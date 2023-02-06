@@ -123,7 +123,7 @@ These commands can be repeated with `;`. `,` repeats in the other direction.
 
 #### Matching a parenthesis
 
-- `%` - moves to a matching parenthesis, works with `()`, `[]` and `{}`.
+- `%` - Moves to a matching parenthesis, works with `()`, `[]` and `{}`.
 
 {%
     include image.html
@@ -178,8 +178,8 @@ When use jumping, Vim remebers the position before the jump. You can jump back u
 I enabled the `:set number` feature to demonstrate line numbers when jumping to lines.
 
 - `:jumps` - Command that gives a list of positions you've jumped to.
-- `CTRL-O` - jump back.
-- `CTRL-I` - jump forward.
+- `CTRL-O` - Jump back.
+- `CTRL-I` - Jump forward.
 
 #### Jumping to a specific line
 
@@ -201,9 +201,9 @@ I enabled the `:set number` feature to demonstrate line numbers when jumping to 
 
 You can set up to 26 marks by using command `m<letter>`
 
-- ``` `<mark> ``` - move to a mark.
-- `'<mark>` - move to a begging of the marks line.
-- `:marks` - get list of marks.
+- ``` `<mark> ``` - Move to a mark.
+- `'<mark>` - Move to a begging of the marks line.
+- `:marks` - Get list of marks.
 
 {%
     include image.html
@@ -213,8 +213,8 @@ You can set up to 26 marks by using command `m<letter>`
 
 #### Special marks
 
-- ``` `` ``` - cursor position before doing a jump.
-- `''` - cursor position when last editing the file.
+- ``` `` ``` - Cursor position before doing a jump.
+- `''` - Cursor position when last editing the file.
 - `[` - Start of the last change.
 - `]` - End of the last change.
 
@@ -224,13 +224,13 @@ You can set up to 26 marks by using command `m<letter>`
 
 #### Search forward
 
-- `/include` - search for a word "include" after the cursor.
-- `n` - move to next match. Works with numbers.
+- `/include` - Search for a word "include" after the cursor.
+- `n` - Move to next match. Works with numbers.
 
 #### Search backward
 
-- `?word` - search for a word "word" before the cursor.
-- `N` - move to the previous match. Works with numbers.
+- `?word` - Search for a word "word" before the cursor.
+- `N` - Move to the previous match. Works with numbers.
 
 {%
     include image.html
@@ -258,10 +258,10 @@ You can use `<UP>` and `<DOWN>` arrow keys to move through the search history. W
 
 To demonstrate this feature I used `:set hlsearch` setting to highlight all matches when searching.
 
-- `*` - grabs a whole word under the cursor and use it as the search string. Searches only the same word.
-- `#` - same but in the other direction.
-- `g*` - grabs a whole word and uses it as the search string. Matches the partial words.
-- `g#` - same but in the other direction.
+- `*` - Grabs a whole word under the cursor and use it as the search string. Searches only the same word.
+- `#` - Same but in the other direction.
+- `g*` - Grabs a whole word and uses it as the search string. Matches the partial words.
+- `g#` - Same but in the other direction.
 
 {%
     include image.html
@@ -272,8 +272,8 @@ To demonstrate this feature I used `:set hlsearch` setting to highlight all matc
 
 There are some special markers which do specify a search:
 
-- `\>` - special marker that matches only at the end of a word.
-- `\<` - special marker that matches only at the begin of a word.
+- `\>` - Special marker that matches only at the end of a word.
+- `\<` - Special marker that matches only at the begin of a word.
 
 ### Deleting
 
@@ -315,8 +315,8 @@ You can use `~` to change the case of character under the cursor.
 
 We can replace one character without using a `cl` or `s` commands, which do enter us in Insert mode. It can be done without entering an Insert mode with `r` command.
 
-- `rx` - replace current character with x.
-- `r<Enter>` - replace a character with a line break.
+- `rx` - Replace current character with x.
+- `r<Enter>` - Replace a character with a line break.
 
 {%
     include image.html
@@ -334,9 +334,9 @@ You can find and replace text using the `:s` command. It has a behaviour like a 
 
 The command searches each line in `[range]` for a `{pattern}`, and replaces it with a `{string}`. `[count]` is a positive integer that multiplies the command.
 
-- `:s/foo/bar/` - replace the first occurrence of the string "foo" in the current line with "bar".
-- `:s/foo/bar/g` - replace all occurrences of the string "foo" in the current line with "bar".
-- `:%s/foo/bar/g` - replace all occurrences of the string "foo" in the entire file with "bar".
+- `:s/foo/bar/` - Replace the first occurrence of the string "foo" in the current line with "bar".
+- `:s/foo/bar/g` - Replace all occurrences of the string "foo" in the current line with "bar".
+- `:%s/foo/bar/g` - Replace all occurrences of the string "foo" in the entire file with "bar".
 
 {%
     include image.html
@@ -350,12 +350,12 @@ The `.` command is one of the most simple yet powerful commands in Vim. It repea
 
 For example: find and change the word "four" to word "five" several times
 
-- `/four` - find the first string "four".
-- `cwfive<Esc>` - change the word to "five".
-- `n` - find the next "four".
-- `.` - repeat the change to "five".
-- `n` - find the next "four".
-- `.` - repeat the change to "five".
+- `/four` - Find the first string "four".
+- `cwfive<Esc>` - Change the word to "five".
+- `n` - Find the next "four".
+- `.` - Repeat the change to "five".
+- `n` - Find the next "four".
+- `.` - Repeat the change to "five".
 
 {%
     include image.html
@@ -396,15 +396,15 @@ You can use `xp` command to swap the left character with the right character.
 
 To use clipboard with Vim you have to prepend `"*` before the yank and put commands.
 
-- `"*yy` - copy the whole line to the clipboard.
-- `"*` - put text from the clipboard.
+- `"*yy` - Copy the whole line to the clipboard.
+- `"*` - Put text from the clipboard.
 
 ### Finding help
 
 To get help we can use a special command `:help` with specified subject. The usage examples below:
 
-- `:help {subject}` - the structure of help command.
-- `:help` - enters help files. `ZZ` to exit, in this case the command does not exit Vim.
+- `:help {subject}` - The structure of help command.
+- `:help` - Enters help files. `ZZ` to exit, in this case the command does not exit Vim.
 - `:help x` - Get help on the `x` command.
 - `:help :command` - Get help on specific command.
 - `:help CTRL-<character>` - Get help on control character.
@@ -413,9 +413,9 @@ To get help we can use a special command `:help` with specified subject. The usa
 
 Searches for pattern in whole text of all help files. Jumps to the first match.
 
-- `:helpgrep pattern` - the command syntax. 
-- `:cn` - jump next match.
-- `:cprev` or `:cN` - jump previous match.
+- `:helpgrep pattern` - The command syntax. 
+- `:cn` - Jump next match.
+- `:cprev` or `:cN` - Jump previous match.
 
 ### Getting out
 
@@ -429,7 +429,7 @@ Searches for pattern in whole text of all help files. Jumps to the first match.
 
 The Insert mode interprets all typed keys as a text. Press `i` to enter the insert mode. Press `<Esc>` to back to the normal mode.
 
-### Inserting. 
+### Inserting 
 
 All commands in this section do enter the Insert mode.
 
@@ -438,7 +438,7 @@ All commands in this section do enter the Insert mode.
 - `a` - After current character.
 - `A` - At the end of line.
 
-#### Opening up a new line.
+#### Opening up a new line
 
 - `o` - Creates new line below the cursor.
 - `O` - Creates new line above the cursor.
@@ -455,7 +455,7 @@ The Visual mode selects and highlights the text, which then can be processed wit
 
 ### Entering Visual mode
 
-- `v` -Just enter Visual mode.
+- `v` - Just enter Visual mode.
 - `V` - Enter selecting lines mode. Left-right moves do nothing, moves up and down selecting the whole lines.
 - `CTRL-V` - Enter selecting blocks mode. Useful for tables.
 
