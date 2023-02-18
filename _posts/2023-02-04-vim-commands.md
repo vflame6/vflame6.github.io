@@ -397,7 +397,7 @@ You can use `xp` command to swap the left character with the right character.
 To use clipboard with Vim you have to prepend `"*` before the yank and put commands.
 
 - `"*yy` - Copy the whole line to the clipboard.
-- `"*` - Put text from the clipboard.
+- `"*p` - Put text from the clipboard.
 
 ### Finding help
 
