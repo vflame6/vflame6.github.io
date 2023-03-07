@@ -6,7 +6,7 @@ tags: vim editing configuring productivity
 date: 2023-03-07 18:58 +0300
 ---
 
-Hi! In this post we continue exploring Vim and its features. Today we discuss some useful settings (or configuration) in Vim. I don’t think it is a full guide for Vim settings, I’ll show just features that I do use in my work with Vim. To get a full guide you can use vimdoc and Vim Fandom, which is a classic tutorial for Vim.
+Hi! In this post we continue exploring Vim and its features. Today we discuss some useful settings (or configuration) in Vim. I don’t think it is a full guide for Vim settings, I’ll show just features that I do use in my work with Vim. To get a full guide you can use [Vim Fandom](https://vim.fandom.com/wiki/Vim_Tips_Wiki) and [vimdoc](https://vimdoc.sourceforge.net/htmldoc/usr_toc.html), which is a classic tutorial for Vim.
 
 {%
     include image.html
