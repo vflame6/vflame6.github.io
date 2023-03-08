@@ -30,7 +30,7 @@ These settings affect how text is displayed on the screen, and how the user can 
 
 ### number
 
-The `set number` command displays line numbers on the left-hand side of the buffer.
+The [set number](https://vim.fandom.com/wiki/Display_line_numbers) command displays line numbers on the left-hand side of the buffer.
 
 {%
     include image.html
@@ -40,7 +40,7 @@ The `set number` command displays line numbers on the left-hand side of the buff
 
 ### nowrap
 
-The `set nowrap` command disables line wrapping, which means that long lines will extend past the edge of the screen.
+The [set nowrap](https://vim.fandom.com/wiki/Disable_word_wrapping) command disables line wrapping, which means that long lines will extend past the edge of the screen.
 
 {%
     include image.html
@@ -50,7 +50,7 @@ The `set nowrap` command disables line wrapping, which means that long lines wil
 
 ### cursorline
 
-The `set cursorline` command highlights the current line in the buffer.
+The [set cursorline](https://vim.fandom.com/wiki/Highlight_current_line) command highlights the current line in the buffer.
 
 {%
     include image.html
@@ -60,7 +60,7 @@ The `set cursorline` command highlights the current line in the buffer.
 
 ### colorcolumn
 
-The `set colorcolumn=80` command highlights the 80th column of each line, making it easier to see when lines are longer than the recommended 80 characters.
+The [set colorcolumn=80](https://vim.fandom.com/wiki/Highlight_80th_column_of_each_line) command highlights the 80th column of each line, making it easier to see when lines are longer than the recommended 80 characters.
 
 {%
     include image.html
@@ -70,7 +70,7 @@ The `set colorcolumn=80` command highlights the 80th column of each line, making
 
 ### scrolloff
 
-The `set scrolloff` command specifies the number of lines that should be kept visible above and below the cursor while scrolling, helping to keep the cursor in the center of the screen.
+The [set scrolloff=10](https://vim.fandom.com/wiki/Keep_the_cursor_centered_while_scrolling) command specifies the number of lines that should be kept visible above and below the cursor while scrolling, helping to keep the cursor in the center of the screen.
 
 ## Editing Text
 
@@ -78,23 +78,23 @@ These settings control how text is edited in Vim. The first four settings (`set 
 
 ### tabstop
 
-The `set tabstop=4` command determines how many spaces a tab character will use when the tab key is pressed.
+The [set tabstop=4](https://vim.fandom.com/wiki/Tab_settings) command determines how many spaces a tab character will use when the tab key is pressed.
 
 ### softtabstop
 
-The `set softtabstop=4` command specifies how many spaces should be inserted when the <kbd>Tab</kbd> key is pressed.
+The [set softtabstop=4](https://vim.fandom.com/wiki/Tab_settings) command specifies how many spaces should be inserted when the <kbd>Tab</kbd> key is pressed.
 
 ### expandtab
 
-The `set expandtab` command changes the behavior of the <kbd>Tab</kbd> key to insert spaces instead of tab characters.
+The [set expandtab](https://vim.fandom.com/wiki/Converting_tabs_to_spaces) command changes the behavior of the <kbd>Tab</kbd> key to insert spaces instead of tab characters.
 
 ### shiftwidth
 
-The `set shiftwidth=4` command specifies how many spaces should be used for indentation when using the <kbd><</kbd> and <kbd>></kbd> commands.
+The [set shiftwidth=4](https://vim.fandom.com/wiki/Indenting_source_code) command specifies how many spaces should be used for indentation when using the <kbd><</kbd> and <kbd>></kbd> commands.
 
 ### autoindent
 
-This setting causes Vim to automatically indent new lines based on the indentation of the previous line.
+The [set autoindent](https://vim.fandom.com/wiki/Auto-indenting) command causes Vim to automatically indent new lines based on the indentation of the previous line.
 
 ## Searching and Highlighting
 
@@ -102,7 +102,7 @@ These settings control how text is searched for and highlighted in Vim. The `set
 
 ### hlsearch
 
-The `set hlsearch` command highlights all matches of the current search pattern.
+The [set hlsearch](https://vim.fandom.com/wiki/Highlight_all_search_pattern_matches) command highlights all matches of the current search pattern.
 
 {%
     include image.html
@@ -112,7 +112,7 @@ The `set hlsearch` command highlights all matches of the current search pattern.
 
 ### incsearch
 
-The `set incsearch` command highlights matches of the current search pattern as you type.
+The [set incsearch](https://vim.fandom.com/wiki/Highlight_while_typing_search_pattern) command highlights matches of the current search pattern as you type.
 
 {%
     include image.html
@@ -122,15 +122,15 @@ The `set incsearch` command highlights matches of the current search pattern as 
 
 ### ignorecase
 
-The `set ignorecase` command causes Vim to perform case-insensitive searches.
+The [set ignorecase](https://vim.fandom.com/wiki/Case-insensitive_search) command causes Vim to perform case-insensitive searches.
 
 ### smartcase
 
-The `set smartcase` command makes Vim perform case-sensitive searches if the search pattern contains any uppercase letters.
+The [set smartcase](https://vim.fandom.com/wiki/Smart_case_searching) command makes Vim perform case-sensitive searches if the search pattern contains any uppercase letters.
 
 ### showmatch
 
-The `set showmatch` command highlights the matching parentheses or brackets when the cursor is on them, making it easier to identify where a code block ends.
+The [set showmatch](https://vim.fandom.com/wiki/Highlight_matching_parentheses) command highlights the matching parentheses or brackets when the cursor is on them, making it easier to identify where a code block ends.
 
 ## File Types
 
@@ -138,13 +138,13 @@ These settings enable file type detection, filetype-specific plugins, and syntax
 
 ### filetype
 
-- `filetype on` command tells Vim to detect the file type automatically based on its content. This is useful when editing files with different file types that require different syntax highlighting and indentation.
-- `filetype plugin on` command enables filetype-specific plugins that provide additional features and settings for specific file types.
-- `filetype indent on` command enables filetype-specific indentation rules that automatically indent code based on the language syntax.
+- [filetype on](https://vim.fandom.com/wiki/Detecting_the_filetype) command tells Vim to detect the file type automatically based on its content. This is useful when editing files with different file types that require different syntax highlighting and indentation.
+- [filetype plugin on](https://vim.fandom.com/wiki/Using_filetype_plugins) command enables filetype-specific plugins that provide additional features and settings for specific file types.
+- [filetype indent on](https://vim.fandom.com/wiki/Filetype-specific_indenting) command enables filetype-specific indentation rules that automatically indent code based on the language syntax.
 
-### syntax on
+### syntax
 
-The `syntax on` command enables syntax highlighting in Vim, which colors different parts of the code based on their syntax, making it easier to read and edit.
+The [syntax on](https://vim.fandom.com/wiki/Syntax_highlighting) command enables syntax highlighting in Vim, which colors different parts of the code based on their syntax, making it easier to read and edit.
 
 {%
     include image.html
@@ -156,37 +156,37 @@ The `syntax on` command enables syntax highlighting in Vim, which colors differe
 
 These settings control how Vim handles buffers and navigation between them. The `set hidden` setting allows files to be hidden when switching buffers, which can be useful for keeping the buffer list tidy. The `set wildmenu` setting provides command-line completion for certain commands, and the `set wildmode=list:longest` setting configures tab completion to show the longest common substring of matches. The `set wildignore` setting ignores specific patterns when using tab completion in Vim.
 
-### set hidden
+### hidden
 
-The `set hidden` command allows you to switch between open files without closing them. When a file is hidden, it remains in the background, ready to be switched back to later.
+The [set hidden](https://vim.fandom.com/wiki/Hidden_buffers) command allows you to switch between open files without closing them. When a file is hidden, it remains in the background, ready to be switched back to later.
 
 ### wildmenu
 
-The `set wildmenu` command provides command-line completion, making it easier to enter commands in Vim. When enabled, the command-line will display a menu of available options as you type. Press a <kbd>Tab</kbd> key, like in a classic shell. 
+The [set wildmenu](https://vim.fandom.com/wiki/Command-line_completion) command provides command-line completion, making it easier to enter commands in Vim. When enabled, the command-line will display a menu of available options as you type. Press a <kbd>Tab</kbd> key, like in a classic shell. 
 
 ### wildmode
 
-The `set wildmode=list:longest` command makes the tab completion behave in a way that shows the longest common substring of matches.
+The [set wildmode=list:longest](https://vim.fandom.com/wiki/Command-line_completion) command makes the tab completion behave in a way that shows the longest common substring of matches.
 
 ### wildignore
 
-The `set wildignore=.docx,.jpg,.png,.gif,.pdf,.pyc,.exe,.flv,.img,.xlsx` command is used to ignore files or directories when using tab completion in Vim. It can be useful for excluding generated files, object files, or backup files.
+The [set wildignore=.docx,.jpg,.png,.gif,.pdf,.pyc,.exe,.flv,.img,.xlsx](https://vim.fandom.com/wiki/Ignoring_files_during_completion) command is used to ignore files or directories when using tab completion in Vim. It can be useful for excluding generated files, object files, or backup files.
 
 ## User Interface and Behavior
 
 These settings control the behavior of the Vim user interface. The `set nobackup` prevents the creation of backup files. The `set belloff=all` setting turns off all bell sounds. The `set showmode` setting displays the current mode in the status line, which can be helpful for knowing whether the user is in insert mode or command mode. The `set showcmd` setting shows partial commands in progress, which can be helpful for knowing what the user is currently typing. The `set mouse=a` setting enables mouse support in Vim, which can be helpful for navigating through large files.
 
-### set nobackup
+### backup
 
-The `set nobackup` command prevents Vim from creating backup files when editing files, which can clutter the file system and consume disk space.
+The [set nobackup](https://vim.fandom.com/wiki/Backup_files) command prevents Vim from creating backup files when editing files, which can clutter the file system and consume disk space.
 
-### set belloff=all
+### belloff
 
-The `set belloff` command can be used to turn off Vim's bell sounds, which can be distracting when editing text. The all option disables all bells, including visual bells and beeps.
+The [set belloff](https://vim.fandom.com/wiki/Turning_off_unwanted_sounds) command can be used to turn off Vim's bell sounds, which can be distracting when editing text. The all option disables all bells, including visual bells and beeps.
 
 ### showmode
 
-The `set showmode` command displays the current mode (insert, visual, command, etc.) in the status line, making it easier to keep track of which mode you are in.
+The [set showmode](https://vim.fandom.com/wiki/Showing_the_current_mode) command displays the current mode (insert, visual, command, etc.) in the status line, making it easier to keep track of which mode you are in.
 
 {%
     include image.html
@@ -196,7 +196,7 @@ The `set showmode` command displays the current mode (insert, visual, command, e
 
 ### showcmd
 
-The `set showcmd` command shows the partial command in progress at the bottom of the screen, making it easier to keep track of what command is being entered.
+The [set showcmd](https://vim.fandom.com/wiki/Show_partial_command_in_progress) command shows the partial command in progress at the bottom of the screen, making it easier to keep track of what command is being entered.
 
 {%
     include image.html
@@ -206,7 +206,7 @@ The `set showcmd` command shows the partial command in progress at the bottom of
 
 ### mouse
 
-The `set mouse=a` command enables mouse support in Vim, allowing you to click on the screen to move the cursor or select text.
+The [set mouse=a](https://vim.fandom.com/wiki/Using_the_mouse) command enables mouse support in Vim, allowing you to click on the screen to move the cursor or select text.
 
 {%
     include image.html
@@ -216,137 +216,22 @@ The `set mouse=a` command enables mouse support in Vim, allowing you to click on
 
 ### clipboard
 
-The `set clipboard=unnamedplus` command setting allows Vim to access the system clipboard, making it easier to copy and paste between Vim and other programs. Anything that is yanked or deleted in Vim is automatically added to the system clipboard.
+The [set clipboard=unnamedplus](https://vim.fandom.com/wiki/Accessing_the_system_clipboard) command setting allows Vim to access the system clipboard, making it easier to copy and paste between Vim and other programs. Anything that is yanked or deleted in Vim is automatically added to the system clipboard.
 
 ### compatible
 
-The `set nocompatible` command turns off vi compatibility mode, which is enabled by default in Vim. Incompatible mode allows Vim to use more advanced features and settings that are not available in vi.
+The [set nocompatible](https://vim.fandom.com/wiki/Vi_compatibility) command turns off vi compatibility mode, which is enabled by default in Vim. Incompatible mode allows Vim to use more advanced features and settings that are not available in vi.
 
 
 # vimrc example
 
-`.vimrc` is a configuration file for the Vim editor. It is written in Vim's own scripting language, which is similar to the Ex editor language and supports commands for customizing Vim's behavior, defining mappings, and creating functions. The Vim scripting language also supports the use of variables, loops, conditionals, and expressions, which allow for complex customizations to be made to the editor.
+[.vimrc](https://vim.fandom.com/wiki/Open_vimrc_file) is a configuration file for the Vim editor. It is written in Vim's own scripting language, which is similar to the Ex editor language and supports commands for customizing Vim's behavior, defining mappings, and creating functions. The Vim scripting language also supports the use of variables, loops, conditionals, and expressions, which allow for complex customizations to be made to the editor.
 
-vimrc is located in `$HOME\_vimrc` for Windows and `$HOME/.vimrc` for Linux operating systems. Create this file and add just add some commands in it.
+vimrc is located in `$HOME\_vimrc` for Windows and `$HOME/.vimrc` for Linux operating systems. Create this file if you haven't and just add some commands in it.
 
-P.S. $HOME is a common Windows environment variable referred to the path `C:\Users\{username}`. $HOME is an environment variable for Linux, it indicates the path to user home directory `/home/{username}`.
+> $HOME is a common Windows environment variable referred to the path `C:\Users\{username}`. $HOME is an environment variable for Linux, it indicates the path to user home directory `/home/{username}`.
 
-You can see the example of that file with all commands described in this article. 
-
-```plaintext
-" This is a comment in the .vimrc file
-" The following lines configure settings for the Vim editor
-
-" Displaying and Navigating Text
-
-" Display line numbers
-set number
-
-" Disables line wrapping
-set nowrap
-
-" Highlights the current line
-set cursorline
-
-" Highlights the 80th column of each line
-set colorcolumn=80
-
-" Keep cursor in the center of the screen while scrolling
-set scrolloff=10
-
-" Text editing
-
-" Set the number of spaces a tab character will use
-set tabstop=4
-
-" Sets the number of spaces a <Tab> should insert
-set softtabstop=4
-
-" Converts tabs to spaces
-set expandtab
-
-" Sets the number of spaces to use for indentation
-set shiftwidth=4
-
-" Automatically indents new lines
-set autoindent
-
-" Searching and Highlighting Text
-
-" Highlights search matches
-set hlsearch
-
-" Highlights search matches as you type
-set incsearch
-
-" Makes searches case-insensitive
-set ignorecase
-
-" Makes searches case-sensitive if they contain uppercase letters
-set smartcase
-
-" Highlight matching parentheses
-set showmatch
-
-" File Types and Plugins
-
-" Detect file type automatically
-filetype on
-
-" Enable filetype-specific plugins
-filetype plugin on
-
-" Enable filetype-specific indentation
-filetype indent on
-
-" Enable syntax highlighting
-syntax on
-
-" Buffers and Navigation
-
-" Allows files to be hidden when switching buffers
-set hidden
-
-" Provides command-line completion
-set wildmenu
-
-" Configure tab completion to show longest common substring of matches
-set wildmode=list:longest
-
-" Ignore specific patterns when using tab completion in Vim
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-
-" User Interface and Behavior
-
-" Creates a backup file for each file edited
-set backup
-
-" Displays the current mode in the status line
-set showmode
-
-" Allows access to the system clipboard
-set clipboard=unnamedplus
-
-" Enables mouse support
-set mouse=a
-
-" Turn off all bell sounds
-set belloff=all
-
-" Turn off vi compatibility mode
-set nocompatible
-
-" Prevent creation of backup files
-set nobackup
-
-" Show partial command in progress
-set showcmd
-
-" You can add more settings below this line
-" ...
-```
-
-The `"`, also known as the double quote, is a character that starts a comment in Vim's configuration file, also known as .vimrc. Comments are lines in the file that are not executed as commands, but are instead used to provide context or explain what a particular setting does.
+You can download the example of that file with all commands described in this article [here](/download/vimrc_example).
 
 # Conclusion
 

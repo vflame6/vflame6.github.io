@@ -1,0 +1,110 @@
+" This is a comment in the .vimrc file
+" The following lines configure settings for the Vim editor
+
+" Displaying and Navigating Text
+
+" Display line numbers
+set number
+
+" Disables line wrapping
+set nowrap
+
+" Highlights the current line
+set cursorline
+
+" Highlights the 80th column of each line
+set colorcolumn=80
+
+" Keep cursor in the center of the screen while scrolling
+set scrolloff=10
+
+" Text editing
+
+" Set the number of spaces a tab character will use
+set tabstop=4
+
+" Sets the number of spaces a <Tab> should insert
+set softtabstop=4
+
+" Converts tabs to spaces
+set expandtab
+
+" Sets the number of spaces to use for indentation
+set shiftwidth=4
+
+" Automatically indents new lines
+set autoindent
+
+" Searching and Highlighting Text
+
+" Highlights search matches
+set hlsearch
+
+" Highlights search matches as you type
+set incsearch
+
+" Makes searches case-insensitive
+set ignorecase
+
+" Makes searches case-sensitive if they contain uppercase letters
+set smartcase
+
+" Highlight matching parentheses
+set showmatch
+
+" File Types and Plugins
+
+" Detect file type automatically
+filetype on
+
+" Enable filetype-specific plugins
+filetype plugin on
+
+" Enable filetype-specific indentation
+filetype indent on
+
+" Enable syntax highlighting
+syntax on
+
+" Buffers and Navigation
+
+" Allows files to be hidden when switching buffers
+set hidden
+
+" Provides command-line completion
+set wildmenu
+
+" Configure tab completion to show longest common substring of matches
+set wildmode=list:longest
+
+" Ignore specific patterns when using tab completion in Vim
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+" User Interface and Behavior
+
+" Creates a backup file for each file edited
+set backup
+
+" Displays the current mode in the status line
+set showmode
+
+" Allows access to the system clipboard
+set clipboard=unnamedplus
+
+" Enables mouse support
+set mouse=a
+
+" Turn off all bell sounds
+set belloff=all
+
+" Turn off vi compatibility mode
+set nocompatible
+
+" Prevent creation of backup files
+set nobackup
+
+" Show partial command in progress
+set showcmd
+
+" You can add more settings below this line
+" ...
