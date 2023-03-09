@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vim commands
+title: Vim Commands
 category: Tools
 tags: vim editing productivity
 date: 2023-02-04 03:18 +0300

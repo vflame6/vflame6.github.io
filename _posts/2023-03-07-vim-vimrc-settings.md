@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vim and .vimrc settings
+title: Vim Settings
 category: Tools
 tags: vim editing configuring productivity
 date: 2023-03-07 18:58 +0300

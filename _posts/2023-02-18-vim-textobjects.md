@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vim text objects
+title: Vim Text Objects
 category: Tools
 tags: vim editing productivity
 date: 2023-02-18 09:04 +0300

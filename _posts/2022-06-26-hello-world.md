@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hello, world!
+title: Hello, World!
 date: 2022-06-26 01:08 +0300
 category: Blogging
 tags: misc blog

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: RingZer0 CTF - Xor me if you can
+title: RingZer0 CTF - Xor Me If You Can
 category: CTF
 tags: ringzer0 coding python
 date: 2022-06-30 16:25 +0300
