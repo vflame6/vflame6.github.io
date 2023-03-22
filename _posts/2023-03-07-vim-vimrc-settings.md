@@ -16,7 +16,7 @@ Hi! In this post we continue exploring Vim and its features. Today we discuss so
 
 # Table of contents
 
-- [Why customize Vim?](#why-customize-vim-)
+- [Why customize Vim](#why-customize-vim)
 - [Useful Vim settings](#useful-vim-settings)
   * [Displaying and Navigating](#displaying-and-navigating)
   * [Editing Text](#editing-text)
@@ -27,7 +27,7 @@ Hi! In this post we continue exploring Vim and its features. Today we discuss so
 - [vimrc example](#vimrc-example)
 - [Conclusion](#conclusion)
 
-# Why customize Vim?
+# Why customize Vim
 
 By configuring Vim to match the user's preferences, workflow, and coding style, the editor can be tailored to the user's needs and habits, making it faster and more convenient to use.
 

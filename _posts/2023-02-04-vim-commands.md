@@ -11,7 +11,7 @@ Hi! Today I want to talk and share my notes about `Vim`. You can find notes abou
 ## Table of contents
 
 - [First steps](#first-steps)
-  * [What is Vim?](#what-is-vim-)
+  * [What is Vim](#what-is-vim)
   * [Install and start Vim](#install-and-start-vim)
 - [Modes](#modes)
 - [Normal mode](#normal-mode)
@@ -45,7 +45,7 @@ Hi! Today I want to talk and share my notes about `Vim`. You can find notes abou
 
 ![You opened Vim for the first time](/assets/tools/vim-commands/open_vim_first_time.jpeg)
 
-### What is Vim?
+### What is Vim
 
 Vim is a text editor, created to work with text faster and more effictevily. In my opinion, you can become 10 times faster with typing/redacting your texts with Vim. It has a lot of cool features to make you perform a changes quickly by simple combinations of commands.
 

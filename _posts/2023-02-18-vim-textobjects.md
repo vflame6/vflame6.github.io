@@ -11,7 +11,7 @@ Hi! Today I want to demonstrate a very powerful Vim feature - text objects. Thes
 ## Table of contents
 
 - [Introduction](#introduction)
-- ["an" object or "inner" object](#-an--object-or--inner--object)
+- [an object or inner object](#an-object-or-inner-object)
 - [Text objects](#text-objects)
   * [word](#word)
   * [WORD](#word)
@@ -40,7 +40,7 @@ Let's suppose you want to select, delete, or change the second and the third sen
     description="Selecting 2 sentences with `v2as` command."
 %}
 
-## "an" object or "inner" object
+## an object or inner object
 
 The feature has 2 modes: `a` for "an" object and `i` for "inner" object. When using the "a" command, it will select an object with whitespace after it. The "i" command does select only the inner object without whitespace. Thus the "i" commands always select less text than the "a" commands. Focus on the cursor in the example below.
 

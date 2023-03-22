@@ -16,7 +16,7 @@ date: 2022-09-17 15:35 +0300
   * [Web application](#web-application)
 - [user.txt](#usertxt)
   * [Let sqlmap get the login page](#let-sqlmap-get-the-login-page)
-  * [Make LFI RCE again!](#make-lfi-rce-again-)
+  * [Make LFI RCE again](#make-lfi-rce-again)
   * [Get all domain users](#get-all-domain-users)
   * [Dump the database backup](#dump-the-database-backup)
 - [root.txt](#roottxt)
@@ -174,7 +174,7 @@ The hash was `MD5` type, I've found that with `haiti` tool. I did brute-force it
 
 When I logged in, I just moved to /admin/ page to see what is next. There was an `Admin panel` with some management functions.
 
-## Make LFI RCE again!
+## Make LFI RCE again
 
 ![Admin panel](/assets/hackthebox/streamio/admin_panel.png)
 

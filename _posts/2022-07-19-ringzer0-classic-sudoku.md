@@ -18,7 +18,7 @@ date: 2022-07-19 12:25 +0300
   * [Connect via ssh](#connect-via-ssh)
   * [Parse the challenge](#parse-the-challenge)
 - [Solve the Sudoku](#solve-the-sudoku)
-  * [Just solve() it!](#just-solve---it-)
+  * [Just solve() it](#just-solve---it)
   * [Run the script](#run-the-script)
 - [Conclusion](#conclusion)
 
@@ -124,7 +124,7 @@ We use slicing to get lines one by one. Then, we split the line and checking if 
 
 # Solve the Sudoku
 
-## Just solve() it!
+## Just solve() it
 
 The solution is really simple. We already have what we need, just provide the `board` to `Sudoku` class with 3x3 size and call the `solve` function. The library presents the solution in many formats, but list is the most preferred for us, so we specify `board` attribute. Then, we have to convert the solution into right format and write it to STDIN of our child process.
 

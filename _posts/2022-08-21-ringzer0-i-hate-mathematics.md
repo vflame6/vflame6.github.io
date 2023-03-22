@@ -13,9 +13,9 @@ Hi, I keep doing challenges on [RingZer0](https://ringzer0ctf.com/) and today I'
 - [The challenge](#the-challenge)
 - [Configuration](#configuration)
   * [Install Tampermonkey](#install-tampermonkey)
-- [Solve!](#solve-)
+- [Solve](#solve)
   * [Get the message](#get-the-message)
-  * [Take the flag!](#take-the-flag-)
+  * [Take the flag](#take-the-flag)
 - [Conclusion](#conclusion)
 
 # The challenge
@@ -48,7 +48,7 @@ Here `setTimeout` function will wait 100 miliseconds to execute a `solveTask` fu
 
 ![Tampermonkey works](/assets/ringzer0/coding_challenges/i-hate-mathematics/tm_works.png)
 
-# Solve!
+# Solve
 
 ## Get the message
 
@@ -63,7 +63,7 @@ const re = /^\d+.*/gm;
 message = message.match(re)[0];
 ```
 
-## Take the flag!
+## Take the flag
 
 We've got an expression string. Now we have to get our values and convert them into decimal form. Javascript's string has a `split` method, which works just like in Python, so I used it here to get an array and extract the values. Also, we have to convert strings into integers, JS provides a `parseInt` function, which can be used to convert decimal, binary and hexadecimal numbers.
 
