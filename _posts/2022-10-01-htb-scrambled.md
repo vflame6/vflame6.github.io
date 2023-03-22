@@ -8,6 +8,23 @@ date: 2022-10-01 18:31 +0300
 
 ![Machine logo](/assets/hackthebox/scrambled/Scrambled.png){:height="420px" width="620px"}
 
+# Table of contents
+
+- [Configuration](#configuration)
+- [Reconnaissance](#reconnaissance)
+  * [Port scan](#port-scan)
+  * [Foothold](#foothold)
+- [user.txt](#usertxt)
+  * [Use Kerberos authentication](#use-kerberos-authentication)
+  * [Kerberoasting attack](#kerberoasting-attack)
+  * [Reverse shell with MSSQL](#reverse-shell-with-mssql)
+  * [Dump MSSQL database](#dump-mssql-database)
+- [root.txt](#roottxt)
+  * [Explore the machine](#explore-the-machine)
+  * [Explore the ScrambleCorp client application](#explore-the-scramblecorp-client-application)
+  * [.NET deserialization attack](#net-deserialization-attack)
+- [Conclusion](#conclusion)
+
 # Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:

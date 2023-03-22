@@ -8,13 +8,24 @@ date: 2022-08-25 17:18 +0300
 
 ![Machine logo](/assets/hackthebox/timelapse/Timelapse.png){:height="414px" width="615px"}
 
-## Configuration:
+## Table of contents
+
+- [Configuration](#configuration)
+- [Reconnaissance](#reconnaissance)
+- [Enumeration](#enumeration)
+- [user.txt](#usertxt)
+- [root.txt](#roottxt)
+- [Conclusion](#conclusion)
+
+## Configuration
+
 It is very useful to append `/etc/hosts/` with ip address of the machine. It is useful to get subdomains and to not memorize the address every time.
 ```zsh
 $ echo '10.10.11.152 timelapse.htb' | sudo tee -a /etc/hosts 
 ```
 
-## Reconnaissance:
+## Reconnaissance
+
 ```zsh
 $ nmap -p- timelapse.htb -Pn
 Starting Nmap 7.92 ( https://nmap.org ) at 2022-06-29 11:10 UTC
@@ -46,7 +57,8 @@ Nmap done: 1 IP address (1 host up) scanned in 111.03 seconds
 
 It looks like an `Active Directory` domain.
 
-## Enumeration:
+## Enumeration
+
 Let's start with smb enumeration. It is also can be done by simple `smbclient`.
 ```zsh
 $ crackmapexec smb timelapse.htb -u 'a' -p '' --shares
@@ -116,6 +128,7 @@ $ openssl pkcs12 -in legacyy_dev_auth.pfx -clcerts -nokeys -out certificate.crt
 ```
 
 ## user.txt
+
 Now we have a certificate and a private key. We can use them to auth into the machine with `evil-winrm`.
 ```zsh
 $ evil-winrm -i timelapse.htb -S -k private.key -c certificate.crt
@@ -126,6 +139,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # Edited
 ```
 
 ## root.txt
+
 Here we have to search. By searching in `Program Files` folder, we have to note that `LAPS` in installed and enabled. We can upload and execute `winPEAS`. It will show us a command history file.
 
 ![PowerShell history file](/assets/hackthebox/timelapse/history_file.png)
@@ -170,6 +184,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # Edited
 It was in unusual location, so we had to search for it with `Get-ChildItem`.
 
 ## Conclusion
+
 I've really enjoyed the box. It was interesting to learn some new things.
 
 Thank you for reading, I hope it was useful for you ❤️

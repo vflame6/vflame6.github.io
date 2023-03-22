@@ -14,6 +14,19 @@ Hi! In this post we continue exploring Vim and its features. Today we discuss so
     description="Skynet will appear faster than we expected..."
 %}
 
+# Table of contents
+
+- [Why customize Vim?](#why-customize-vim-)
+- [Useful Vim settings](#useful-vim-settings)
+  * [Displaying and Navigating](#displaying-and-navigating)
+  * [Editing Text](#editing-text)
+  * [Searching and Highlighting](#searching-and-highlighting)
+  * [File Types](#file-types)
+  * [Buffers](#buffers)
+  * [User Interface and Behavior](#user-interface-and-behavior)
+- [vimrc example](#vimrc-example)
+- [Conclusion](#conclusion)
+
 # Why customize Vim?
 
 By configuring Vim to match the user's preferences, workflow, and coding style, the editor can be tailored to the user's needs and habits, making it faster and more convenient to use.

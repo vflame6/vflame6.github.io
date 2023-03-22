@@ -8,6 +8,22 @@ date: 2022-09-17 15:35 +0300
 
 ![Machine logo](/assets/hackthebox/streamio/StreamIO.png){:height="420px" width="620px"}
 
+# Table of contents
+
+- [Configuration](#configuration)
+- [Reconnaissance](#reconnaissance)
+  * [Port scan](#port-scan)
+  * [Web application](#web-application)
+- [user.txt](#usertxt)
+  * [Let sqlmap get the login page](#let-sqlmap-get-the-login-page)
+  * [Make LFI RCE again!](#make-lfi-rce-again-)
+  * [Get all domain users](#get-all-domain-users)
+  * [Dump the database backup](#dump-the-database-backup)
+- [root.txt](#roottxt)
+  * [Get passwords from browser](#get-passwords-from-browser)
+  * [Let ourselves ReadLAPSPassword](#let-ourselves-readlapspassword)
+- [Conclusion](#conclusion)
+
 # Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:

@@ -6,7 +6,23 @@ tags: ringzer0 linux
 date: 2022-07-02 18:32 +0300
 ---
 
+Hi! In this article we will solve a suite of challenges about Linux on RingZer0CTF platform. The challenges are divided by levels. Let's solve them level-by-level!
+
+# Table of contents
+
+- [Preparation](#preparation)
+- [Level 1](#level-1)
+- [Level 2](#level-2)
+- [Level 3](#level-3)
+- [Level 4](#level-4)
+- [Level 5](#level-5)
+- [Level 6](#level-6)
+- [Level 7](#level-7)
+- [Level 8](#level-8)
+- [Conclusion](#conclusion)
+
 # Preparation
+
 We have to log in via `ssh` in this challenges, there's how to use it:
 
 ```bash
@@ -14,9 +30,9 @@ $ ssh $LOGIN@$HOSTNAME -p $PORT [-i $private_key]
 ```
 
 # Level 1
+
 ![The 1st challenge](/assets/ringzer0/sysadmin_linux/level1.png)
 
-## Solution
 In this challenge we just have to explore the system. We will find the flag in `process list`.
 
 ```bash
@@ -27,9 +43,9 @@ morpheus@sysadmin-track:~$ ps -ax
 ```
 
 # Level 2
+
 ![the 2nd challenge](/assets/ringzer0/sysadmin_linux/level2.png)
 
-## Solution
 We have to find the password, so we can search by string with `grep`
 
 ![grep string searching](/assets/ringzer0/sysadmin_linux/grep_architect.png)
@@ -54,9 +70,9 @@ FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # EDITED
 ```
 
 # Level 3
+
 ![The 3rd challenge](/assets/ringzer0/sysadmin_linux/level3.png)
 
-## Solution
 The authors specified the user for that flag. We note it and search for `readble` files that user `owns`.
 
 ```bash
@@ -106,9 +122,9 @@ mysql> select * from flag;
 ```
 
 # Level 4
+
 ![The 4th challenge](/assets/ringzer0/sysadmin_linux/level4.png)
 
-## Solution
 Note that we just need an access to the account. So we don't have to find password. Maybe look for a ssh `private key`?
 
 ```bash
@@ -132,9 +148,9 @@ FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # EDITED
 The flag was encoded by `base64`, so we docode it with a command.
 
 # Level 5
+
 ![The 5th challenge](/assets/ringzer0/sysadmin_linux/level5.png)
 
-## Solution
 At first, we list all files in oracle's folder.
 
 ![oracles folder](/assets/ringzer0/sysadmin_linux/oracle_files.png)
@@ -155,9 +171,9 @@ FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # EDITED
 ```
 
 # Level 6
+
 ![The 6th challenge](/assets/ringzer0/sysadmin_linux/level6.png)
 
-## Solution
 In this challenge, we have a file called phonebook, we can see a `path` here.
 
 ```bash
@@ -208,9 +224,9 @@ don't forget to remove this :)
 ```
 
 # Level 7
+
 ![The 7th challenge](/assets/ringzer0/sysadmin_linux/level7.png)
 
-## Solution
 We have to check user's process list there.
 
 ![neos processes](/assets/ringzer0/sysadmin_linux/neo_processes.png)
@@ -229,9 +245,9 @@ clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=10, tv_nsec=0}, 0x7ffe4a1b4430) = 0
 ```
 
 # Level 8
+
 ![The 8th challenge](/assets/ringzer0/sysadmin_linux/level8.png)
 
-## Solution
 Here we have to search something associated with cypher.
 
 ```bash
@@ -266,6 +282,7 @@ FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX #EDITED
 Decode base64 string and get the flag!
 
 # Conclusion
+
 It was a cool track, I've really enjoyed it!
 
 Thank you for reading, I hope it was useful for you ❤️

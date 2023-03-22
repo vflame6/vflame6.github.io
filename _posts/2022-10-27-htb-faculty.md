@@ -8,6 +8,21 @@ tags: machines linus web sqli capabilities xss cve
 
 ![Machine logo](/assets/hackthebox/faculty/Faculty.png){:height="414px" width="615px"}
 
+# Table of contents
+
+- [Configuration](#configuration)
+- [Reconnaissance](#reconnaissance)
+  * [Port scan](#port-scan)
+  * [Port 80 - web server](#port-80---web-server)
+  * [Initial access](#initial-access)
+- [user.txt](#usertxt)
+  * [Explore the system](#explore-the-system)
+  * [Exploit for lateral movement](#exploit-for-lateral-movement)
+- [root.txt](#roottxt)
+  * [Exploring for privesc](#exploring-for-privesc)
+  * [Exploit](#exploit)
+- [Conclusion](#conclusion)
+
 # Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:
