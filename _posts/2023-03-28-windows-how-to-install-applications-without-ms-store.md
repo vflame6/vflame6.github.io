@@ -32,7 +32,7 @@ Firstly, we have to turn on “Developer Mode”. Press Ctrl + I → Click “Pr
 
 ## Install the application
 
-1. Find the application on MS Store web and copy link to that web page.
+Find the application on MS Store web and copy link to that web page.
 
 {% 
     include image.html
@@ -40,7 +40,7 @@ Firstly, we have to turn on “Developer Mode”. Press Ctrl + I → Click “Pr
     description="Locating the link to App Installer application in MS Store"
 %}
 
-2. Go to this [site](https://store.rg-adguard.net/), put the link in an entry and click the button. The site will process the link and output all links to direct files needed to install the application. You can find all libraries required by the application in this list.
+Go to this [site](https://store.rg-adguard.net/), put the link in an entry and click the button. The site will process the link and output all links to direct files needed to install the application. You can find all libraries required by the application in this list.
 
 {% 
     include image.html
@@ -54,16 +54,16 @@ Firstly, we have to turn on “Developer Mode”. Press Ctrl + I → Click “Pr
     description="The list of links to different versions of application and required packages"
 %}
 
-3. Download required packages. Applications can be in different formats (appx, appxbundle, msix, msixbundle). You can find more about how to install them manually [here](https://www.makeuseof.com/download-install-msixbundle-appx-appxbundle-microsoft-store/).  I recommend to install `.appx` or  `.appxbundle` package, because you can install them just with PowerShell commands. In my situation, I had to install the “VCLibs” library. It was also listed in packages list on the site.
+Download required packages. Applications can be in different formats (appx, appxbundle, msix, msixbundle). You can find more about how to install them manually [here](https://www.makeuseof.com/download-install-msixbundle-appx-appxbundle-microsoft-store/).  I recommend to install `.appx` or  `.appxbundle` package, because you can install them just with PowerShell commands. In my situation, I had to install the “VCLibs” library. It was also listed in packages list on the site.
 
-4. Install required packages with PowerShell
+Install required packages with PowerShell
 
 ```powershell
 Add-AppxPackage -Path .\Downloads\Microsoft.VCLibs.140.00_14.0.30704.0_x64__8wekyb3d8bbwe.Appx
 Add-AppxPackage -Path .\Downloads\Microsoft.DesktopAppInstaller_2019.1019.1.0_neutral___8wekyb3d8bbwe.AppxBundle
 ```
 
-5. Check everything is OK. After installation, you could open .msix, .msixbundle and other installation files with App Installer application.
+Check everything is OK. After installation, you could open .msix, .msixbundle and other installation files with App Installer application.
 
 {% 
     include image.html
@@ -75,7 +75,7 @@ Add-AppxPackage -Path .\Downloads\Microsoft.DesktopAppInstaller_2019.1019.1.0_ne
 
 Suppose you want to install WhatsApp Desktop on your Windows computer. How can you do it without interacting with MS Store? The example of the process is below.
 
-1. Find the app on MS Store web and copy link to the app page.
+Find the app on MS Store web and copy link to the app page.
 
 {% 
     include image.html
@@ -83,7 +83,7 @@ Suppose you want to install WhatsApp Desktop on your Windows computer. How can y
     description="Locating the link to WhatsApp application in MS Store"
 %}
 
-2. Go to this [site](https://store.rg-adguard.net/), put the link in an entry and click the button.
+Go to this [site](https://store.rg-adguard.net/), put the link in an entry and click the button.
 
 {% 
     include image.html
@@ -91,9 +91,9 @@ Suppose you want to install WhatsApp Desktop on your Windows computer. How can y
     description="The list of links to different versions of application and required packages"
 %}
 
-3. Download the application package (here it is the second item with `.msixbundle` extension).
+Download the application package (here it is the second item with `.msixbundle` extension).
 
-4. If you did install the App Installer app before, you can install applications in these formats easily by just double-clicking on them.
+If you did install the App Installer app before, you can install applications in these formats easily by just double-clicking on them.
 
 {% 
     include image.html
@@ -101,7 +101,7 @@ Suppose you want to install WhatsApp Desktop on your Windows computer. How can y
     description="Using App installer to install the application with .msixbundle extension"
 %}
 
-5. Click the “Install” button and there you are.
+Click the “Install” button and there you are.
 
 {% 
     include image.html
