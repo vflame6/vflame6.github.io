@@ -13,14 +13,14 @@ In this article I will show you how to install MS Store specific applications wi
 # Table of contents
 
 - [Install App Installer](#install-app-installer)
-  * [Turn on "Developer Mode"](#turn-on--developer-mode-)
-  * [Install App Installer](#install-app-installer-1)
+  * [Turn on Developer Mode](#turn-on-developer-mode)
+  * [Install the application](#install-the-application)
 - [Example with WhatsApp Desktop](#example-with-whatsapp-desktop)
 - [Conclusion](#conclusion)
 
 # Install App Installer
 
-## Turn on "Developer Mode"
+## Turn on Developer Mode
 
 Firstly, we have to turn on “Developer Mode”. Press Ctrl + I → Click “Privacy and Security” → Click “For developers” → Turn on “Developer Mode” → Click “Yes”.
 
@@ -30,7 +30,7 @@ Firstly, we have to turn on “Developer Mode”. Press Ctrl + I → Click “Pr
     description="Turning on the Developer Mode in Windows"
 %}
 
-## Install App Installer
+## Install the application
 
 1. Find the application on MS Store web and copy link to that web page.
 
