@@ -6,9 +6,7 @@ order: 4
 
 ## whoami
 
-My name is Max. I am a student of the SPbSUT, Russia🇷🇺.
-
-I'm a junior penetration tester👨‍💻. My goal is to become better in pentesting. In my free time I play CTFs, studying on tryhackme.com or doing labs on HackTheBox. I'm also interested in Java programming.
+Hi! I'm vflame6. I am a cybersecurity student and a junior penetration tester👨‍💻. My goal is to become better in pentesting. In my free time I play CTFs, studying on tryhackme.com or doing labs on HackTheBox. I'm also interested in Java programming.
 
 I hope you will enjoy this blog! Let's become better together :)
 
@@ -18,6 +16,7 @@ I hope you will enjoy this blog! Let's become better together :)
 * [TryHackMe profile](https://tryhackme.com/p/vflamie)
 * [Stepik profile](https://stepik.org/users/349814193)
 * [FreeCodeCamp profile](https://www.freecodecamp.org/vflame6)
+* [Hyperskill profile](https://hyperskill.org/profile/341220929)
 
 ## Badges
 
@@ -26,6 +25,5 @@ I hope you will enjoy this blog! Let's become better together :)
 ## Contact me
 
 - Discord: flame#2981
-
 
 {% include animated_dots.html %}
