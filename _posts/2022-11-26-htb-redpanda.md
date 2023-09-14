@@ -8,21 +8,6 @@ date: 2022-11-26 22:03 +0300
 
 ![Machine logo](/assets/hackthebox/redpanda/RedPanda.png){:height="400px" width="600px"}
 
-# Table of contents
-
-- [Configuration](#configuration)
-- [Reconnaissance](#reconnaissance)
-  * [All ports scan](#all-ports-scan)
-  * [nmap ports scan](#nmap-ports-scan)
-  * [Web application](#web-application)
-- [user.txt](#usertxt)
-  * [Enumeration](#enumeration)
-  * [Exploitation](#exploitation)
-- [root.txt](#roottxt)
-  * [Exploring](#exploring)
-  * [Privilege escalation](#privilege-escalation)
-- [Conclusion](#conclusion)
-
 # Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:

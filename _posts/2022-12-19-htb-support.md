@@ -8,20 +8,6 @@ date: 2022-12-19 15:44 +0300
 
 ![Machine logo](/assets/hackthebox/support/Support.png){:height="414px" width="615px"}
 
-# Table of contents
-
-- [Configuration](#configuration)
-- [Reconnaissance](#reconnaissance)
-  * [Port scan](#port-scan)
-  * [SMB shares](#smb-shares)
-- [user.txt](#usertxt)
-  * [Enumeration](#enumeration)
-  * [Exploitation](#exploitation)
-- [root.txt](#roottxt)
-  * [Exploring](#exploring)
-  * [Privilege escalation](#privilege-escalation)
-- [Conclusion](#conclusion)
-
 # Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:

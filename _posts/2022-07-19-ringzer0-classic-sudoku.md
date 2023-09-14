@@ -8,20 +8,6 @@ date: 2022-07-19 12:25 +0300
 
 ![Challenge banner](/assets/ringzer0/coding_challenges/classic-sudoku/classic-sudoku.png)
 
-# Table of contents
-
-- [The challenge](#the-challenge)
-- [Configuration](#configuration)
-  * [Preparation](#preparation)
-  * [Libraries and globals](#libraries-and-globals)
-- [Get the challenge](#get-the-challenge)
-  * [Connect via ssh](#connect-via-ssh)
-  * [Parse the challenge](#parse-the-challenge)
-- [Solve the Sudoku](#solve-the-sudoku)
-  * [Just solve it](#just-solve-it)
-  * [Run the script](#run-the-script)
-- [Conclusion](#conclusion)
-
 # The challenge
 
 In this challenge we have to login in via ssh to get the task. Let's see what it is:

@@ -8,19 +8,6 @@ date: 2022-07-02 18:32 +0300
 
 Hi! In this article we will solve a suite of challenges about Linux on RingZer0CTF platform. The challenges are divided by levels. Let's solve them level-by-level!
 
-# Table of contents
-
-- [Preparation](#preparation)
-- [Level 1](#level-1)
-- [Level 2](#level-2)
-- [Level 3](#level-3)
-- [Level 4](#level-4)
-- [Level 5](#level-5)
-- [Level 6](#level-6)
-- [Level 7](#level-7)
-- [Level 8](#level-8)
-- [Conclusion](#conclusion)
-
 # Preparation
 
 We have to log in via `ssh` in this challenges, there's how to use it:

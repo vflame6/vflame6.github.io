@@ -12,16 +12,6 @@ Today we are going to learn about ways we can compile our exploits using Kali Li
 
 > Funny story: I was doing some lab on HackTheBox and I had to upload a compiled version of Rubeus. I had no idea how to compile Windows programs, and I had only Kali Linux. So I’ve started to search some pre-compiled versions on the Internet. And I really found a pre-compiled base64 version of the program, which did not work for me. I’ve spent a few hours on this searching, and finally I got the “right” version of the Rubeus, which worked for me. After some amount of time I’ve realized that I could do it much easier. It was so terrible🤣.
 
-# Table of Contents
-
-- [Cross-compiler](#cross-compiler)
-- [Virtual Machine](#virtual-machine)
-- [On the victim machine](#on-the-victim-machine)
-- [Find pre-compiled versions](#find-pre-compiled-versions)
-  * [Kali Linux windows binaries](#kali-linux-windows-binaries)
-  * [The Internet](#the-internet)
-- [Conclusion](#conclusion)
-
 # Cross-compiler
 
 If you want to compile your exploit right on your Kali Linux machine, you can use cross-compilation tools, like `mingw-w64`. It is used to compile Windows programs on Linux.

@@ -8,39 +8,6 @@ date: 2023-02-04 03:18 +0300
 
 Hi! Today I want to talk and share my notes about `Vim`. You can find notes about basic Vim command here. There won't be settings commands like `:set number`, we will explore them later. Here I want to show you basic Vim usage.
 
-## Table of contents
-
-- [First steps](#first-steps)
-  * [What is Vim](#what-is-vim)
-  * [Install and start Vim](#install-and-start-vim)
-- [Modes](#modes)
-- [Normal mode](#normal-mode)
-  * [Moving](#moving)
-  * [Using a count](#using-a-count)
-  * [Scrolling](#scrolling)
-  * [Jumping](#jumping)
-  * [Searching](#searching)
-  * [Deleting](#deleting)
-  * [Changing](#changing)
-  * [Change case](#change-case)
-  * [Replace one character](#replace-one-character)
-  * [Find and replace](#find-and-replace)
-  * [Repeating a change](#repeating-a-change)
-  * [Undo and Redo](#undo-and-redo)
-  * [Copying](#copying)
-  * [Putting](#putting)
-  * [Copy-pasting from clipboard](#copy-pasting-from-clipboard)
-  * [Finding help](#finding-help)
-  * [Getting out](#getting-out)
-- [Insert mode](#insert-mode)
-  * [Inserting](#inserting)
-- [Visual mode](#visual-mode)
-  * [Entering Visual mode](#entering-visual-mode)
-  * [Change case](#change-case-1)
-  * [Change the end of the selection](#change-the-end-of-the-selection)
-- [Replace mode](#replace-mode)
-- [Conclusion](#conclusion)
-
 ## First steps
 
 ![You opened Vim for the first time](/assets/tools/vim-commands/open_vim_first_time.jpeg)

@@ -8,15 +8,6 @@ date: 2022-08-25 17:18 +0300
 
 ![Machine logo](/assets/hackthebox/timelapse/Timelapse.png){:height="414px" width="615px"}
 
-## Table of contents
-
-- [Configuration](#configuration)
-- [Reconnaissance](#reconnaissance)
-- [Enumeration](#enumeration)
-- [user.txt](#usertxt)
-- [root.txt](#roottxt)
-- [Conclusion](#conclusion)
-
 ## Configuration
 
 It is very useful to append `/etc/hosts/` with ip address of the machine. It is useful to get subdomains and to not memorize the address every time.

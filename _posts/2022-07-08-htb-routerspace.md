@@ -8,21 +8,6 @@ date: 2022-07-08 22:36 +0300
 
 ![Machine logo](/assets/hackthebox/routerspace/RouterSpace.png){:height="414px" width="615px"}
 
-# Table of contents
-
-- [Configuration](#configuration)
-- [Reconnaissance](#reconnaissance)
-  * [nmap scan](#nmap-scan)
-  * [Web application](#web-application)
-  * [Android package](#android-package)
-- [user.txt](#usertxt)
-  * [Enumeration](#enumeration)
-  * [Exploitation](#exploitation)
-- [root.txt](#roottxt)
-  * [Explore for privilege escalation](#explore-for-privilege-escalation)
-  * [Privilege escalation](#privilege-escalation)
-- [Conclusion](#conclusion)
-
 # Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:

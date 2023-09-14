@@ -10,18 +10,6 @@ tags: machines linux redis sqli ipython
 
 # Table of contents
 
-- [Configuration](#configuration)
-- [Reconnaissance](#reconnaissance)
-  * [Port scan](#port-scan)
-  * [Web application](#web-application)
-- [user.txt](#usertxt)
-  * [Checkout page](#checkout-page)
-- [root.txt](#roottxt)
-  * [Exploring](#exploring)
-  * [Get Redis password](#get-redis-password)
-  * [Exploit Redis Server](#exploit-redis-server)
-- [Conclusion](#conclusion)
-
 # Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:

@@ -8,21 +8,6 @@ date: 2022-12-11 10:33 +0300
 
 ![Machine logo](/assets/hackthebox/outdated/Outdated.png)
 
-# Table of contents
-
-- [Configuration](#configuration)
-- [Reconnaissance](#reconnaissance)
-  * [Port scan](#port-scan)
-  * [Foothold](#foothold)
-- [user.txt](#usertxt)
-  * [Contact with itsupport](#contact-with-itsupport)
-  * [Follina attack](#follina-attack)
-  * [Shadow credentials attack](#shadow-credentials-attack)
-- [root.txt](#roottxt)
-  * [Exploring for WSUS](#exploring-for-wsus)
-  * [Exploit WSUS](#exploit-wsus)
-- [Conclusion](#conclusion)
-
 # Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:

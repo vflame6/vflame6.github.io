@@ -10,13 +10,6 @@ date: 2022-06-30 16:25 +0300
 
 Hi! In this article we will solve a challenge from RingZer0CTF platform. In this challenge we have to decrypt message and send answer back within 3 seconds. We need some coding here, so we will use Python3. Let's solve it step-by-step 👨‍💻
 
-## Table of contents
-
-- [Imports and prepares](#imports-and-prepares)
-- [Get key and message](#get-key-and-message)
-- [Decrypt the message and get a flag](#decrypt-the-message-and-get-a-flag)
-- [Conclusion](#conclusion)
-
 ## Imports and prepares 
 
 Here we have to open the url, parse it for a xor key string and a crypted message, the message is encoded by base64. For these purposes we have to import base64, requests and BeautifulSoup. Last two are not from the Python standard library, so you have to install them with `pip install requests beautifulsoup4`. Now the code starts:

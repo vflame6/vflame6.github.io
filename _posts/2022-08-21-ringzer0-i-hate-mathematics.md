@@ -8,16 +8,6 @@ date: 2022-08-21 20:34 +0300
 
 Hi, I keep doing challenges on [RingZer0](https://ringzer0ctf.com/) and today I'm going to show the solution to "I hate mathematics" challenge. Here I'll use `JavaScript` and [Tampermonkey](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) tool to solve the task.
 
-# Table of contents
-
-- [The challenge](#the-challenge)
-- [Configuration](#configuration)
-  * [Install Tampermonkey](#install-tampermonkey)
-- [Solve](#solve)
-  * [Get the message](#get-the-message)
-  * [Take the flag](#take-the-flag)
-- [Conclusion](#conclusion)
-
 # The challenge
 
 ![Challenge banner](/assets/ringzer0/coding_challenges/i-hate-mathematics/i-hate-mathematics.png)

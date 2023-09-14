@@ -8,25 +8,6 @@ date: 2023-01-28 20:28 +0300
 
 ![Machine logo](/assets/hackthebox/ambassador/Ambassador.png){:height="400px" width="600px"}
 
-# Table of contents
-
-- [Configuration](#configuration)
-- [Reconnaissance](#reconnaissance)
-  * [Port scan](#port-scan)
-  * [Port 80 - Blog website](#port-80---blog-website)
-  * [Port 3000 - Grafana web application](#port-3000---grafana-web-application)
-- [user.txt](#usertxt)
-  * [CVE-2021-43798](#cve-2021-43798)
-  * [Grafana config file](#grafana-config-file)
-  * [SQLite3 database](#sqlite3-database)
-  * [MySQL database](#mysql-database)
-- [root.txt](#roottxt)
-  * [Preparation](#preparation)
-  * [Git repository](#git-repository)
-  * [Consul tool](#consul-tool)
-  * [RCE in consul with Metasploit](#rce-in-consul-with-metasploit)
-- [Conclusion](#conclusion)
-
 # Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:

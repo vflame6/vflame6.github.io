@@ -10,14 +10,6 @@ I had to install a Windows 10 VM to do some researches. But I’ve got a problem
 
 In this article I will show you how to install MS Store specific applications without MS Store. You can even install the MS Store itself by doing this.
 
-# Table of contents
-
-- [Install App Installer](#install-app-installer)
-  * [Turn on Developer Mode](#turn-on-developer-mode)
-  * [Install the application](#install-the-application)
-- [Example with WhatsApp Desktop](#example-with-whatsapp-desktop)
-- [Conclusion](#conclusion)
-
 # Install App Installer
 
 ## Turn on Developer Mode

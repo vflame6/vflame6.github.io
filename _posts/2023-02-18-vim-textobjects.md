@@ -8,22 +8,6 @@ date: 2023-02-18 09:04 +0300
 
 Hi! Today I want to demonstrate a very powerful Vim feature - text objects. These objects make work with basic entities, like words, sentences or even paragraphs, much more effective.
 
-## Table of contents
-
-- [Introduction](#introduction)
-- [an object or inner object](#an-object-or-inner-object)
-- [Text objects](#text-objects)
-  * [word](#word)
-  * [WORD](#word)
-  * [Sentence](#sentence)
-  * [Paragraph](#paragraph)
-- [Block text objects](#block-text-objects)
-  * [blocks](#blocks)
-  * [Blocks](#blocks)
-  * [Tags](#tags)
-  * [Quoted strings](#quoted-strings)
-- [Conclusion](#conclusion)
-
 ## Introduction
 
 For example, imagine you have a text with several sentences, like the one below. You can copy and paste this text for testing.
