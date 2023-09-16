@@ -5,14 +5,14 @@ theme: jekyll-theme-chirpy
 
 # Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
 # and doesn't have a custom domain.
-baseurl: ''
+baseurl: ""
 
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
 lang: en
 
-# Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
+# Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Europe/Moscow
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
@@ -25,7 +25,7 @@ tagline: "Cybersecurity enthusiast | OSCP"
 description: >-
   vflame6 bloggin cybersecurity, pentest, ctfs related content.
 
-url: 'https://vflame6.github.io'
+url: "https://vflame6.github.io"
 
 github:
   username: vflame6 
@@ -52,10 +52,6 @@ webmaster_verifications:
 
 google_analytics:
   id: 'G-BERYYW15S9'
-  # Google Analytics pageviews report settings
-  pv:
-    proxy_endpoint:   # fill in the Google Analytics superProxy endpoint of Google App Engine
-    cache_path:       # the local PV cache data, friendly to visitors from GFW region
 
 # Prefer color scheme setting.
 #
@@ -179,12 +175,12 @@ compress_html:
 exclude:
   - '*.gem'
   - '*.gemspec'
+  - docs
   - tools
   - README.md
   - CHANGELOG.md
   - LICENSE
-  - gulpfile.js
-  - node_modules
+  - rollup.config.js
   - package*.json
 
 jekyll-archives:
