@@ -24,8 +24,8 @@ We will use hashcat mask model here. 1 character in the mask sets by using `?num
 
 | **Characters**                                    | **Length** | **Mask**         | **Possible passwords**                        | **Time to crack** |
 |---------------------------------------------------|------------|------------------|-----------------------------------------------|-------------------|
-| 1 - Uppercase, lowercase, digits                  | 8          | ?1?1?1?1?1?1?1?1 | 62x62x62x62x62x62x62x62 = 218_340_105_584_896 | 25.3 days         |
-| 1 - uppercase 2 - lowercase 3 - lowercase, digits | 8          | ?1?2?2?2?2?2?3?3 | 26x26x26x26x26x26x10x10 = 30_891_577_600      | 5.2 minutes       |
+| 1 - Uppercase, lowercase, digits                  | 8          | ?1?1?1?1?1?1?1?1 | 62x62x62x62x62x62x62x62 = 218 340 105 584 896 | **25.3 days**     |
+| 1 - uppercase; 2 - lowercase; 3 - lowercase, digits | 8          | ?1?2?2?2?2?2?3?3 | 26x26x26x26x26x26x10x10 = 30 891 577 600      | **5.2 minutes**   |
 
 Sometimes time economy is incredible. This theory could save us a lot of time if it worked. Let's 
 
@@ -66,7 +66,7 @@ hashcat -m 1000 -a 3 hashes.ntlm example.hcmask
 
 [John The Ripper MASK documentation](https://github.com/openwall/john/blob/bleeding-jumbo/doc/MASK)
 
-Mask attack with pre-difened charset `?a`` - full 'printable' ASCII.
+Mask attack with pre-difened charset `?a` - full 'printable' ASCII.
 
 ```bash
 john --format=raw-md5 --mask='?a?a?a?a?a?a?a' hash.txt
@@ -142,7 +142,7 @@ The Hashcat's attacks names and examples are used here. Our wordlists can be com
 
 **Combinator attack**
 
-[Hashcat's documentation](https://hashcat.net/wiki/doku.php?id=combinator_attack)
+[Hashcat's combinator attack documentation](https://hashcat.net/wiki/doku.php?id=combinator_attack)
 
 In the combinator attack built into hashcat (-a 1), two dictionaries are “combined” - each word of a dictionary is appended to each word in another dictionary.
 
@@ -152,7 +152,7 @@ In the combinator attack built into hashcat (-a 1), two dictionaries are “comb
 
 **Hybrid attack**
 
-[Hashcat's documentation](https://hashcat.net/wiki/doku.php?id=hybrid_attack)
+[Hashcat's hybrid attack documentation](https://hashcat.net/wiki/doku.php?id=hybrid_attack)
 
 For example if your example.dict contains:
 
@@ -194,9 +194,9 @@ hashcat -a 7 ?d?d?d?d example.dict
 
 **Rule-based attack**
 
-[Hashcat's documentation](https://hashcat.net/wiki/doku.php?id=rule_based_attack)
+[Hashcat's rule-based attack documentation](https://hashcat.net/wiki/doku.php?id=rule_based_attack)
 
-Here we explore some simple rules for examples. You can find a full lists of functions in the documentation linked above. It is possible to combine them to make cool combinations.
+Here we explore some simple rules for examples. You can find a full list of functions in the documentation linked above. It is possible to combine them to make cool combinations.
 
 Contents of 123.rule file: 
 
@@ -227,7 +227,7 @@ We can use our rule to crack the hash with command below:
 hashcat -m 0 -a 0 -r 123.rule hash.txt wordlist.txt
 ```
 
-There are some pre-build hashcat rules coming with hashcat's installation. In Kali you can find them in `/usr/share/hashcat/rules/`. Let's try to use one on one simple word `password`.
+There are some pre-build hashcat rules coming with hashcat's installation. They contain useful basic mutations for words in dictionary. In Kali you can find them in `/usr/share/hashcat/rules/`. Let's try to use one on one simple word `password`.
 
 ![Hashcat built-in rules example](/assets/tools/optimize-hash-cracking/hashcat_rules.png)
 
