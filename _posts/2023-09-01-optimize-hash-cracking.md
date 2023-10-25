@@ -6,13 +6,17 @@ tags: hash brute-force
 date: 2023-09-01 09:12 +0300
 ---
 
+
 # Introduction
+
 
 Hi! In this post I want we will explore some ways to optimize hash cracking. We can do it in many ways, for example by optimizing our cracking algorithms or improving hardware part. Our first questions are how many time do we have to crack the hashes and what type the hashes are? Answers for these quiestions help us choose the right technique and hardware sets. Let's explore our possibilities with exaples. 
 
 It is useful in real penetration tests/red teams to try to optimize long processes, like password hashes cracking, because they are very time-consuming. And the time is very important in, for example, 2 week projects, when you don't have enough time or enough CPUs/GPUs to brute-force all possible 8-9-10-characters with special symbols.
 
+
 # Creating Dictionary Masks
+
 
 The first way to optimize brute-force attacks is to think about users of the target systems. The target may invole its own password policy with complexity and expiration requirements. And we can use this information to find a way to attack the passwords. Real users are always trying to make complex things simplier, and we can find patterns of matching-criteria passwords in victim's systems. 
 
@@ -72,17 +76,24 @@ Mask attack with pre-difened charset `?a` - full 'printable' ASCII.
 john --format=raw-md5 --mask='?a?a?a?a?a?a?a' hash.txt
 ```
 
+
 # Using Wordlists
+
 
 Sometimes we have to do a dictionary-based attack, and the most improtrant thing here is to find, choose or generate the right dictionary. Then, we can improve our wordlists to make them more effective, or make them even bigger by using rules or combining them with masks. 
 
+
 ## Find Wordlists
+
 
 There are some online resources on the Internet with collections of wordlists, which can be used to hash cracking. One popular website is [WEAKPASS's wordlists](https://weakpass.com/wordlist). It contains an all-in-one wordlist with almost 330 `gigabytes` (!) of data with `28 330 702 856` words. 
 
 ![Wordlists on weakpass.com](/assets/tools/optimize-hash-cracking/weakpass_wordlists.png)
 
+
 ## Generate Wordlists
+
+
 
 **Generate from masks**
 
@@ -132,9 +143,11 @@ There are some tools already built like [meaningful-passwords GitHub repository]
 
 Also, we can train our own AIs to generate meaningful passwords. There is an [ai-passwords](https://github.com/rarecoil/ai-passwords) GitHub repository by rarecoil, which is a collection of password lists in which he has trained various deep learning algorithms to try to come up with passwords. 
 
-This [blog post on arsTECHNICA](https://arstechnica.com/information-technology/2023/04/the-passgan-ai-password-cracker-what-it-is-and-why-its-mostly-hype/) describes the power of PassGAN tool. PassGAN uses a Generative Adversarial Network (GAN) to autonomously learn the distribution of real passwords from actual password leaks, and to generate high-quality password guesses. The tool was introduced in 2017 and was really hyped by the community. You can find [the research here](https://arxiv.org/abs/1709.00440) and the [tool in GitHub repository](https://github.com/brannondorsey/PassGAN)
+This [blog post on arsTECHNICA](https://arstechnica.com/information-technology/2023/04/the-passgan-ai-password-cracker-what-it-is-and-why-its-mostly-hype/) describes the power of PassGAN tool. PassGAN uses a Generative Adversarial Network (GAN) to autonomously learn the distribution of real passwords from actual password leaks, and to generate high-quality password guesses. The tool was introduced in 2017 and was really hyped by the community. You can find [the research here](https://arxiv.org/abs/1709.00440) and the [tool in GitHub repository](https://github.com/brannondorsey/PassGAN).
+
 
 ## Improve Wordlists
+
 
 There are ways to improve wordlists, when we have founded or generated a base dictionary for our attack.
 
@@ -231,7 +244,9 @@ There are some pre-build hashcat rules coming with hashcat's installation. They 
 
 ![Hashcat built-in rules example](/assets/tools/optimize-hash-cracking/hashcat_rules.png)
 
+
 # Distributed Cracking
+
 
 It is possible to parallel our hash cracking tasks to several computers. This way can help us when we have access to several machines. The idea is to create a `client-server` model in hash cracking task. So, we have an administrative center, which computes parts of computed hashes numbers and distributes them, and cracking agents, which receives their parts and computes hashes.
 
@@ -249,6 +264,7 @@ There are some links to other tools which can be used in distributed cracking be
 
 
 # Cloud Computing
+
 
 Cloud Computing services are really great in power and availability, but they can be really expensive, especially with hard computing tasks like hash cracking. They are useful, when you don't want to make and maintain your own cracking rig.
 
@@ -276,7 +292,9 @@ You can rent a server with GPUs on [vast.ai](https://vast.ai/). It is a Global G
 
 ![vast.ai RTX 4090 price](/assets/tools/optimize-hash-cracking/vast_io_price.png)
 
+
 ## Combine with Distributed Cracking
+
 
 The combinations of our computing resources and cloud computing can be used with `Distributed Cracking` . This [Medium blog post](https://nikita-guliaev.medium.com/clustering-hashcat-with-hashtopolis-for-distributed-cloud-computing-55f964a56804) by Nikita Guliaev shows a step-by-step guide to use [vast.ai](https://vast.ai/) with Hashtopolis tool for distributed cloud computing to crack the hashes.
 
@@ -292,13 +310,17 @@ cd agent-python
 python3 hashtopolis.zip --url server_api --voucher voucher_id
 ```
 
+
 # Online Crackers and Databases
+
 
 You can delegate the hash cracking to an outsource by using online resources. There are just free databases like [CrackStaion](https://crackstation.net/), which uses massive pre-computed lookup tables to crack password hashes and paid Cloud Password Recovery Services like [OnlineHashCrack](https://www.onlinehashcrack.com/), which do the cracking in real time for money.
 
 ![CrackStaion service](/assets/tools/optimize-hash-cracking/crackstation.png)
 
+
 # Conclusion
+
 
 In this post we explored the ways to improve our hash cracking process. As we can see, there are many ways from improving our wordlists to improving our hardware and distribute the tasks. These ways can be combined all together to achieve great success/costs performance.
 
