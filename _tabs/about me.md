@@ -12,10 +12,11 @@ I'm also interested in programming. I used to code something on Python, Java and
 
 I hope you will enjoy this blog! Let's become better together :)
 
+{% include animated_dots.html %}
+
 ## Certifications
 
 {% include certifications.html %}
-
 
 ## Badges
 
@@ -33,5 +34,3 @@ I hope you will enjoy this blog! Let's become better together :)
 
 - [LinkedIn](https://www.linkedin.com/in/maksim-radaev/)
 - Discord: `vflame6`
-
-{% include animated_dots.html %}
