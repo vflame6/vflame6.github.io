@@ -28,9 +28,7 @@ I hope you will enjoy this blog! Let's become better together :)
 * [TryHackMe profile](https://tryhackme.com/p/vflamie)
 * [Stepik profile](https://stepik.org/users/349814193)
 * [FreeCodeCamp profile](https://www.freecodecamp.org/vflame6)
-* [Hyperskill profile](https://hyperskill.org/profile/341220929)
 
 ## Contact me
 
 - [LinkedIn](https://www.linkedin.com/in/maksim-radaev/)
-- Discord: `vflame6`
