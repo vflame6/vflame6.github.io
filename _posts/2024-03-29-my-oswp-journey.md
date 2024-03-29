@@ -27,11 +27,11 @@ Refer to the [PEN-210 course page](https://www.offsec.com/courses/pen-210/) for 
 
 ## Prepare for the Course
 
-The course is well-structured and has a lotI think the course is enough to pass the exam with these preparations:
+The course is well-structured and has a lot of information about Wireless Networks, but you have to learn some basics before you apply for it. I think the course is enough to pass the exam with these preparations:
 
 - **OSI Model** and **TCP/IP Fundamentals**. You have to understand the basics of the networking. Check free HackTheBox Academy's module [Introduction to Networking](https://academy.hackthebox.com/module/details/34)
 - **Familiarity with Linux**. It is useful to understand the Linux to set up Wi-Fi attacking environment later. The [Kali Linux Revealed](https://kali.training/) course is a cool preparation here
-- **Work with TMUX**. Check [this note](https://gist.github.com/davydany/d33f4b5e19eab6b805b045b91d3cf858) to get a basic understanding of working with TMUX
+- **Work with TMUX**. Check [this note](https://gist.github.com/davydany/d33f4b5e19eab6b805b045b91d3cf858) to get a basic understanding of working with TMUX. You can also use [screen](https://gist.github.com/jctosta/af918e1618682638aa82)
 
 During my learning journey, I've faced some troubles to set up my wireless card with a Kali Linux virtual machine in VMWare Workstation. I was unable (or just didn't want) to resolve the issues correctly and quickly, so I decided to do it simple way and rebooted my laptop in **Live USB Kali Linux**.
 
@@ -65,7 +65,7 @@ Be aware of the exam restricions:
 
 > The use of automated tools like wifite, wifiphisher and similar are not allowed. In addition, AI chatbots such as ChatGPT, YouChat, and similar are not allowed.
 
-The easier way to understand this is to only use aircrack-ng suite on the exam. It is enough to do all attack scenarios.
+The easier way to understand these restrictions is to only use aircrack-ng suite on the exam. It is enough to do all attack scenarios.
 
 ## Prepare for the Exam
 
