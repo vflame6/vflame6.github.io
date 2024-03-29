@@ -2,7 +2,7 @@
 layout: post
 title: HackTheBox - Scrambled
 category: HackTheBox
-tags: machines windows ad mssql reverse-engineering kerberos
+tags: windows active-directory databases reverse-engineering
 date: 2022-10-01 18:31 +0300
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: HackTheBox - Ambassador
 category: HackTheBox
-tags: web python git consul 
+tags: web python git 
 date: 2023-01-28 20:28 +0300
 ---
 

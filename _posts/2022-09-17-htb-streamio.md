@@ -2,7 +2,7 @@
 layout: post
 title: HackTheBox - StreamIO
 category: HackTheBox
-tags: machines windows ad mssql web laps
+tags: windows activedirectory databases web
 date: 2022-09-17 15:35 +0300
 ---
 

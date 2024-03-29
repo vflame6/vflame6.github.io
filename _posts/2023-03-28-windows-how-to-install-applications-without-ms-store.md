@@ -2,7 +2,7 @@
 layout: post
 title: How to install Microsoft Store applications without Microsoft Store
 category: Tools
-tags: windows applications automation
+tags: windows tips
 date: 2023-03-28 10:53 +0300
 ---
 

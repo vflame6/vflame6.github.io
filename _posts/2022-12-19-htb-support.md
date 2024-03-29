@@ -2,7 +2,7 @@
 layout: post
 title: HackTheBox - Support
 category: HackTheBox
-tags: reverse-engineering windows .net smb active-directory
+tags: reverse-engineering windows .net active-directory
 date: 2022-12-19 15:44 +0300
 ---
 

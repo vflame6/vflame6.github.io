@@ -3,7 +3,7 @@ layout: post
 title: HackTheBox - Faculty
 date: 2022-10-27 15:02 +0300
 category: HackTheBox
-tags: machines linus web sqli capabilities xss cve
+tags: linux web databases
 ---
 
 ![Machine logo](/assets/hackthebox/faculty/Faculty.png){:height="414px" width="615px"}
