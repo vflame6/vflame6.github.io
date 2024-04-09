@@ -52,7 +52,7 @@ In my opinion, you have to build a mindset on consistency and creativity. Try to
 2. How can you do the thing with stuff you have now?
 3. Maybe you need something more? What else you can look for?
 
-This often called **Thinking Outside the Box**. For me it is an iterative process about consistently noting what you have now and what else can be done. It is an ideas generating process. I've noticed that it's easier to do with some experience and fundamental knowledge about how do things work.  
+This often called **Thinking Outside the Box**. For me it is an iterative process about consistently enumerating what you have now and what else can be done. It is an ideas generating process. I've noticed that it's easier to do with some experience and fundamental knowledge about how do things work.  
 
 ## Community
 
