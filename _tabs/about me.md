@@ -6,11 +6,16 @@ order: 4
 
 ## whoami
 
-Hi! I'm vflame6. I am a cybersecurity student and a penetration tester 👨‍💻. My goal is to become better in pentesting. In my free time I read books, study or do labs on HackTheBox. 
+Hi! I'm vflame6. I am a cybersecurity student and a penetration tester 👨‍💻. I'm interested in Penetration Testing and Red Teaming exercises. I do these projects starting with communication, preparing the assessment and ending with my report and results presentation. 
 
-I'm also interested in programming. I used to code something on Python, Java and Go. I want to start contributing in Open Source projects.
+Sometimes I write to my blog (EN) [https://vflame6.github.io/](https://vflame6.github.io/) and telegram channel (RU) [https://t.me/vflame6](https://t.me/xv1oa).
 
 I hope you will enjoy this blog! Let's become better together :)
+
+## Contact me
+
+- [LinkedIn](https://www.linkedin.com/in/maksim-radaev/)
+- [Telegram](https://t.me/xv1oa)
 
 {% include animated_dots.html %}
 
@@ -29,7 +34,3 @@ I hope you will enjoy this blog! Let's become better together :)
 * [Standoff365](https://standoff365.com/profile/vflame6/)
 * [Root Me](https://www.root-me.org/vflame6?lang=en)
 * [TryHackMe](https://tryhackme.com/p/vflamie)
-
-## Contact me
-
-- [LinkedIn](https://www.linkedin.com/in/maksim-radaev/)
