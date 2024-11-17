@@ -8,14 +8,14 @@ order: 4
 
 Hi! I'm vflame6. I am a cybersecurity student and a penetration tester 👨‍💻. I'm interested in Penetration Testing and Red Teaming exercises. I do these projects starting with communication, preparing the assessment and ending with my report and results presentation. 
 
-Sometimes I write to my blog (EN) [https://vflame6.github.io/](https://vflame6.github.io/) and telegram channel (RU) [https://t.me/vflame6](https://t.me/xv1oa).
+Sometimes I write to my blog (EN) [https://vflame6.github.io/](https://vflame6.github.io/) and telegram channel (RU) [https://t.me/vflame6](https://t.me/vflame6).
 
 I hope you will enjoy this blog! Let's become better together :)
 
 ## Contact me
 
 - [LinkedIn](https://www.linkedin.com/in/maksim-radaev/)
-- [Telegram](https://t.me/xv1oa)
+- [Telegram](https://t.me/vflame9)
 
 {% include animated_dots.html %}
 
