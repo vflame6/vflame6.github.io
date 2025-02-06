@@ -16,7 +16,7 @@ timezone: Europe/Moscow
 
 title: vflame6's blog
 
-tagline: "Cybersecurity enthusiast | OSEP/OSCP/OSWP"
+tagline: "Cybersecurity enthusiast"
 
 description: >-
   vflame6 bloggin cybersecurity, pentest, ctfs related content.
@@ -37,7 +37,7 @@ social:
   links:
     # The first element serves as the copyright owner's link
     # - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/username       # change to your github homepage
+    - https://github.com/vflame6       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     - https://www.linkedin.com/in/maksim-radaev/

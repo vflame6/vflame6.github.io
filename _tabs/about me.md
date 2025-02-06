@@ -1,7 +1,7 @@
 ---
 title: About me
 icon: fas fa-info-circle
-order: 4
+order: 3
 ---
 
 ## whoami
@@ -17,7 +17,7 @@ I hope you will enjoy this blog! Let's become better together :)
 - [LinkedIn](https://www.linkedin.com/in/maksim-radaev/)
 - [Telegram](https://t.me/vflame9)
 
-{% include animated_dots.html %}
+<!-- {% include animated_dots.html %} -->
 
 ## Certifications
 
