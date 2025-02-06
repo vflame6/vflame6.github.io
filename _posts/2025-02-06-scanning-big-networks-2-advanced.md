@@ -228,7 +228,7 @@ nmap -sS -T4 -A -sC -oA scanme --stylesheet https://raw.githubusercontent.com/ho
 
 ![image.png](/assets/pentest/scanning-big-networks-2/image4.png)
 
-You can view an example HTML report for that tool in the [author's example report](http://htmlpreview.github.io/?https://github.com/honze-net/nmap-bootstrap-xsl/blob/master/scanme.html).
+You can view an example HTML report for that tool in the [author's example report](https://htmlpreview.github.io/?https://github.com/honze-net/nmap-bootstrap-xsl/blob/master/scanme.html).
 
 The original tool is enough, there is a more cool version - [upgraded nmap-bootstrap-xsl](https://github.com/Haxxnet/nmap-bootstrap-xsl). It provides more features like export functionality in CSV, Excel and PDF, keyword highlighting and detached http-title and ssl-cert fields.
 
