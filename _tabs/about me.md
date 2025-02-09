@@ -6,7 +6,9 @@ order: 4
 
 ## whoami
 
-Hi! I'm vflame6. I am a cybersecurity student and a penetration tester 👨‍💻. I'm interested in Penetration Testing and Red Teaming exercises. I do these projects starting with communication, preparing the assessment and ending with my report and results presentation. 
+Hi! I'm vflame6. I work as a penetration tester and I'm interested in Penetration Testing and Red Teaming exercises. 
+
+I provide various services in penetration testing: external network, internal network, web/mobile applications, social engineering and complex red teaming. I do these projects from zero to hero, starting with preparing the assessment, performing the actual testing and ending with my report and results presentation. 
 
 Sometimes I write to my blog (EN) [https://vflame6.github.io/](https://vflame6.github.io/) and telegram channel (RU) [https://t.me/vflame6](https://t.me/vflame6).
 
@@ -23,7 +25,7 @@ I hope you will enjoy this blog! Let's become better together :)
 
 {% include certifications.html %}
 
-## Badges
+## Profiles
 
 {% include badges.html %}
 
