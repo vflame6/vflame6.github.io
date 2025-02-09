@@ -3,7 +3,6 @@ layout: post
 title: HackTheBox - Shared
 date: 2022-11-12 22:50 +0300
 category: HackTheBox
-tags: linux databases python 
 ---
 
 ![Machine logo](/assets/hackthebox/shared/Shared.png){:height="400px" width="600px"}

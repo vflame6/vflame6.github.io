@@ -2,7 +2,6 @@
 layout: post
 title: My OSWP Journey
 category: Blogging
-tags: offsec certifications learning wi-fi
 date: 2024-03-29 10:00 +0300
 ---
 

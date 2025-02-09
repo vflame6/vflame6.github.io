@@ -2,7 +2,6 @@
 layout: post
 title: Windows File Transfers
 category: Pentest
-tags: windows file-transfers
 date: 2023-10-24 10:25 +0300
 ---
 

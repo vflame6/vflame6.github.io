@@ -2,7 +2,6 @@
 layout: post
 title: HackTheBox - Outdated
 category: HackTheBox
-tags: windows active-directory
 date: 2022-12-11 10:33 +0300
 ---
 

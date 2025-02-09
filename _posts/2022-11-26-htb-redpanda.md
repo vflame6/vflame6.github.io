@@ -2,7 +2,6 @@
 layout: post
 title: HackTheBox - RedPanda
 category: HackTheBox
-tags: linux java code-analysis web
 date: 2022-11-26 22:03 +0300
 ---
 

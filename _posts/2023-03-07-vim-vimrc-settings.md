@@ -2,7 +2,6 @@
 layout: post
 title: Vim Settings
 category: Tools
-tags: editing productivity
 date: 2023-03-07 18:58 +0300
 ---
 

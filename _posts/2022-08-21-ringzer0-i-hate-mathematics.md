@@ -2,7 +2,6 @@
 layout: post
 title: RingZer0 CTF - I Hate Mathematics
 category: CTF
-tags: ringzer0 coding javascript
 date: 2022-08-21 20:34 +0300
 ---
 

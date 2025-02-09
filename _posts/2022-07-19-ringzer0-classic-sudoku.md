@@ -2,7 +2,6 @@
 layout: post
 title: RingZer0 CTF - Classic Sudoku
 category: CTF
-tags: ringzer0 coding python
 date: 2022-07-19 12:25 +0300
 ---
 

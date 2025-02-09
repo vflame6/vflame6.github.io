@@ -2,7 +2,6 @@
 layout: post
 title: Compile Windows Programs in Kali Linux
 category: Tools
-tags: windows exploits
 date: 2023-04-19 20:51 +0300
 ---
 

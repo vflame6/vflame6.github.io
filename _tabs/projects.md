@@ -1,7 +1,7 @@
 ---
 title: Projects
 icon: fas fa-diagram-project
-order: 1
+order: 2
 ---
 
 ## under development...

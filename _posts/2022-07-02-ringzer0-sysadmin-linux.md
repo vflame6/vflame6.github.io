@@ -2,7 +2,6 @@
 layout: post
 title: RingZer0 CTF - SysAdmin Linux
 category: CTF
-tags: ringzer0 linux
 date: 2022-07-02 18:32 +0300
 ---
 

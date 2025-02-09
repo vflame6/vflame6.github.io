@@ -1,7 +1,7 @@
 ---
 title: Training
 icon: fas fa-chalkboard-user
-order: 2
+order: 3
 ---
 
 ## under development...

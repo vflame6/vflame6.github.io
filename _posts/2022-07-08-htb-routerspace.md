@@ -2,7 +2,6 @@
 layout: post
 title: HackTheBox - RouterSpace
 category: HackTheBox
-tags: linux android
 date: 2022-07-08 22:36 +0300
 ---
 

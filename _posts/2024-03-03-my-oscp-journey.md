@@ -2,7 +2,6 @@
 layout: post
 title: My OSCP Journey
 category: Blogging
-tags: offsec certifications learning
 date: 2024-03-03 10:00 +0300
 ---
 

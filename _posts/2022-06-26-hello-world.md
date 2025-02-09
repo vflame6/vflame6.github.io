@@ -3,7 +3,6 @@ layout: post
 title: Hello, World!
 date: 2022-06-26 01:08 +0300
 category: Blogging
-tags: misc blog
 ---
 
 ## Today I'm going to start my own blog.
