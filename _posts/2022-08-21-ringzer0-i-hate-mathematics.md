@@ -77,10 +77,33 @@ Finally, we have our script to solve the task. Reload the page and get the flag!
 
 ![Flag](/assets/ringzer0/coding_challenges/i-hate-mathematics/solved.png)
 
+You can see the full solution code below:
+
+```javascript
+window.onload =(function () {
+    let solveTask = () => {
+        const url = "http://challenges.ringzer0team.com:10032/?r=";
+        const re = /^\d+.*/gm;
+        let answer, message, values, x1, x2, x3;
+
+        message = document.getElementsByClassName("message")[0];
+        message = message.innerText;
+        message = message.match(re)[0];
+        values = message.split(" ");
+        x1 = parseInt(values[0]);
+        x2 = parseInt(values[2], 16);
+        x3 = parseInt(values[4], 2);
+
+        answer = x1 + x2 - x3;
+        window.location.href = `${url}${answer}`
+    };
+
+    setTimeout(solveTask, 100);
+})();
+```
+
 # Conclusion
 
 I think the post might be boring, but I wanted to show a Tampermonkey tool, which allows us to do much more things than I've showed here. In-browser automation tasks could be solved just by using JavaScript in your browser, I think it is cool to do.
-
-You can check full code [here](https://github.com/vflame6/ringzer0ctf-challenges/blob/main/Coding%20Challenges/i_hate_mathematics.js).
 
 Thank you for reading, I hope it was useful for you ❤️
