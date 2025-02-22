@@ -1,5 +1,5 @@
 ---
-title: About me
+title: About
 icon: fas fa-info-circle
 order: 4
 ---
@@ -16,6 +16,8 @@ Sometimes I write to my blog (EN) [https://vflame6.github.io/](https://vflame6.g
 
 I hope you will enjoy this blog! Let's become better together :)
 
+---
+
 ## Links
 
 <p align="left">
@@ -26,6 +28,8 @@ I hope you will enjoy this blog! Let's become better together :)
   <a href="https://www.root-me.org/vflame6?lang=en"><img src="https://img.shields.io/badge/-Root%20Me-191C22?style=for-the-badge" alt="Root Me" /></a>
   <a href="https://standoff365.com/profile/vflame6/"><img src="https://img.shields.io/badge/-Standoff365-6E4D8F?style=for-the-badge" alt="Standoff365" /></a>
 </p>
+
+---
 
 ## Contact me
 
