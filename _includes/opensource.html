@@ -90,8 +90,8 @@
                     return -1; 
                 }
                 return 0;
-            })
-            
+            });
+
             for (var i=0, element; element=jsonResponse[i]; i++) {
                 linkBlock = document.createElement('a');
                 linkBlock.setAttribute("href", element.html_url);
