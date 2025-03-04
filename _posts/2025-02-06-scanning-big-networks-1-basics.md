@@ -258,6 +258,8 @@ nmap -sV --allports 10.10.10.10
 nmap -sV --version-intensity 0 10.10.10.10
 ```
 
+![version-intensity example](/assets/pentest/scanning-big-networks-1/sv-0.png)
+
 ## UDP services
 
 In UDP scanning, it is impossible to determine open UDP ports without sending the exact data to them. You can check for explicitly closed ports if the target host is configured to send ICMP “Destination Unreachable” messages. Otherwise, you can only assume that the port is in `OPEN` or `FILTERED` state.

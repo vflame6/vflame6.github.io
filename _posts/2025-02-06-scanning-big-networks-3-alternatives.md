@@ -231,6 +231,12 @@ INFO[0000] SRVRecord: metrics-server.kube-system.svc.cluster.local. --> metrics-
 INFO[0000] {"Ip":"10.43.43.87","SvcDomain":"kube-state-metrics.lens-metrics.svc.cluster.local.","SrvRecords":[{"Cname":"kube-state-metrics.lens-metrics.svc.cluster.local.","Srv":[{"Target":"kube-state-metrics.lens-metrics.svc.cluster.local.","Port":8080,"Priority":0,"Weight":100}]}]}
 ```
 
+You can see the examples of k8spider work below:
+
+![k8spider example 1](/assets/pentest/scanning-big-networks-3/k8spider-1.png)
+
+![k8spider example 2](/assets/pentest/scanning-big-networks-3/k8spider-2.png)
+
 # Resources
 
 - [https://t.me/vflame6/60](https://t.me/vflame6/60)

@@ -14,9 +14,9 @@
         width: 254px;
         height: 194px;
         border-radius: 25px;
-        border: 1px solid #b4b4bb4d;
+        border: 1px solid var(--sidebar-border-color);
         padding: 16px;
-        background-color: #151516;
+        background-color: var(--card-bg);
 
     }
     .repoIcon {
@@ -25,12 +25,13 @@
         width: fit-content;
         padding: 8px;
         padding-bottom: 0px;
-        background-color: #18181B;
+        background-color: var(--kbd-bg-color);
+        border-color: var(--categories-border);
     }
     .repoName {
         font-weight: bold;
         font-size: 110%;
-        color: white;
+        color: var(--heading-color);
     }
     .repoDescription {
         overflow: hidden;
@@ -38,12 +39,14 @@
         text-overflow: ellipsis;
         height: 40px;
         line-height: 19px;
+        color: var(--text-muted-color);
     }
     .repoStats {
         display: flex;
         height: 20px;
         margin-top: 16px;
         gap: 1.25rem;
+        color: var(--text-muted-color)
     }
     .languageColor {
         display: block;

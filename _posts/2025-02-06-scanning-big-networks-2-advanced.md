@@ -31,6 +31,8 @@ nmap --iflist
 nmap -e eth0 ...
 ```
 
+![nmap iflist example](/assets/pentest/scanning-big-networks-2/nmap-iflist.png)
+
 ## Scanning speed
 
 One of the first metrics for network defense solutions may be a speed and amount of connections from one 
@@ -161,6 +163,8 @@ sudo mkdir nmap
 sudo nmap -p$ports $UDP -sS -T4 -Pn --open -sC -sV \
     -oA "nmap/$filename" $1
 ```
+
+![fnmap example](/assets/pentest/scanning-big-networks-2/fnmap.png)
 
 ## Step-by-step network scanning
 
