@@ -1,23 +1,21 @@
 <style type="text/css">
     .repoContainer {
         width: 100%;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: start;
         gap: 16px;
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
     .linkBlock {
         border-bottom: 0 !important;
         color: unset !important;
     }
     .repoDiv {
-        width: 254px;
+        width: 100%;
         height: 194px;
         border-radius: 25px;
         border: 1px solid var(--sidebar-border-color);
         padding: 16px;
-        background-color: var(--card-bg);
-
+        background-color: var(--card-header-bg);
     }
     .repoIcon {
         border: 2px solid;
@@ -35,7 +33,6 @@
     }
     .repoDescription {
         overflow: hidden;
-        /* white-space: nowrap; Don't forget this one */
         text-overflow: ellipsis;
         height: 40px;
         line-height: 19px;
@@ -59,24 +56,12 @@
         align-items: center;
         gap: .5rem;
     }
-    @media (max-width: 640px) {
-        .repoDiv {
-            width: 100%;
-        }
+    @media (min-width: 641px) {
         .repoContainer {
-            display: grid;
-            columns: 1;
-        }
-    }
-    @media (min-width: 641px) and (max-width: 1024px) {
-        .repoDiv {
-            width: 100%;
-        }
-        .repoContainer {
-            display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
+
 </style>
 
 
