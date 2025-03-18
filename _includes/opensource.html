@@ -13,9 +13,9 @@
         width: 100%;
         height: 194px;
         border-radius: 25px;
-        border: 1px solid var(--sidebar-border-color);
         padding: 16px;
-        background-color: var(--card-header-bg);
+        background-color: var(--card-bg);
+        box-shadow: var(--card-shadow);
     }
     .repoIcon {
         border: 2px solid;
@@ -135,16 +135,42 @@
                 repoStats.appendChild(lang);
                 
                 languageColorElement = document.createElement('span');
-                languageColor = "white;";
-                if (element.language === "Go") {
-                    languageColor = "rgb(0, 173, 216);";
+                switch (element.language) {
+                    case "Go":
+                        languageColor = "rgb(0, 173, 216);";
+                        break;
+                    case "TypeScript":
+                    case "JavaScript":
+                        languageColor = "rgb(238, 243, 95);";
+                        break;
+                    case "Java":
+                        languageColor = "rgb(176, 114, 25)";
+                        break;
+                    case "PHP":
+                        languageColor = "rgb(79, 93, 149)";
+                        break;
+                    case "Python":
+                        languageColor = "rgb(53, 114, 165)";
+                        break;
+                    case "HTML":
+                        languageColor = "rgb(227, 76, 37)";
+                        break;
+                    case "Shell":
+                        languageColor = "rgb(137, 224, 81)";
+                        break;
+                    default:
+                        languageColor = "white;";
                 }
                 languageColorElement.setAttribute("style", "background-color: " + languageColor);
                 languageColorElement.setAttribute("class", "languageColor");
                 lang.appendChild(languageColorElement);
 
                 languageStat = document.createElement('span');
-                languageStat.textContent = element.language;
+                if (element.language) {
+                    languageStat.textContent = element.language;
+                } else {
+                    languageStat.textContent = "Text";
+                }
                 lang.appendChild(languageStat);
 
                 starsStat = document.createElement('span');
