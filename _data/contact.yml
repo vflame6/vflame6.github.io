@@ -3,9 +3,9 @@
 -
   type: github
   icon: 'fab fa-github'
-# -
-#   type: twitter
-#   icon: 'fab fa-twitter'
+-
+  type: twitter
+  icon: 'fab fa-twitter'
 # -
 #   type: email
 #   icon: 'fas fa-envelope'
@@ -28,7 +28,7 @@
 #   type: stack-overflow
 #   icon: 'fab fa-stack-overflow'
 #   url:  'https://stackoverflow.com/users/21101050/vflame6'                  # Fill with your stackoverflow homepage
--
-  type: rss
-  icon: 'fas fa-rss'
-  noblank: true
+# -
+#   type: rss
+#   icon: 'fas fa-rss'
+#   noblank: true
