@@ -39,3 +39,9 @@ I hope you will enjoy this blog! Let's become better together :)
   <a href="https://t.me/vflame9" target="_blank"><img src="https://img.shields.io/badge/-Telegram-white?style=for-the-badge&logo=Telegram" alt="Telegram" /></a>
   <a href="https://discordapp.com/users/355932707827744779" target="_blank"><img src="https://img.shields.io/badge/-vflame6-2F3136?style=for-the-badge&logo=Discord" alt="Discord" /></a>
 </p>
+
+---
+
+## Disclaimer
+
+All information contained in this blog is provided for educational and research purposes only. The author is not responsible for any illegal use of any information published on the pages of this blog.
