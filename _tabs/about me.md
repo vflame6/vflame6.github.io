@@ -16,6 +16,16 @@ Sometimes I write to my blog (EN) [https://vflame6.github.io/](https://vflame6.g
 
 I hope you will enjoy this blog! Let's become better together :)
 
+You can also support me if you feel like it:
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="vflame6" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+
+---
+
+## Disclaimer
+
+All information contained in this blog is provided for educational and research purposes only. The author is not responsible for any illegal use of any information published on the pages of this blog.
+
 ---
 
 ## Links
@@ -32,16 +42,10 @@ I hope you will enjoy this blog! Let's become better together :)
 
 ---
 
-## Contact me
+## Contact
 
 <p align="left">
   <a href="https://www.linkedin.com/in/maksim-radaev/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn" /></a>
   <a href="https://t.me/vflame9" target="_blank"><img src="https://img.shields.io/badge/-Telegram-white?style=for-the-badge&logo=Telegram" alt="Telegram" /></a>
   <a href="https://discordapp.com/users/355932707827744779" target="_blank"><img src="https://img.shields.io/badge/-vflame6-2F3136?style=for-the-badge&logo=Discord" alt="Discord" /></a>
 </p>
-
----
-
-## Disclaimer
-
-All information contained in this blog is provided for educational and research purposes only. The author is not responsible for any illegal use of any information published on the pages of this blog.
