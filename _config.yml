@@ -14,7 +14,7 @@ timezone: Europe/Moscow
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: vflame6's blog
+title: Maksim Radaev
 
 tagline: "Cybersecurity enthusiast, penetration tester. This is my personal blog about things I find interesting. Looking for red team, pentest or devsecops services? Contact via LinkedIn or Telegram"
 
@@ -23,7 +23,7 @@ description: >-
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://vflame6.github.io"
+url: "https://maksimradaev.com"
 
 github:
   username: vflame6 
