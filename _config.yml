@@ -14,12 +14,12 @@ timezone: Europe/Moscow
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Maksim Radaev
+title: Maksim 'vflame6' Radaev
 
-tagline: "Cybersecurity enthusiast, penetration tester. This is my personal blog about things I find interesting. Looking for red team, pentest or devsecops services? Contact via LinkedIn or Telegram"
+tagline: "Cybersecurity enthusiast, penetration tester. This is my personal blog about things I find interesting. Looking for red team, pentest or DevSecOps services? Contact via LinkedIn or Telegram"
 
 description: >-
-  vflame6 bloggin cybersecurity, pentest, ctfs related content.
+  Maksim 'vflame6' Radaev bloggin about cybersecurity, pentest, and CTFs related content.
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -55,7 +55,7 @@ webmaster_verifications:
   # Web Analytics Settings
 analytics:
   google:
-    id: 'G-BERYYW15S9' # fill in your Google Analytics ID
+    id: 'G-PWWYBWC67V' # fill in your Google Analytics ID
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
