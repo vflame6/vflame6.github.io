@@ -2,4 +2,4 @@
 
 I periodically write in my personal blog about CTFs, tools and something interesting for me. I hope that material will help somebody. Thank you for giving it your time!
 
-🌐Link: https://vflame6.github.io/
+🌐 Link: https://maksimradaev.com/
