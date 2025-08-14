@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My OSWP Journey
-category: Blogging
+category: Blog
 date: 2024-03-29 10:00 +0300
 ---
 

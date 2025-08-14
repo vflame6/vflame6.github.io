@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Hello, World!
+description: Introducing my brand new Blog where I will write something interesting.
 date: 2022-06-26 01:08 +0300
-category: Blogging
+category: Blog
 ---
 
 ## Today I'm going to start my own blog.

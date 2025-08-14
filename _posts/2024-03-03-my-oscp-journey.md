@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My OSCP Journey
-category: Blogging
+category: Blog
 date: 2024-03-03 10:00 +0300
 ---
 
