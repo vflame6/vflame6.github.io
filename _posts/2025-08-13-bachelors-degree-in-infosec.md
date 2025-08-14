@@ -180,10 +180,6 @@ University education is definitely necessary in order to:
 
 If you already have all of this, don't waste your time. If not, be sure to go. In my opinion, the first two courses (years) are enough to cover these three topics. After that, you can confidently enter the job market, spending less and less time at the university.
 
-It is also important to mention the deferment from military service. In Russia, after graduating from school, you either go to study at an official institution and receive a deferment for the duration of your studies, or you are required to do a year of military service. Therefore, many male students are simply guys who needed to get into something just to avoid going to the army. One can only sympathize with the future careers of such guys. And after university, there are two options: either you continue your studies (master's degree, etc.), or you resolve the issue by not entirely legal means, or you leave the country.
-
-In my opinion, **being absent (not working) for a year in the current IT market is unacceptable**. Unfortunately, in Russia, no solution to this problem has been proposed yet. The deferment for IT specialists is only from mobilization, not from military service. And year after year, the situation is getting worse for those who, for whatever reason, do not serve their country — restrictions and penalties are being introduced.
-
 ### Dream a little, how this education system could be improved?
 
 As I said above, two years are enough to resolve the main strategic issues: finding yourself, finding people, and learning to negotiate.
@@ -235,8 +231,6 @@ I have completed one major stage of my life. I have finally become a “full-fle
 ### Higher education
 
 **Firstly, no more higher education.** I went through it in practice and realized that there are more effective and higher-quality methods of learning for my purposes. Therefore, I am not going to pursue a master's degree — there is no reason for wasting my time.
-
-Of course, this decision poses a problem for me — what to do about the army? I didn't go to the military department — I decided not to waste my precious time. Now I'm waiting for a summons to the military registration and enlistment office and conscription. I won't describe my decision on this issue here, as it's a sensitive topic.
 
 ### Neural networks
 
