@@ -6,8 +6,6 @@ category: Blog
 date: 2025-08-13 13:55 +0300
 ---
 
-![Diploma](/assets/posts/blog/bachelor-degree/1_diploma.jpeg)
-
 At the beginning of this summer, I completed my studies at Russian university in the field of “Information Security” (10.03.01), and received a bachelor's degree. 
 
 In this post, I want to share my experience of going through this stage of life, my thoughts on the need to obtain a higher education degree in 2025, and the available alternatives. At the middle of the post, there will be a short guide to effective learning in IT as one of the alternatives to higher education. At the end of the post, I will share some thoughts on what I will do next.
@@ -17,6 +15,8 @@ In this post, I want to share my experience of going through this stage of life,
 I enrolled for higher education in 2021, after passing the selection process based on my Unified State Exam scores. This process began after my graduating from school. I didn't choose my major by chance — I've spent my whole life with computers and wanted to understand how technology works and what I can do with it.
 
 > This article is a translation of my article written in Russian. You can find the original one in [my Telegram channel](https://t.me/vflame6) if you want.
+
+![Diploma](/assets/posts/blog/bachelor-degree/1_diploma.jpeg)
 
 ## Education
 
