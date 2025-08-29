@@ -44,7 +44,7 @@ sudo responder --lm -I eth0 -A
 
 All that remains is to capture the NetNTLMv1 hash of the user's password again. After that, we have two options: either brute force it ourselves or go online for help from the community.
 
-Tools such as [crack.sh](https://crack.sh/get-cracking/) (currently unavailable) and [shuck.sh](https://shuck.sh/get-shucking.php) are available online, which are essentially ready-made infrastructures for cracking such hashes. For example, [crack.sh](http://crack.sh/) uses a system of 48 FPGAs configured to crack such hashes. Such a system provides a speed of 768,000,000,000 keys per second.
+Tools such as [crack.sh](https://crack.sh/get-cracking/) (currently unavailable) and [shuck.sh](https://shuck.sh/get-shucking.php) are available online, which are essentially ready-made infrastructures for cracking such hashes. For example, [crack.sh](https://crack.sh/) uses a system of 48 FPGAs configured to crack such hashes. Such a system provides a speed of 768,000,000,000 keys per second.
 
 BUT. **The use of online services creates leakage risks for both the customer and the contractor**, since we essentially have to send valid credentials from the customer's infrastructure somewhere online. No one knows what happens to them on the other side. Using such services is at your own risk. The best solution would be to have your own infrastructure for such tasks.
 
@@ -54,7 +54,7 @@ As a result, we obtain the NTLM hash of the user's password, which can be used i
 
 As is well known, it is impossible to perform an NTLM relay attack from SMBv2+ to LDAP, since SMBv2 and higher protocols require a signature via a session key. This signature cannot be removed, otherwise a Message Integrity Code (MIC) validation error will occur. Where, how, and to what extent relaying is possible is well described in [an article by hackndo](https://en.hackndo.com/ntlm-relay/).
 
-It turns out that using the NetNTLMv1 protocol is an exception to the request signature rule, as the protocol does not support the MIC calculation mechanism. This allows you to perform an NTLM relay attack from SMB to LDAP, for example, via [ntlmrelayx.py](http://ntlmrelayx.py/) from the impacket package. It is also implemented as an exploitation of the [CVE-2019-1040 (Drop the MIC)](https://dirkjanm.io/exploiting-CVE-2019-1040-relay-vulnerabilities-for-rce-and-domain-admin/) vulnerability, through the `--remove-mic` option. Example command:
+It turns out that using the NetNTLMv1 protocol is an exception to the request signature rule, as the protocol does not support the MIC calculation mechanism. This allows you to perform an NTLM relay attack from SMB to LDAP, for example, via [ntlmrelayx.py](https://github.com/fortra/impacket/blob/master/examples/ntlmrelayx.py) from the impacket package. It is also implemented as an exploitation of the [CVE-2019-1040 (Drop the MIC)](https://dirkjanm.io/exploiting-CVE-2019-1040-relay-vulnerabilities-for-rce-and-domain-admin/) vulnerability, through the `--remove-mic` option. Example command:
 
 ```bash
 ntlmrelayx.py -t ldap://<other_dc_IP> -smb2support --no-dump --no-da --no-acl --no-validate-privs --remove-mic --shadow-credentials
