@@ -12,7 +12,7 @@ Hi! I'm vflame6. I work as a penetration tester and I'm interested in Penetratio
 
 I provide various services in penetration testing: external network, internal network, web/mobile applications, social engineering and complex red teaming. I do these projects from zero to hero, starting with preparing the assessment, performing the actual testing and ending with my report and results presentation. 
 
-Sometimes I write to my blog (EN) [https://vflame6.github.io/](https://vflame6.github.io/) and telegram channel (RU) [https://t.me/vflame6](https://t.me/vflame6).
+Sometimes I write to my blog (EN) [https://maksimradaev.com/](https://maksimradaev.com/) and telegram channel (RU) [https://t.me/vflame6](https://t.me/vflame6).
 
 I hope you will enjoy this blog! Let's become better together :)
 
