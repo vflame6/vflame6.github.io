@@ -1,13 +1,13 @@
 ---
 layout: post
 title: RingZer0 CTF - Classic Sudoku
-category: CTF
+categories: [CTF, RingZer0]
 date: 2022-07-19 12:25 +0300
 ---
 
-![Challenge banner](/assets/ringzer0/coding_challenges/classic-sudoku/classic-sudoku.png)
+## The challenge
 
-# The challenge
+![Challenge banner](/assets/ringzer0/coding_challenges/classic-sudoku/classic-sudoku.png)
 
 In this challenge we have to login in via ssh to get the task. Let's see what it is:
 
@@ -19,9 +19,9 @@ ssh -p 10143 sudoku@challenges.ringzer0team.com
 
 We have to solve 3x3 Sudoku challenge in less than 10 seconds. I don't think human can do it easily, so we need some coding here and we will use `Python3`. Let’s solve it step-by-step 👨‍💻
 
-# Configuration
+## Configuration
 
-## Preparation
+### Preparation
 
 It was so hard to find a library which would work correctly in our case. After some hours of exploring, I've found that we can interact with a child process created by a `pty` and `os` libraries. I thought to write sudoku solver myself, but luckly for us there is a library that can do it - [py-sudoku](https://pypi.org/project/py-sudoku/). We install it in terminal with command below:
 
@@ -29,7 +29,7 @@ It was so hard to find a library which would work correctly in our case. After s
 pip3 install py-sudoku
 ```
 
-## Libraries and globals
+### Libraries and globals
 
 Now the code starts:
 
@@ -58,9 +58,9 @@ After imports we specify variables for login into `ssh`. Then, we specify list w
 
 We are using `sshpass` to provide the password in one command, I did it just to make things easier, never do it in real work.
 
-# Get the challenge
+## Get the challenge
 
-## Connect via ssh
+### Connect via ssh
 
 After preparation, we are creating a `child process`, which will connect to the server via ssh. We use `fork` function from pty library to get the process, then we execute our `ssh_command` and start interact with it. We get `raw_challenge` string and parse it by creating the list, slicing it and converting into a string again.
 
@@ -70,7 +70,7 @@ pid, child_fd = pty.fork()
 if not pid:
     os.execv(ssh_command[0], ssh_command)
 
-# Skip pty message
+## Skip pty message
 output = os.read(child_fd, 1024)
 
 raw_challenge = os.read(child_fd, 1024).decode()
@@ -83,7 +83,7 @@ board = parse_sudoku(challenge)
 
 We interact with child process by reading it STDOUT with `os.read` and writing into STDIN by `os.write`. We skip ssh's message about PTY by reading 1 line.
 
-## Parse the challenge
+### Parse the challenge
 
 To work with py_sudoku we have to convert challenge string into two-dimensional list. It is a requirement, I've made a function called `parse_sudoku` to do it.
 
@@ -107,9 +107,9 @@ def parse_sudoku(plain_text):
 
 We use slicing to get lines one by one. Then, we split the line and checking if there is 3 spaces or a number. 3 spaces are equal to 0 here.
 
-# Solve the Sudoku
+## Solve the Sudoku
 
-## Just solve it
+### Just solve it
 
 The solution is really simple. We already have what we need, just provide the `board` to `Sudoku` class with 3x3 size and call the `solve` function. The library presents the solution in many formats, but list is the most preferred for us, so we specify `board` attribute. Then, we have to convert the solution into right format and write it to STDIN of our child process.
 
@@ -123,7 +123,7 @@ for line in solution:
 answer = ",".join(answer) + "\n"
 
 os.write(child_fd, answer.encode())
-# Skip our written answer
+## Skip our written answer
 os.read(child_fd, 1024)
 
 flag = os.read(child_fd, 1024).decode()
@@ -132,7 +132,7 @@ print(flag)
 
 We have to skip 1 line of STDOUT because there is our answer there. I don't know why our STDIN appears in our STDOUT...
 
-## Run the script
+### Run the script
 
 Let's run our script and get the flag.
 
@@ -217,7 +217,7 @@ if __name__ == "__main__":
     main()
 ```
 
-# Conclusion
+## Conclusion
 
 I've spent a lot of time to find a way to interact with ssh session as a pseudo-terminal subprocess. I'm really glad to learn it. There are so much libraries written in Python. I think you can find everything written in this language 😂.
 

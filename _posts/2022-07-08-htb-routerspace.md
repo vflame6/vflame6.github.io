@@ -1,13 +1,13 @@
 ---
 layout: post
 title: HackTheBox - RouterSpace
-category: HackTheBox
+categories: [HackTheBox, Easy]
 date: 2022-07-08 22:36 +0300
+image:
+  path: /assets/hackthebox/routerspace/RouterSpace.png
 ---
 
-![Machine logo](/assets/hackthebox/routerspace/RouterSpace.png){:height="414px" width="615px"}
-
-# Configuration
+## Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:
 
@@ -21,9 +21,9 @@ It is very useful to append `/etc/hosts/` with ip address of the machine. It is 
 echo '10.10.11.148  routerspace.htb' | sudo tee -a /etc/hosts
 ```
 
-# Reconnaissance
+## Reconnaissance
 
-## nmap scan
+### nmap scan
 
 ```zsh
 nmap -p- routerspace.htb
@@ -37,7 +37,7 @@ PORT   STATE SERVICE
 
 There is a ssh and a web server. Let's dive into web page!
 
-## Web application
+### Web application
 
 ![Web page](/assets/hackthebox/routerspace/web_page.png)
 
@@ -53,7 +53,7 @@ http://routerspace.htb [200 OK] Bootstrap, Country[RESERVED][ZZ], HTML5, IP[10.1
 
 There's nothing interesting for us. Let's move on APK file.
 
-## Android package
+### Android package
 
 We need to understand what does this application do. So, at first, we have to emulate this application. We've used an `Anbox` here. Download the latest image available at the [official download page](https://build.anbox.io/android-images/) and use following commands to install it.
 
@@ -84,9 +84,9 @@ Then, restart Anbox and the application will appear. Let's open the app and expl
 
 We can press the `Check Status` button, but it will fail. It tries to connect to a remote server. We have to see the request app performs, we can do it without dissasemble and unsuccessful attempts to find the request (I've tried, don't do that 😂).
 
-# user.txt
+## user.txt
 
-## Enumeration
+### Enumeration
 
 Let's try to intercept this request with `BurpSuite`. To do that we have to configure proxy settings on our Anbox. We have to proxy traffic through BurpSuite.
 
@@ -116,7 +116,7 @@ We got it! Send the request to Repeater and let's try to abuse it. We start by i
 
 It works! Now we can perform a lot of things...
 
-## Exploitation
+### Exploitation
 
 We have `Remote Code Execution`, we got paul user. We noted that `ssh` is enabled on the machine. To establish we have to generate ssh keys and add public key to paul's `authorized_keys`. Don't forget to change authorized_keys permissions to 700.
 
@@ -136,9 +136,9 @@ ssh -i id_rsa paul@routerspace.htb
 
 ![user.txt](/assets/hackthebox/routerspace/user_txt.png)
 
-# root.txt
+## root.txt
 
-## Explore for privilege escalation
+### Explore for privilege escalation
 
 I don't like to upload and run `LinPEAS` immediately, because it is noisy and I don't think professionals do really use it. So let's perform a basic enumeration. Check `directories`, `crontab`, `SUID/SGID`... We check for `sudo` version:
 
@@ -155,13 +155,13 @@ Sudoers I/O plugin version 1.8.31
 
 We google for vulnerabilities for that version, luckly for us, there is a CVE-2021-3156 with an [exploit](https://github.com/mohinparamasivam/Sudo-1.8.31-Root-Exploit)
 
-## Privilege escalation
+### Privilege escalation
 
 We copy files from the repository, then we follow the exploit instructions and get the root:
 
 ![Exploit for root](/assets/hackthebox/routerspace/exploit_for_root.png)
 
-# Conclusion
+## Conclusion
 
 That box was really hard to me, because I didn't had to work with Android packages, so it was something new to me. It was really interesting to learn something new. Privilege escalation was good. I enjoyed the box so much!
 

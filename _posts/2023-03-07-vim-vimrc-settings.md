@@ -1,27 +1,22 @@
 ---
 layout: post
 title: Vim Settings
-category: Tools
+categories: [Programming, Vim]
 date: 2023-03-07 18:58 +0300
+image:
+  path: /assets/tools/vim-vimrc-settings/chatgpt_joke.png
+  alt: Skynet will appear faster than we expected...
 ---
 
 Hi! In this post we continue exploring Vim and its features. Today we discuss some useful settings (or configuration) in Vim. I don’t think it is a full guide for Vim settings, I’ll show just features that I do use in my work with Vim. To get a full guide you can use [Vim Fandom](https://vim.fandom.com/wiki/Vim_Tips_Wiki) and [vimdoc](https://vimdoc.sourceforge.net/htmldoc/usr_toc.html), which is a classic tutorial for Vim.
 
-{%
-    include image.html
-    url="/assets/tools/vim-vimrc-settings/chatgpt_joke.png"
-    description="Skynet will appear faster than we expected..."
-%}
-
-# Why customize Vim
+## Why customize Vim
 
 By configuring Vim to match the user's preferences, workflow, and coding style, the editor can be tailored to the user's needs and habits, making it faster and more convenient to use.
 
 Customizing Vim settings can also help to automate repetitive tasks, such as indentation, syntax highlighting, file formatting, and code navigation. This can save the user time and reduce the risk of errors, while improving the consistency and readability of the code.
 
 Furthermore, Vim has a large community of users and developers who share tips, tricks, and plugins that can be used to extend Vim's functionality and customize it even further. By learning how to customize Vim, users can take advantage of this vast ecosystem of resources and improve their editing experience.
-
-# Useful Vim settings
 
 ## Displaying and Navigating
 
@@ -222,7 +217,7 @@ The [set clipboard=unnamedplus](https://vim.fandom.com/wiki/Accessing_the_system
 The [set nocompatible](https://vim.fandom.com/wiki/Vi_compatibility) command turns off vi compatibility mode, which is enabled by default in Vim. Incompatible mode allows Vim to use more advanced features and settings that are not available in vi.
 
 
-# vimrc example
+## vimrc example
 
 [.vimrc](https://vim.fandom.com/wiki/Open_vimrc_file) is a configuration file for the Vim editor. It is written in Vim's own scripting language, which is similar to the Ex editor language and supports commands for customizing Vim's behavior, defining mappings, and creating functions. The Vim scripting language also supports the use of variables, loops, conditionals, and expressions, which allow for complex customizations to be made to the editor.
 
@@ -232,7 +227,7 @@ vimrc is located in `$HOME\_vimrc` for Windows and `$HOME/.vimrc` for Linux oper
 
 You can download the example of that file with all commands described in this article [here](/download/vimrc_example).
 
-# Conclusion
+## Conclusion
 
 We’ve explored basic vim configurations to customize Vim in this article. They can improve your work with Vim and make it look better! Take your time to explore these features and make it better for you.
 

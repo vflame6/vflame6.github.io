@@ -1,13 +1,13 @@
 ---
 layout: post
 title: HackTheBox - RedPanda
-category: HackTheBox
+categories: [HackTheBox, Easy]
 date: 2022-11-26 22:03 +0300
+image:
+  path: /assets/hackthebox/redpanda/RedPanda.png
 ---
 
-![Machine logo](/assets/hackthebox/redpanda/RedPanda.png){:height="400px" width="600px"}
-
-# Configuration
+## Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:
 
@@ -21,9 +21,9 @@ It is very useful to append `/etc/hosts/` with ip address of the machine. It is 
 echo '10.10.11.170  redpanda redpanda.htb' | sudo tee -a /etc/hosts
 ```
 
-# Reconnaissance
+## Reconnaissance
 
-## All ports scan
+### All ports scan
 
 ```zsh
 sudo masscan -e tun0 -p1-65535,U:1-65535 10.10.11.170 --rate=500
@@ -34,14 +34,14 @@ Discovered open port 22/tcp on 10.10.11.170
 Discovered open port 8080/tcp on 10.10.11.170
 ```
 
-## nmap ports scan
+### nmap ports scan
 
 ```zsh
 sudo nmap -A -p 22,8080 redpanda
 ```
 
 ```
-# The output is formatted by me
+## The output is formatted by me
 PORT     STATE SERVICE    VERSION
 22/tcp   open  ssh        OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
 8080/tcp open  http-proxy
@@ -50,7 +50,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 We have a `ssh` and `http` services here, HackTheBox is not about brute-forcing access, so let's explore the web application.
 
-## Web application
+### Web application
 
 ![Web app](/assets/hackthebox/redpanda/web_app.png)
 
@@ -73,9 +73,9 @@ We can input empty string, and the search console will return Greg red panda wit
 
 ![Greg red panda](/assets/hackthebox/redpanda/greg_red_panda.png)
 
-# user.txt
+## user.txt
 
-## Enumeration
+### Enumeration
 
 Looks like the search console is filtering the input, but let's intercept the request with `BurpSuite`. We start a proxy and sending request to the Repeater.
 
@@ -99,7 +99,7 @@ There is a `Server Side Template Injection` (STTI) vulnerability. But if we try 
 
 ![Star is that symbol](/assets/hackthebox/redpanda/star.png)
 
-## Exploitation
+### Exploitation
 
 Nice, now we have to identify template engine. Here we just have to try language specific injections. After some testing we find that the engine is Java. In [this github repository](https://github.com/VikasVarshney/ssti-payload) we can find a tool to generate java payload and get `Remote Code Exectuion`. That tool also supports url encode. At first we try to read `/etc/passwd`.
 
@@ -123,9 +123,9 @@ cat user.txt
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # EDITED
 ```
 
-# root.txt
+## root.txt
 
-## Exploring
+### Exploring
 
 I think HackTheBox developers have made this box not to ssh into it, because the user running the application has more privileges than ssh user, we can check it by `id` command. We will learn why it works like that later:
 
@@ -208,7 +208,7 @@ So, now we have all the information to perform our plan:
 
 We noted that ssh is running, so we are trying to read `/root/.ssh/id_rsa` file.
 
-## Privilege escalation
+### Privilege escalation
 
 Let’s start performing our plan to get root, we’ll get a random jpg and add the necessary details to it.
 
@@ -256,7 +256,7 @@ cat root.txt
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # EDITED
 ```
 
-# Conclusion
+## Conclusion
 
 I don't think it is an easy box, it was really hard to understand what to do here. But it is really cool feeling when your attempts finally starting work. I've learned a lot and enjoyed the box!
 

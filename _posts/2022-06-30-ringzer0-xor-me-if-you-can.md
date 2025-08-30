@@ -1,13 +1,13 @@
 ---
 layout: post
 title: RingZer0 CTF - Xor Me If You Can
-category: CTF
+categories: [CTF, RingZer0]
 date: 2022-06-30 16:25 +0300
 ---
 
-![Challenge banner](/assets/ringzer0/coding_challenges/xor_me_if_you_can.png)
-
 Hi! In this article we will solve a challenge from RingZer0CTF platform. In this challenge we have to decrypt message and send answer back within 3 seconds. We need some coding here, so we will use Python3. Let's solve it step-by-step 👨‍💻
+
+![Challenge banner](/assets/ringzer0/coding_challenges/xor_me_if_you_can.png)
 
 ## Imports and prepares 
 

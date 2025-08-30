@@ -3,7 +3,9 @@ layout: post
 title: Introducing Sharefinder - Network Shares Enumeration Tool
 date: 2025-03-22 09:05 +0300
 description: Introducing a new tool to find and enumerate SMB shares in networks and Active Directory domains.
-category: Pentest
+categories: [Pentest, Development]
+image:
+  path: /assets/pentest/introducing-sharefinder/sharefinder_demo.jpg
 ---
 
 ## Introduction

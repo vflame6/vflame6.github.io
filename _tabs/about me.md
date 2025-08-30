@@ -31,9 +31,9 @@ All information contained in this blog is provided for educational and research 
 ## Links
 
 <p align="left">
-  <a href="https://x.com/MaksimRadaev" target="_blank"><img src="https://img.shields.io/badge/-Twitter-1D9BF0?style=for-the-badge" alt="Twitter"></a>
-  <a href="https://github.com/vflame6" target="_blank"><img src="https://img.shields.io/badge/-GitHub-white?style=for-the-badge" alt="GitHub" /></a>
+  <a href="https://github.com/vflame6" target="_blank"><img src="https://img.shields.io/badge/-GitHub-F6F8FA?style=for-the-badge" alt="GitHub" /></a>
   <a href="https://t.me/vflame6" target="_blank"><img src="https://img.shields.io/badge/-Telegram-229ED9?style=for-the-badge" alt="Telegram Channel" /></a>
+  <a href="https://x.com/MaksimRadaev" target="_blank"><img src="https://img.shields.io/badge/-Twitter-1D9BF0?style=for-the-badge" alt="Twitter"></a>
   <a href="https://app.hackthebox.com/profile/973692" target="_blank"><img src="https://img.shields.io/badge/-HackTheBox-9FEF00?style=for-the-badge" alt="HackTheBox" /></a>
   <a href="https://tryhackme.com/p/vflamie" target="_blank"><img src="https://img.shields.io/badge/-TryHackMe-1C2331?style=for-the-badge" alt="TryHackMe" /></a>
   <a href="https://www.root-me.org/vflame6?lang=en" target="_blank"><img src="https://img.shields.io/badge/-Root%20Me-191C22?style=for-the-badge" alt="Root Me" /></a>
@@ -45,7 +45,7 @@ All information contained in this blog is provided for educational and research 
 ## Contact
 
 <p align="left">
-  <a href="https://www.linkedin.com/in/maksim-radaev/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://t.me/vflame9" target="_blank"><img src="https://img.shields.io/badge/-Telegram-white?style=for-the-badge&logo=Telegram" alt="Telegram" /></a>
-  <a href="https://discordapp.com/users/355932707827744779" target="_blank"><img src="https://img.shields.io/badge/-vflame6-2F3136?style=for-the-badge&logo=Discord" alt="Discord" /></a>
+  <a href="https://www.linkedin.com/in/maksim-radaev/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn Maksim Radaev" /></a>
+  <a href="https://t.me/vflame9" target="_blank"><img src="https://img.shields.io/badge/-@vflame9-F6F8FA?style=for-the-badge&logo=Telegram" alt="Telegram @vflame9" /></a>
+  <a href="https://discordapp.com/users/355932707827744779" target="_blank"><img src="https://img.shields.io/badge/-vflame6-2F3136?style=for-the-badge&logo=Discord" alt="Discord @vflame6" /></a>
 </p>

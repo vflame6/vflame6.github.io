@@ -1,13 +1,13 @@
 ---
 layout: post
 title: HackTheBox - StreamIO
-category: HackTheBox
+categories: [HackTheBox, Medium]
 date: 2022-09-17 15:35 +0300
+image:
+  path: /assets/hackthebox/streamio/StreamIO.png
 ---
 
-![Machine logo](/assets/hackthebox/streamio/StreamIO.png){:height="420px" width="620px"}
-
-# Configuration
+## Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:
 
@@ -23,9 +23,9 @@ It is very useful to append `/etc/hosts/` with ip address of the machine. It is 
 echo "10.10.11.158  streamio.htb" | sudo tee -a /etc/hosts
 ```
 
-# Reconnaissance
+## Reconnaissance
 
-## Port scan
+### Port scan
 
 We start with a port scan. I've decided to remove the masscan because of its problems with infinity wait after the work is done. So the script is changed and now executes only nmap. 
 
@@ -98,7 +98,7 @@ Host script results:
 
 It is an `Active Directory` domain. So the machine is Windows Server. It also has a web services on port 80/443. Let's start by enumerating the web service.
 
-## Web application
+### Web application
 
 On port 80 we can just see a Microsoft IIS default page. I think it is not interesting for us. Let's move on `HTTPS` port 443.
 
@@ -121,9 +121,9 @@ curl -k https://streamio.htb/admin/
 
 ![Admin page is forbidden](/assets/hackthebox/streamio/admin_page_forbidden.png)
 
-# user.txt
+## user.txt
 
-## Let sqlmap get the login page
+### Let sqlmap get the login page
 
 On login page it is hard to do something manually, so I've decided to pass it into `SQLMAP` tool. And it did find the injection, but it was `TIME-BASED` Microsoft SQL server injection. It was so boring to wait for the results, and you have to be lucky to dump the credentials you really need.
 
@@ -157,7 +157,7 @@ The hash was `MD5` type, I've found that with `haiti` tool. I did brute-force it
 
 When I logged in, I just moved to /admin/ page to see what is next. There was an `Admin panel` with some management functions.
 
-## Make LFI RCE again
+### Make LFI RCE again
 
 ![Admin panel](/assets/hackthebox/streamio/admin_panel.png)
 
@@ -213,7 +213,7 @@ curl -k -X POST -b 'PHPSESSID=o58kjrdjkb7glq5na58mikne95' -d 'include=http%3A%2F
 
 We're in!
 
-## Get all domain users
+### Get all domain users
 
 When we get in the domain, it is useful to enumerate and note some information about its users, computers, etc... To do that in our powershell session we have to import `ActiveDirectory` module. To enumerate all users we can use `Get-ADUser` cmdlet.
 
@@ -226,7 +226,7 @@ And it is useful to note the users list to us.
 
 ![Users list](/assets/hackthebox/streamio/user_list.png)
 
-## Dump the database backup
+### Dump the database backup
 
 At first I wanted to make a port-forwarding and dump the whole database with sqlmap, but I did not found the way to start sqlmap on streamio backup, the tool is just not accepting the "@" symbol in the password, even with backslashes and single-quotation. So I've decided to use a [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL). It is a powershell tool to enumerate SQL servers in the AD domain.
 
@@ -265,7 +265,7 @@ evil-winrm -i 10.10.11.158 -u nikk37 -p '-- EDITED --'
 
 ![Got user](/assets/hackthebox/streamio/got_user.png)
 
-# root.txt
+## root.txt
 
 With a privilege escalation in Active Directory domain the `Access Control Entities` (ACEs) and `Access Control Lists` (ACLs) are always there. The most powerful tool to enumerate them is `BloodHound`. BloodHound uses graph theory to reveal the hidden and often unintended relationships within an Active Directory or Azure environment. We have to grab the data about domain and upload it in the BloodHound. To grab the data I've uploaded `SharpHound.exe`, which is provided with BloodHound. It results an archive, we have to download it and upload in BloodHound GUI.
 
@@ -277,7 +277,7 @@ download 20220916142509_BloodHound.zip
 
 ![nikk37 groups](/assets/hackthebox/streamio/nikk37_groups.png)
 
-## Get passwords from browser
+### Get passwords from browser
 
 There is only 1 machine account in the domain, the DC. And we are in but with low privileges. In BloodHound I've found that user nikk37 can only PSRemote to DC and nothing interesting else. So, after spending some time to find something manually I decided to upload [winPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS).
 
@@ -313,7 +313,7 @@ And there it is. We got several passwords. The user admin does not exist in the 
 
 And we got it. Now we can perform actions as `JDgodd` user. But the user does not have the `CanPSRemote` permisson on the computer, this is why we are continuing do actions in nikk37 evil-winrm sessions.
 
-## Let ourselves ReadLAPSPassword
+### Let ourselves ReadLAPSPassword
 
 As we got a new owned user, we can check its abilities and permissions in the domain. In BloodHound we can note that JDgodd user have `WriteOwner` permission on `Core Staff` Group. Next we can see that the group has a `ReadLAPSPassword` permission. The members of this group to read the password set by `Local Administrator Password Solution` (LAPS). And them can read the Local Administrator password on the Domain Controller, so if we read this, we can compromise the domain!
 
@@ -358,7 +358,7 @@ The box is Pwn3d!
 
 ![Pwn3d!](/assets/hackthebox/streamio/pwn3d.png){:height="420px" width="620px"}
 
-# Conclusion
+## Conclusion
 
 That was the hardest box I've ever done. The starting enumeration was the hardest part of this box, I spent a lot of time on that. I think I could just enumerate the `streamio_db` database with SQLMAP without a reverse shell from the web, but it is okay 😂. But it was very interesting and it is so cool to learn about Windows and AD privilege escalation/lateral movement. I've really enjoyed the box!
 

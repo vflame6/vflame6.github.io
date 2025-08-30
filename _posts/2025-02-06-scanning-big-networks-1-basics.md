@@ -3,10 +3,10 @@ layout: post
 title: Scanning Big Networks - Basics
 date: 2025-02-06 12:47 +0300
 description: An overview of optimizing methods for network, host and port identification with nmap tool.
-category: Pentest
+categories: [Pentest, Research]
 ---
 
-# Introduction
+## Introduction
 
 Hi! Today I want to share my notes on scanning networks to identify potential vulnerable targets in case of big networks. We will review the methods of getting the right results and the ways to optimize these methods.
 
@@ -14,11 +14,11 @@ While I was working on a network pentest project, I’ve got into a client’s n
 
 I was in a situation when the time of the project was so much limited and I couldn’t perform all ports and services scanning. So it was crucial to do some optimization and prioritizing.
 
-# Overview of Internal Networks in Enterprise
+## Overview of Internal Networks in Enterprise
 
 An enterprise network is a large-scale, complex infrastructure that connects various devices, systems, and applications within an organization. Its primary goal is to ensure seamless communication, data sharing, and resource management across different departments and locations. These networks are designed to support business-critical operations, maintain high availability, and enforce robust security measures.
 
-## Types of Enterprise Networks
+### Types of Enterprise Networks
 
 **Flat Network**
 
@@ -38,7 +38,7 @@ This advanced network architecture not only segments the infrastructure but also
 
 Performing network scans in enterprise environments can be extremely time-consuming due to the vast number of devices, complex topologies, and stringent security measures. Therefore, it is essential to implement filtering and optimization techniques to streamline the scanning process. 
 
-# Configure nmap
+## Configure nmap
 
 The examples in this entire post will use the `nmap` tool to perform network scanning. You can accomplish the same results with other tools like `masscan`, `rustscan`, etc… But I will cover the nmap only here, because of its popularity and stability.
 
@@ -56,11 +56,11 @@ In our examples we will use a lot of nmap options to optimize the scanning. The 
 
 I will mention more specific options separately in sections below.
 
-# Identify Networks
+## Identify Networks
 
 The first task for us is to identify available networks. We want this to reduce number of blind network requests, like ping to host or no-ping port scanning.
 
-## Find routers
+### Find routers
 
 This can be accomplished with `find-the-router` method (I just came up with that name). The idea here is to ping or scan several ports only on only one host in subnet. That host must have a pattern for its IP-address, like `10.10.10.1` and `10.10.11.1`, where `.1` is used for routers, for example. 
 
@@ -80,9 +80,9 @@ If the ping scan is not available, but you know that routers in the network are 
 nmap -Pn -n --min-hostgroup 256 --min-rate 1280 -p 22,23,2222 -oA pattern-commonports 10.0-255.0-255.1
 ```
 
-# Identify Hosts
+## Identify Hosts
 
-## Multicast in local network
+### Multicast in local network
 
 Hosts are frequently announcing themselves with multicast traffic in their local network. For example they can do ARP requests to get the right IP-address, or announce hostnames or installed products with MDNS queries, like with Googlecast in Chrome browser. We can use that to identify neighbor hosts in our network.
 
@@ -90,7 +90,7 @@ Hosts are frequently announcing themselves with multicast traffic in their local
 
 Also, in case of Windows clients network, it is possible to search for enabled LLMNR/NETBIOS spoofing attack vectors if you see those queries in the multicast traffic. 
 
-## Ping
+### Ping
 
 The most common way to identify hosts is to use the ICMP protocol, which was designed to check the availability of the network resources. If the hosts are configured to response on ICMP-requests, we can use tools like native `ping` to discover hosts.
 
@@ -117,7 +117,7 @@ fping -g 10.10.110.0/24 2>&1 | grep -v 'unreachable' > ping_alives
 sudo nmap -sn -PE -iL scope.txt -oA pings
 ```
 
-## Common ports
+### Common ports
 
 This type of scan can be useful when a ping scan returns nothing, such as if the administrator has configured all systems to ignore ICMP echo requests.
 
@@ -133,7 +133,7 @@ After the scan is done, we can just grep the nmap output for `open` keyword. The
 cat commonports.gnmap | grep open | cut -d " " -f2
 ```
 
-## DNS server
+### DNS server
 
 We can find targets DNS server and leverage it to resolve the hosts and subdomains. This information could be used to identify the purpose of the host without interacting with it directly. 
 
@@ -159,14 +159,14 @@ We can perform the Reverse-IP resolve technique with [hakrevdns](https://github.
 cat ips.txt | hakrevdns -r 1.1.1.1
 ```
 
-# Identify Ports
+## Identify Ports
 
 Once we have a lists of targets, we want to start identifying available services on that targets. Our optimization here can be done with filtering less common ports entirely, paralleling the probes, decreasing network timeout time and increasing the minimum rate of probing within a second.
 
 > We will review UDP port scanning in the next section.
 {: .prompt-info }
 
-## One port
+### One port
 
 Less frequent example is to scan the network for only one opened port. For example, we may want to quickly identify all hosts with port 445 open to perform a password spraying for local administrator credentials. We can do that with command below:
 
@@ -174,7 +174,7 @@ Less frequent example is to scan the network for only one opened port. For examp
 sudo nmap --open -sS -Pn -n --min-hostgroup 4096 --max-retries 2 --max-rtt-timeout 500ms --min-rate 1000 --min-parallelism 128 -iL scope.txt -p 445 -oA scope_445_open
 ```
 
-## Common ports
+### Common ports
 
 More frequent example is to find common opened ports. These includes common ports for web applications, databases, backup systems, etc… 
 
@@ -184,7 +184,7 @@ In the example below we specify rate, parallelism, host group and a set of ports
 sudo nmap -v -sS -n -Pn --open --max-retries 2 --min-rate=200 --min-parallelism=128 --min-hostgroup 256 -p 2375,623,27017,27018,27019,28017,44818,6379,4786,3050,2049,5800,5900,1521,1433,5432,6000,3306,3389,8080,8081,8443,8180,1311,80,88,111,113,264,443,445,139,389,512,513,514,548,593,554,8554,873,1099,3128,3260,3299,5555,5984,8009,9100,9160,11211,135,513,21,22,23,79,10000,9000,110,25,143,16379,26379,1540,1541,1560,2222,2022,1022,8000,8001,8090,9443,8888,8800,4848,8181,8008,7000,7001,8880,2121,8400,6129,992,5433,9200,9300,4321,2376,10255,5000,8983,8088,8383,4990,8500,6066,2301,2381,5060 -iL <hosts> -oA <filename>
 ```
 
-## Top ports
+### Top ports
 
 Other way to identify opened ports is to use the list of top identified ports provided by the nmap or other tool. 
 
@@ -198,7 +198,7 @@ sudo nmap -v -sS -n -Pn --open --max-retries 2 --min-rate=200 --min-parallelism=
 
 The number of top ports can be changed. You can view the lists of top `N` ports for nmap in [top-nmap-ports-csv](https://github.com/HeckerBirb/top-nmap-ports-csv) repository.
 
-## All ports
+### All ports
 
 The most time-consuming method is to scan all available ports on target systems. But this method will give the most comprehensive results, like opened services on non-default ports. 
 
@@ -216,11 +216,11 @@ sudo nmap -g 53 -v -sS -n -Pn --open --max-retries 0 --min-rate=1000 --min-paral
 sudo nmap -g 53 -v -sS -n -Pn --open --max-retries 0 --min-rate=1000 --min-parallelism=256 --min-hostgroup 256 -p- -iL <hosts> -oA <filename>
 ```
 
-# Identify Services
+## Identify Services
 
 At this time of our work we have a list of targets and opened TCP ports. Now we may want to identify what services are provided behind these ports. We will review some identification methods and optimization options below. These can be combined with scanning optimization options.
 
-## http-title and ssl-cert
+### http-title and ssl-cert
 
 Since the most of the available services in the network is web applications, we can use that to do our scanning more efficiently by just grabbing the certificate and sending base HTTP requests to get the title of the page.
 
@@ -238,7 +238,7 @@ This method will identify services like SMTPS and IMAPS as well because the same
 
 ![http-title and ssl-cert example](/assets/pentest/scanning-big-networks-1/image3.png)
 
-## Bruteforce services
+### Bruteforce services
 
 The most common way of identifying services is to bruteforce request probes and view the answers on each request. If the signature of response matches the signature type of the request, then the service is identified. For example, getting `HTTP/1.1 200 OK` response on `GET / HTTP/1.1` request is the signature match for HTTP server. The server can give more values to process the signature, like the server version.
 
@@ -260,7 +260,7 @@ nmap -sV --version-intensity 0 10.10.10.10
 
 ![version-intensity example](/assets/pentest/scanning-big-networks-1/sv-0.png)
 
-## UDP services
+### UDP services
 
 In UDP scanning, it is impossible to determine open UDP ports without sending the exact data to them. You can check for explicitly closed ports if the target host is configured to send ICMP “Destination Unreachable” messages. Otherwise, you can only assume that the port is in `OPEN` or `FILTERED` state.
 
@@ -274,12 +274,12 @@ The solution here is to assume that target services don’t use non-standard UDP
 sudo nmap -v -Pn -n -g 53 -sU --open --min-rate=200 --min-parallelism=128 --min-hostgroup 256 -p 7,9,11,13,17,19,20,37,39,42,49,52-54,65-71,81,111,161,123,136-170,514-518,630,631,636-640,650,653,921,1023-1030,1900,2048-2050,27900,27960,32767-32780,32831 -sV -iL <hosts> -oA <filename>
 ```
 
-# Resources
+## Resources
 
 - [https://nmap.org/book/toc.html](https://nmap.org/book/toc.html)
 - [https://insights.sei.cmu.edu/blog/network-segmentation-concepts-and-practices/](https://insights.sei.cmu.edu/blog/network-segmentation-concepts-and-practices/)
 
-# Conclusion
+## Conclusion
 
 In this post we’ve reviewed methods of scanning networks to identify targets and the ways to optimize this time-consuming process.
 

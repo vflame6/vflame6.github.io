@@ -1,13 +1,13 @@
 ---
 layout: post
 title: HackTheBox - Outdated
-category: HackTheBox
+categories: [HackTheBox, Medium]
 date: 2022-12-11 10:33 +0300
+image:
+  path: /assets/hackthebox/outdated/Outdated.png
 ---
 
-![Machine logo](/assets/hackthebox/outdated/Outdated.png)
-
-# Configuration
+## Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:
 
@@ -25,9 +25,9 @@ It is very useful to append `/etc/hosts/` with ip address of the machine. It is 
 └─$ echo "10.10.11.175\toutdated.htb" | sudo tee -a /etc/hosts
 ```
 
-# Reconnaissance
+## Reconnaissance
 
-## Port scan
+### Port scan
 
 As always, we start with port scanning. I've updated my nmap bash script with a new feature - [nmap-bootstrap-xsl](https://github.com/honze-net/nmap-bootstrap-xsl). It is a tool to visualize your nmap scans. You have to insert a `--stylesheet` argument in your scan to use it. Also, I've added a `PN` toggle to my script. The script **fnmap.sh** is listed below
 
@@ -146,7 +146,7 @@ It is a `Windows server` machine with `Active Directory` (AD) enabled. There is 
 
 > 10.10.11.175    outdated.htb dc.outdated.htb
 
-## Foothold
+### Foothold
 
 We noted that SMB is enabled on the server, let's try to access it's shares for some informaiton. You can use `smbclient` tool to make anonymous connection to the SMB server.
 
@@ -170,9 +170,9 @@ There is the only one file, a `PDF`.
 
 Here we can note 3 things: an e-mail address `itsupport@outdated.htb`, that e-mail is likely going to follow  the links sent by us and the list of `CVEs` that probably we can exploit here.
 
-# user.txt
+## user.txt
 
-## Contact with itsupport
+### Contact with itsupport
 
 Our first step is to check our assumption that the itsupport will follow the links sent by us. We can use a tool `swaks` to send e-mails on mail servers. Also, I've added anew subdomain mail.outdated.htb in my hosts file here. To reach the goal we have to set up a web server.
 
@@ -186,7 +186,7 @@ swaks --to 'itsupport@outdated.htb' --from test@test.com --body 'http://<IP>/' -
 
 There it is, the itsupport works hard!
 
-## Follina attack
+### Follina attack
 
 The first vulnerability in the list presented in PDF is [Follina MS-MSDT attack vector](https://github.com/JohnHammond/msdt-follina). And there are a lot of exploits presented on GitHub, but this version has a reverse-shell feature included, so I've used it here.
 
@@ -208,7 +208,7 @@ swaks --to 'itsupport@outdated.htb' --from test@test.com --body 'http://<IP>/' -
 
 And we got it. But there is no user flag in btables user's Desktop, so we need to get another user.
 
-## Shadow credentials attack
+### Shadow credentials attack
 
 It is an AD domain, so it is useful to upload a [SharpHound](https://bloodhound.readthedocs.io/en/latest/data-collection/sharphound.html) tool on the machine and enumerate `Access Control Lists` (ACLs) in the domain. I switched to powershell and used it's `Invoke-WebRequest` (iwr) cmdlet to get files on the machine.
 
@@ -293,9 +293,9 @@ evil-winrm -u sflowers -H <sflowers NTLM hash> -i dc.outdated.htb
 
 ![Got user flag!](/assets/hackthebox/outdated/user_flag.png)
 
-# root.txt
+## root.txt
 
-## Exploring for WSUS
+### Exploring for WSUS
 
 We noted that WSUS is enabled on the domain, so we can check if it is vulnerable. To do that we have a [SharpWSUS](https://github.com/nettitude/SharpWSUS) tool and a nice [cheatsheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Active%20Directory%20Attack.md#wsus-deployment) from PayloadAllTheThings. We upload the tool to the DC.
 
@@ -325,7 +325,7 @@ Get-AuthenticodeSignature -FilePath "C:\Users\sflowers\Desktop\PsExec64.exe"
 
 Now we do have all parts of a puzzle, so let's exploit it!
 
-## Exploit WSUS
+### Exploit WSUS
 
 I've had problems with powershell here, so I decided to use `cmd /c '<COMMAND>'` to make it work.
 
@@ -359,7 +359,7 @@ evil-winrm -u WSUSDemo -p 'Password123!' -i dc.outdated.htb
 
 ![Got root!](/assets/hackthebox/outdated/root_flag.png)
 
-# Conclusion
+## Conclusion
 
 There are a few Windows machines on the HackTheBox now, all latest releases was Linux and that's sad. But I think it has a reason...
 

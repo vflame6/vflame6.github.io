@@ -1,13 +1,13 @@
 ---
 layout: post
 title: RingZer0 CTF - SysAdmin Linux
-category: CTF
+categories: [CTF, RingZer0]
 date: 2022-07-02 18:32 +0300
 ---
 
 Hi! In this article we will solve a suite of challenges about Linux on RingZer0CTF platform. The challenges are divided by levels. Let's solve them level-by-level!
 
-# Preparation
+## Preparation
 
 We have to log in via `ssh` in this challenges, there's how to use it:
 
@@ -15,7 +15,7 @@ We have to log in via `ssh` in this challenges, there's how to use it:
 $ ssh $LOGIN@$HOSTNAME -p $PORT [-i $private_key]
 ```
 
-# Level 1
+## Level 1
 
 ![The 1st challenge](/assets/ringzer0/sysadmin_linux/level1.png)
 
@@ -28,7 +28,7 @@ morpheus@sysadmin-track:~$ ps -ax
 ... output ...
 ```
 
-# Level 2
+## Level 2
 
 ![the 2nd challenge](/assets/ringzer0/sysadmin_linux/level2.png)
 
@@ -55,7 +55,7 @@ morpheus@sysadmin-track:~$ echo "EDITED BASE64 STRING" | base64 -d && echo
 FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # EDITED
 ```
 
-# Level 3
+## Level 3
 
 ![The 3rd challenge](/assets/ringzer0/sysadmin_linux/level3.png)
 
@@ -107,7 +107,7 @@ mysql> select * from flag;
 
 ```
 
-# Level 4
+## Level 4
 
 ![The 4th challenge](/assets/ringzer0/sysadmin_linux/level4.png)
 
@@ -133,7 +133,7 @@ FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # EDITED
 
 The flag was encoded by `base64`, so we docode it with a command.
 
-# Level 5
+## Level 5
 
 ![The 5th challenge](/assets/ringzer0/sysadmin_linux/level5.png)
 
@@ -156,7 +156,7 @@ oracle@sysadmin-track:~$ reveal
 FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # EDITED
 ```
 
-# Level 6
+## Level 6
 
 ![The 6th challenge](/assets/ringzer0/sysadmin_linux/level6.png)
 
@@ -209,7 +209,7 @@ change my current password FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 don't forget to remove this :)
 ```
 
-# Level 7
+## Level 7
 
 ![The 7th challenge](/assets/ringzer0/sysadmin_linux/level7.png)
 
@@ -230,7 +230,7 @@ write(-1, "get-cpuinfo\n", 12)          = -1 EBADF (Bad file descriptor)
 clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=10, tv_nsec=0}, 0x7ffe4a1b4430) = 0
 ```
 
-# Level 8
+## Level 8
 
 ![The 8th challenge](/assets/ringzer0/sysadmin_linux/level8.png)
 
@@ -267,7 +267,7 @@ FLAG-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX #EDITED
 
 Decode base64 string and get the flag!
 
-# Conclusion
+## Conclusion
 
 It was a cool track, I've really enjoyed it!
 

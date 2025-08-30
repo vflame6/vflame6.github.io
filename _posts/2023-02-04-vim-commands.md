@@ -1,15 +1,16 @@
 ---
 layout: post
 title: Vim Commands
-category: Tools
+categories: [Programming, Vim]
 date: 2023-02-04 03:18 +0300
+image:
+  path: /assets/tools/vim-commands/open_vim_first_time.jpeg
+  alt: When you opened Vim for the first time
 ---
 
 Hi! Today I want to talk and share my notes about `Vim`. You can find notes about basic Vim command here. There won't be settings commands like `:set number`, we will explore them later. Here I want to show you basic Vim usage.
 
 ## First steps
-
-![You opened Vim for the first time](/assets/tools/vim-commands/open_vim_first_time.jpeg)
 
 ### What is Vim
 

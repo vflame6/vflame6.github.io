@@ -3,12 +3,14 @@ layout: post
 title: Hello, World!
 description: Introducing my brand new Blog where I will write something interesting.
 date: 2022-06-26 01:08 +0300
-category: Blog
+categories: [Blog, Lifestyle]
+image:
+  path: /assets/img/logo.png
 ---
 
-## Today I'm going to start my own blog.
+## Today I'm going to start my blog.
 
-Hello, my name is Max, I'm a student of the SPbSUT, Russia🇷🇺.
+Hello, my name is Maksim 'vflame6' Radaev, I'm a student of the SPbSUT, Russia🇷🇺. Studying on the university path of 10.03.01 - "Information Security".
 
 I study cybersecurity and want to become a penetration tester.
 

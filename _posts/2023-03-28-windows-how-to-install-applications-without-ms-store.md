@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to install Microsoft Store applications without Microsoft Store
-category: Tools
+categories: [Programming, Tips]
 date: 2023-03-28 10:53 +0300
 ---
 
@@ -9,9 +9,9 @@ I had to install a Windows 10 VM to do some researches. But I’ve got a problem
 
 In this article I will show you how to install MS Store specific applications without MS Store. You can even install the MS Store itself by doing this.
 
-# Install App Installer
+## Install App Installer
 
-## Turn on Developer Mode
+### Turn on Developer Mode
 
 Firstly, we have to turn on “Developer Mode”. Press Ctrl + I → Click “Privacy and Security” → Click “For developers” → Turn on “Developer Mode” → Click “Yes”.
 
@@ -21,7 +21,7 @@ Firstly, we have to turn on “Developer Mode”. Press Ctrl + I → Click “Pr
     description="Turning on the Developer Mode in Windows"
 %}
 
-## Install the application
+### Install the application
 
 Find the application on MS Store web and copy link to that web page.
 
@@ -62,7 +62,7 @@ Check everything is OK. After installation, you could open .msix, .msixbundle an
     description="Trying to open an installer application with App Installer"
 %}
 
-# Example with WhatsApp Desktop
+## Example with WhatsApp Desktop
 
 Suppose you want to install WhatsApp Desktop on your Windows computer. How can you do it without interacting with MS Store? The example of the process is below.
 
@@ -94,13 +94,10 @@ If you did install the App Installer app before, you can install applications in
 
 Click the “Install” button and there you are.
 
-{% 
-    include image.html
-    url="/assets/tools/windows-how-to-install-applications-without-ms-store/install_success.png"
-    description="WhatsApp is installed successfully"
-%}
+![WhatsApp is installed successfully](/assets/tools/windows-how-to-install-applications-without-ms-store/install_success.png)
+_WhatsApp is installed successfully_
 
-# Conclusion
+## Conclusion
 
 Today we learned how to install Microsoft Store applications without the MS store itself. You can also install applications and packages which are not distributed from the MS Store with App Installer.
 

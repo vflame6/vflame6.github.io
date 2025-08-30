@@ -2,7 +2,7 @@
 layout: post
 title: You received a NetNTLMv1 hash. What next?
 date: 2025-08-29 01:00 +0300
-category: Pentest
+categories: [Pentest, Research]
 description: Exploring several ways to abuse NetNTLMv1 in corporate networks.
 ---
 

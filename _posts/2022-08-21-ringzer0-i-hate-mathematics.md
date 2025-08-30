@@ -1,21 +1,21 @@
 ---
 layout: post
 title: RingZer0 CTF - I Hate Mathematics
-category: CTF
+categories: [CTF, RingZer0]
 date: 2022-08-21 20:34 +0300
 ---
 
 Hi, I keep doing challenges on [RingZer0](https://ringzer0ctf.com/) and today I'm going to show the solution to "I hate mathematics" challenge. Here I'll use `JavaScript` and [Tampermonkey](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) tool to solve the task.
 
-# The challenge
+## The challenge
 
 ![Challenge banner](/assets/ringzer0/coding_challenges/i-hate-mathematics/i-hate-mathematics.png)
 
 Today's challenge is very simple. We just have to solve a math expression in 2 seconds and send the answer back. I think it will be boring to do in Python, so I've decided to solve it by using JavaScript and a userscript manager tool Tampermonkey. You can find the tool in a link below, it is available for Chrome, Firefox, etc...
 
-# Configuration
+## Configuration
 
-## Install Tampermonkey
+### Install Tampermonkey
 
 To solve this we have add Tampermonkey to our browser extensions and create a new script. It will open a new window with our new empty script.
 
@@ -37,9 +37,9 @@ Here `setTimeout` function will wait 100 miliseconds to execute a `solveTask` fu
 
 ![Tampermonkey works](/assets/ringzer0/coding_challenges/i-hate-mathematics/tm_works.png)
 
-# Solve
+## Solve
 
-## Get the message
+### Get the message
 
 I am putting a code provided here in solveTask function, so when I reload the page it executes.
 
@@ -52,7 +52,7 @@ const re = /^\d+.*/gm;
 message = message.match(re)[0];
 ```
 
-## Take the flag
+### Take the flag
 
 We've got an expression string. Now we have to get our values and convert them into decimal form. Javascript's string has a `split` method, which works just like in Python, so I used it here to get an array and extract the values. Also, we have to convert strings into integers, JS provides a `parseInt` function, which can be used to convert decimal, binary and hexadecimal numbers.
 
@@ -102,7 +102,7 @@ window.onload =(function () {
 })();
 ```
 
-# Conclusion
+## Conclusion
 
 I think the post might be boring, but I wanted to show a Tampermonkey tool, which allows us to do much more things than I've showed here. In-browser automation tasks could be solved just by using JavaScript in your browser, I think it is cool to do.
 

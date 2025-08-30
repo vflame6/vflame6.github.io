@@ -3,10 +3,10 @@ layout: post
 title: Scanning Big Networks - Alternative Methods
 date: 2025-02-06 12:47 +0300
 description: Alternative to scanning methods to achieve network, host and port identification. This post covers Active Directory domains and Kubernetes clusters.
-category: Pentest
+categories: [Pentest, Research]
 ---
 
-# Introduction
+## Introduction
 
 Hi! Today I want to continue sharing my notes on scanning enterprise networks. 
 
@@ -14,11 +14,11 @@ At part 1 we did review the basics for optimizing our scanning techniques to get
 
 At this part of Scanning Big Networks series, we will review some alternatives to identify hosts and services in the network in case of Active Directory domains and Kubernetes clusters. These methods can provide enough information for us to process by leveraging enumeration of specific technologies.
 
-# Active Directory
+## Active Directory
 
 In case of Active Directory networks, we can leverage queries for registered services, workstations and servers.
 
-## Bruteforce DNS records
+### Bruteforce DNS records
 
 The DNS server on Domain Controller can be used to do reverse-ip queries to get the actual domain names. In case of AD networks it can be used to identify available hosts and the actual purpose of these hosts. 
 
@@ -34,7 +34,7 @@ The reverse IP-address technique will work here as well.
 cat ips.txt | hakrevdns -r 10.10.10.10
 ```
 
-## Query AD computers
+### Query AD computers
 
 If we have credentials for Active Directory user account, we can start enumerate the domain. All users in the domain are allowed to access Active Directory LDAP database and get some information about the domain.
 
@@ -48,7 +48,7 @@ For example, we can use [PowerView](https://github.com/PowerShellMafia/PowerSplo
 Get-DomainComputer | Out-File -FilePath computers.txt
 ```
 
-## Query AD services
+### Query AD services
 
 The Active Directory domain contains . ServicePrincipalName attribute allows interpret the object as a service and request access for it with Kerberos.
 
@@ -85,7 +85,7 @@ If the LDAP service is not available for us, we can try to use Active Directory 
 SharpADWS.exe Kerberoastable -action list
 ```
 
-## Get DNS zone through LDAP
+### Get DNS zone through LDAP
 
 To dump DNS zones stored in Active Directory via LDAP, you typically need **read access** to the relevant DNS partitions in Active Directory. By default, **Domain Admins** and **Enterprise Admins** have this access, but regular authenticated users might also have read permissions unless explicitly restricted. We need a read access to DNS application partitions:
 
@@ -153,11 +153,11 @@ All Windows DNS servers, whether AD DCs or not, also have their information acce
 samba-tool dns query 10.10.10.10 company.local @ ALL --username 'COMPANY\adminperson' --password 'P4S5w0rd' | grep 'A: ' -B1 | sed 's/ //g;s/(.*)//g;s/,Records.*//g;s/AAAA://g;s/A://g' | awk '/^Name.*/{if(buf){print buf};buf=$1}/^[a-zA-Z0-9]/{buf=buf","$0}END{print buf}' | sed 's/Name=//g' | awk -F',' '{print"\""$2"\"," $3}' | tr '[:upper:]' '[:lower:]' | sed '1 i\\"hostname\",ip_addr' > ad_records.csv
 ```
 
-# Kubernetes
+## Kubernetes
 
 Kubernetes has a built-in functionality to enumerate clusters and namespaces. It uses well-documented REST API for its clients and DNS server distribute and configure names of resources. We can use them in our work to enumerate the cluster or its resources.
 
-## Query k8s API
+### Query k8s API
 
 The k8s API is used to access cluster resources. We can do everything with the cluster with that API. We will focus on resource enumeration techniques here.
 
@@ -199,7 +199,7 @@ export TOKEN=$(cat ${SERVICEACCOUNT}/token)
 curl -k --header "Authorization: Bearer ${TOKEN}" https://${APISERVER}/api/v1/namespaces/${NAMESPACE}/pods
 ```
 
-## Bruteforce k8s services
+### Bruteforce k8s services
 
 If we don’t have rights to list pods and services via k8s API, we can perform bruteforce enumeration by interacting with k8s DNS service. The https://github.com/Esonhugh/k8spider tool is used to automate the process.
 
@@ -237,7 +237,7 @@ You can see the examples of k8spider work below:
 
 ![k8spider example 2](/assets/pentest/scanning-big-networks-3/k8spider-2.png)
 
-# Resources
+## Resources
 
 - [https://t.me/vflame6/60](https://t.me/vflame6/60)
 - [https://superuser.com/questions/1752992/can-i-look-up-dns-a-records-through-ldap](https://superuser.com/questions/1752992/can-i-look-up-dns-a-records-through-ldap)
@@ -245,7 +245,7 @@ You can see the examples of k8spider work below:
 - [https://stackoverflow.com/questions/58159866/get-vs-list-in-kubernetes-rbac](https://stackoverflow.com/questions/58159866/get-vs-list-in-kubernetes-rbac)
 - [https://adsecurity.org/?page_id=183](https://adsecurity.org/?page_id=183)
 
-# Conclusion
+## Conclusion
 
 In this post we’ve reviewed methods of network, host and port identification without actually scanning the network. As we see, we can get some attack surface by just accessing enterprise directory services and management clusters.
 

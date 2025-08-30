@@ -1,13 +1,13 @@
 ---
 layout: post
 title: HackTheBox - Ambassador
-category: HackTheBox
+categories: [HackTheBox, Medium]
 date: 2023-01-28 20:28 +0300
+image:
+  path: /assets/hackthebox/ambassador/Ambassador.png
 ---
 
-![Machine logo](/assets/hackthebox/ambassador/Ambassador.png){:height="400px" width="600px"}
-
-# Configuration
+## Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:
 
@@ -25,9 +25,9 @@ It is very useful to append `/etc/hosts/` with ip address of the machine. It is 
 └─$ echo "10.10.11.183\tambassador.htb" | sudo tee -a /etc/hosts
 ```
 
-# Reconnaissance
+## Reconnaissance
 
-## Port scan
+### Port scan
 
 As always, we start with port scanning. I've updated my nmap bash script with a new feature - [nmap-bootstrap-xsl](https://github.com/honze-net/nmap-bootstrap-xsl). It is a tool to visualize your nmap scans. You have to insert a `--stylesheet` argument in your scan to use it. Also, I've added a `PN` toggle to my script.
 
@@ -133,21 +133,21 @@ PORT      STATE  SERVICE VERSION
 
 Here we can see `SSH` server on port 22, the `HTTP` server on port 80, another `HTTP` web application on port 3000 and a `MySQL` database server on port 3306. Let's start our exploring with standard web application on port 80. 
 
-## Port 80 - Blog website
+### Port 80 - Blog website
 
 ![Port 80](/assets/hackthebox/ambassador/port80.png)
 
 We can see a static blog website here. There is one thing useful for us, we can note about `developer` account name showed in blog post. It will help us later.
 
-## Port 3000 - Grafana web application
+### Port 3000 - Grafana web application
 
 ![Port 3000](/assets/hackthebox/ambassador/port3000.png)
 
 Here we can see a [Grafana](https://grafana.com/) web application, but we don't have the credentials, and standard admin/admin is not working.
 
-# user.txt
+## user.txt
 
-## CVE-2021-43798
+### CVE-2021-43798
 
 But if we click on `Forgot password` button, the page opened will show us a `version` of that application, which is `8.2.0`.
 
@@ -227,7 +227,7 @@ python 50581.py -H 'http://ambassador.htb:3000' -F '/etc/passwd'
 
 And it is working, as we noted, the developer user account is avalable here.
 
-## Grafana config file
+### Grafana config file
 
 Our next step is to search something interesting available by low-privileged user running the web server. We can search for some `configuration files`, and the first thing we should get is a config file of the Grafana server. We can find its [location](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#linux) in the documentation.
 
@@ -245,7 +245,7 @@ From config file we can note it is `SQLite3` database. We have to search for its
 python 50581.py -H 'http://ambassador.htb:3000' -F '/var/lib/grafana/grafana.db'
 ```
 
-## SQLite3 database
+### SQLite3 database
 
 The database file hasn't a password, so we can access it directly. The tool here is `sqlite3`. We can list tables of the database with `.tables` command.
 
@@ -266,7 +266,7 @@ SELECT * FROM data_source;
 
 There are credentials for the MySQL database.
 
-## MySQL database
+### MySQL database
 
 We noted that MySQL database is available on port 3306. We can access it with `mysql` tool. In MySQL we can list databases with `SHOW` command.
 
@@ -309,9 +309,9 @@ cat user.txt
 
 ![user.txt](/assets/hackthebox/ambassador/user.png)
 
-# root.txt
+## root.txt
 
-## Preparation
+### Preparation
 
 I like to use my aliases on Linux machines, like make the `ls` command show full information in directory, like hidden files without typing the parameters everytime.
 
@@ -319,7 +319,7 @@ I like to use my aliases on Linux machines, like make the `ls` command show full
 alias ll='ls -lsaht'
 ```
 
-## Git repository
+### Git repository
 
 In developers home directory we can find a `.gitconfig` file, we can note that `git` is installed here. File contains the information about git repository available in /opt/ directory.
 
@@ -343,7 +343,7 @@ git show 33a53ef9a207976d5ceceddc41a199558843bf3c
 
 In the first commit we can find an interesting thing. The `token` for [Consul](https://www.consul.io/) tool. 
 
-## Consul tool
+### Consul tool
 
 Consul is a multi-networking tool which provides solutions for operating microservies and cloud infrastructure.
 
@@ -367,7 +367,7 @@ consul info --token <consul token>
 
 The token is valid, and the ACLs are enabled here, so now have all the things to get `root` on thd machine.
 
-## RCE in consul with Metasploit
+### RCE in consul with Metasploit
 
 The [Metasplot framework](https://www.metasploit.com/) has an [exploit](https://www.exploit-db.com/exploits/46074) for this exploitation path. Consul is running on port 8500 by default, but it is only available from the target machine, so we have to set port tunneling. `ssh` tool contains port forwarding functions. We set tunnel from our port 4000 to targets localhost port 8500.
 
@@ -393,7 +393,7 @@ And we got the meterpreter shell, jump in basic shell with `shell` command and g
 
 ![root.txt](/assets/hackthebox/ambassador/root.png)
 
-# Conclusion
+## Conclusion
 
 The machine was not so hard like other machines to find the weaknesses and vulnerabilities. But there were a lot of different things to search and exploit. It was cool to learn some new technologies like Consul. Thanks for the [author](https://app.hackthebox.com/users/24906) for nice machine. 
 

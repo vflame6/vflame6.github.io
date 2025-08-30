@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vim Text Objects
-category: Tools
+categories: [Programming, Vim]
 date: 2023-02-18 09:04 +0300
 ---
 

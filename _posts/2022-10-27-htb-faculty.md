@@ -2,12 +2,12 @@
 layout: post
 title: HackTheBox - Faculty
 date: 2022-10-27 15:02 +0300
-category: HackTheBox
+categories: [HackTheBox, Medium]
+image:
+  path: /assets/hackthebox/faculty/Faculty.png
 ---
 
-![Machine logo](/assets/hackthebox/faculty/Faculty.png){:height="414px" width="615px"}
-
-# Configuration
+## Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:
 
@@ -25,9 +25,9 @@ It is very useful to append `/etc/hosts/` with ip address of the machine. It is 
 10.10.11.169    faculty
 ```
 
-# Reconnaissance
+## Reconnaissance
 
-## Port scan
+### Port scan
 
 I like to scan ports with `masscan` and `nmap`. Masscan is a fastest asynchronous port scanner in the world now. The developer says this tool can scan the whole Internet in 5 minutes from a single machine.
 
@@ -78,7 +78,7 @@ Nmap says that it is Ubuntu Bionic (18.04), we can note it in [SSH banner](https
 > In /etc/hosts:
 > 10.10.11.169    faculty faculty.htb
 
-## Port 80 - web server
+### Port 80 - web server
 
 ![Web server](/assets/hackthebox/faculty/web-server.png)
 
@@ -114,7 +114,7 @@ gbyolo:x:1000:1000:gbyolo:/home/gbyolo:/bin/bash
 developer:x:1001:1002:,,,:/home/developer:/bin/bash
 ```
 
-## Initial access
+### Initial access
 
 And we noted that SSH is enabled on the server, but when I checked for their id_rsa keys with a PDF file read, I haven't found anything. So we have to enumerate the webserver more. I've started BurpSuite and checked for requests on some pages.
 
@@ -172,9 +172,9 @@ gbyolo@faculty:~$
 
 We've got an initial access! Unfortunately, there is no user flag, so we have to get the developer user.
 
-# user.txt
+## user.txt
 
-## Explore the system
+### Explore the system
 
 For more convenience I import my alias on the machine:
 
@@ -231,7 +231,7 @@ User gbyolo may run the following commands on faculty:
     (developer) /usr/local/bin/meta-git
 ```
 
-## Exploit for lateral movement
+### Exploit for lateral movement
 
 Now we just need to google how to exploit it. I've found [this report](https://hackerone.com/reports/728040) by just googling "meta-git exploit", so we're cool! It gives us a RCE as a developer user. We probably could get a shell, but I tried to read deleloper's `id_rsa` and it has worked!
 
@@ -246,9 +246,9 @@ Now we just copy the private key, change it's permissions and login as a develop
 ![user.txt](/assets/hackthebox/faculty/user_txt.png)
 
 
-# root.txt
+## root.txt
 
-## Exploring for privesc
+### Exploring for privesc
 
 By performing a basic enumeration we can see that developer user has got more groups than usual:
 
@@ -293,7 +293,7 @@ developer@faculty:~$ capsh --decode=0000003fffffffff
 
 And we got it. Let's perform our attack!
 
-## Exploit
+### Exploit
 
 Now we just have to interact the process and call a system function to get a reverse shell. We need to set up a listener and perform the exploit.
 
@@ -318,7 +318,7 @@ It worked! The box is pwned!
 
 ![pwned](/assets/hackthebox/faculty/pwned.png)
 
-# Conclusion
+## Conclusion
 
 It was a really cool box, It was so fun to understand that I solved the problem, but I just didn't know about PDFs in Firefox. A privilege escalation was cool too, I've never exploited anything like that.
 

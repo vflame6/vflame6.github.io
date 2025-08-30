@@ -2,23 +2,23 @@
 layout: post
 title: Scanning Big Networks - Evasion, Automation and Visualization
 date: 2025-02-06 12:47 +0300
-category: Pentest
+categories: [Pentest, Research]
 description: Advanced topics on network, host and port identification with defense evasion, automation of the scanning and results visualization.
 ---
 
-# Introduction
+## Introduction
 
 Hi! Today I want to continue sharing my notes on scanning enterprise networks. 
 
 At part 1 we did review the basics for optimizing our scanning techniques to get better results for less time. At part 2 I will try to highlight more specific tasks like facing the defense solutions and upgrading the processing of the results.
 
-# Defense Evasion
+## Defense Evasion
 
 While doing the scanning, we might face a various defense solutions, like IPS and NGFW. These solutions can monitor the network traffic, or collect statistics from endpoints. They may highlight amount of network connections from one source host and scan for malicious signatures, for example. Then they do make a decision about alerting for suspicious activity or even banning the hosts IP-address for a while.
 
 In this section, we will review various methods to evade these defense solutions. But it have to note that we must pay for it with our time or our results of the scan. 
 
-## Care about interfaces
+### Care about interfaces
 
 Assume you have a several network interfaces available on your device. You will have a default routing tables for your gateways unless you explicitly configured the routes. This means that several routes from different interfaces can interfere with each other, especially while working with several VPN connections. 
 
@@ -33,7 +33,7 @@ nmap -e eth0 ...
 
 ![nmap iflist example](/assets/pentest/scanning-big-networks-2/nmap-iflist.png)
 
-## Scanning speed
+### Scanning speed
 
 One of the first metrics for network defense solutions may be a speed and amount of connections from one 
 
@@ -58,7 +58,7 @@ We can also apply the same logic for our ping scan. The max-retries value is set
 sudo nmap -PE -sn -n -T2 -—min-hostgroup 8192 -—max-retries 1 -—max-rtt-timeout 1000ms -oA ping_10.10.10.0_24 10.10.10.0/24
 ```
 
-## Idle scanning
+### Idle scanning
 
 Another option to evade speed scanning alerts is to hide or shuffle our source host IP-address. We can perform this in local network with Idle Scan technique. Or we may have take over several machines in the network and distribute the scanning to them, for example.
 
@@ -74,7 +74,7 @@ nmap -Pn -sI 192.168.1.109 192.168.1.114
 
 You can read more about Idle Scan at nmap's [idle scan documentation](https://nmap.org/book/idlescan.html).
 
-## Hosts order
+### Hosts order
 
 By default, nmap takes an order of scanned hosts from us. This means that is walk consistently in our list of targets or specified network in terminal. Some intrusion detection and prevention systems may pay attention for the order of hosts we interact with. They may recognize that attempt to connect to port 80 on host 10.10.10.1, then 10.10.10.2 and then 10.10.10.3 is suspicious if they have an enough access to these systems or they do sniff a network traffic.
 
@@ -86,7 +86,7 @@ An alternative solution is to generate the target IP list with a list scan and r
 nmap --randomize-hosts -iL scope.txt
 ```
 
-## Source port number
+### Source port number
 
 According to nmap documentation:
 
@@ -101,7 +101,7 @@ Nmap offers the `-g` and `--source-port` options (they are equivalent) to ex
 sudo nmap -g 53 10.10.10.10
 ```
 
-## Service bruteforce
+### Service bruteforce
 
 It worth noting that service bruteforce is a really bad practice in case of facing defense solution. Nmap’s service signatures are well-documented and security vendors use them to ban potential threats even at `--version-intensity 0` level. 
 
@@ -109,7 +109,7 @@ The easy solution here is to not use the version detection options entirely, and
 
 The hard solution here is to review the service detection database and try to identify potential signatures, that could be used by security vendors. We will review an example of nmap’s hard-coded signature in the next section.
 
-## Signatures
+### Signatures
 
 Be aware of defense systems in the target perimeter, like IPS or NGFW. These solutions will identify and ban common scanning signatures, like several ones for nmap.
 
@@ -129,11 +129,11 @@ USER_AGENT = stdnse.get_script_args('http.useragent') or "Mozilla/5.0 (Windows N
 
 You can search for other nmap signatures and change them in your own version of nmap. For example, nmap has a default set of HTTP requests when performing the service scan. These requests paths are not randomized and can be used in signatures. So, their can be changed too. I'll leave that for the reader to explore further.
 
-# Automation
+## Automation
 
 We’ve reviewed several methods to optimize our scanning. Now we can think about how to automate this processes to get the clearest results possible for given amount of time. At this section we will review some scripts and tools to get the highest scanning surface or get the fastest results as possible.
 
-## Find hosts by opened port
+### Find hosts by opened port
 
 One of the most basic tasks here is to quickly scan the network to identify available hosts by scanning only one port. I wrote a script to automate the configuration and pass just a list of targets and the target port into the script. You can find it in my [GitHub repository](https://github.com/vflame6/kali-scripts/blob/main/scanning/find_hosts_by_port.sh)
 
@@ -147,7 +147,7 @@ nmap -iL "$1" -p "$2" --open -Pn -n \
     | cut -d " " -f5
 ```
 
-## HackTheBox-like scanning
+### HackTheBox-like scanning
 
 In case of doing labs like HackTheBox I always want to get the full results of the network scanning to be sure that nothing is missed. I also use that when I’m sure that the target host is very important and I want to be sure that everything is checked during the work.
 
@@ -166,7 +166,7 @@ sudo nmap -p$ports $UDP -sS -T4 -Pn --open -sC -sV \
 
 ![fnmap example](/assets/pentest/scanning-big-networks-2/fnmap.png)
 
-## Step-by-step network scanning
+### Step-by-step network scanning
 
 The more practical task is automate network scanning by dividing it into several steps. At first you may want to identify hosts and a low number of common opened ports in the network. Then, you can go deeper by increasing the number of scanned ports to hundreds or thousand. And the last step will be get a full port scan of the hosts to get the most clear results. This process must be very quickly at the first step and may take some time for the last step.
 
@@ -208,9 +208,9 @@ After the scan is done, you will get the merged version of the report. You can v
 
 ![image.png](/assets/pentest/scanning-big-networks-2/362936cb-9506-4b96-a9b3-cc94fb204d00.png)
 
-# Visualize the output
+## Visualize the output
 
-## Nmap scan to formatted tables
+### Nmap scan to formatted tables
 
 In case of big network scanning it can be hard to process nmap text or greppable results, because they are designed to view in terminal. In my opinion, the most effective way to view scan results is to view the tables. We can leverage an XML formatted nmap output to format the results in the way we want.
 
@@ -242,7 +242,7 @@ You can check an example HTML report for that new tool in [author's examlple rep
 
 This pretty formatting is possible because of structured XML output of nmap. You can even write your our programmatic nmap parser. For example, there is a [go-nmap](https://github.com/lair-framework/go-nmap/tree/master) library for parsing nmaps XML output in Golang.
 
-## Web services with screenshots
+### Web services with screenshots
 
 A lot of available network services now are a web services. They can be identified just by opening them in the browser. In case of web applications, at first we want to focus on most likely vulnerable web applications, like self-coded or vulnerable versions. So we have to open all of the applications to identify, filter and group targets.
 
@@ -270,12 +270,12 @@ On main page we can see the dashboard with overview on the scanning results. But
 
 ![image.png](/assets/pentest/scanning-big-networks-2/image8.png)
 
-# Resources
+## Resources
 
 - [https://nmap.org/book/toc.html](https://nmap.org/book/toc.html)
 - [https://sensepost.com/blog/2017/gowitness-a-new-tool-for-an-old-idea/](https://sensepost.com/blog/2017/gowitness-a-new-tool-for-an-old-idea/)
 
-# Conclusion
+## Conclusion
 
 In this post we’ve reviewed defense evasion techniques in case of scanning big networks. Also, we’ve found several ways to automate basic tasks and get a pretty output of our scanning.
 

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: HackTheBox - Timelapse
-category: HackTheBox
+categories: [HackTheBox, Easy]
 date: 2022-08-25 17:18 +0300
+image:
+  path: /assets/hackthebox/timelapse/Timelapse.png
 ---
-
-![Machine logo](/assets/hackthebox/timelapse/Timelapse.png){:height="414px" width="615px"}
 
 ## Configuration
 

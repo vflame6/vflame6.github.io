@@ -1,15 +1,17 @@
 ---
 layout: post
 title: My OSWP Journey
-category: Blog
+categories: [Blog, Education]
 date: 2024-03-29 10:00 +0300
+description: My journey on studying and passing the OSWP exam.
+image:
+  path: /assets/certifications/OSWP-Certificate.jpg
+  alt: My OSWP certificate
 ---
-
-![My OSWP Certificate](/assets/certifications/OSWP-Certificate.jpg)
 
 Hi! In this post I want to share my OSWP journey with you. I've passed it with my first attempt in February, 2024. It was a small journey and I want to review it and provide some tips here.
 
-# The Course
+## The Course
 
 Wireless Attacks (PEN-210) introduces learners to the skills needed to audit and secure wireless devices and is a foundational course to gain more skills in network security. Learners will identify vulnerabilities in 802.11 networks and execute organized techniques.
 
@@ -24,7 +26,7 @@ The course covers these topics:
 
 Refer to the [PEN-210 course page](https://www.offsec.com/courses/pen-210/) for more informaiton.
 
-## Prepare for the Course
+### Prepare for the Course
 
 The course is well-structured and has a lot of information about Wireless Networks, but you have to learn some basics before you apply for it. I think the course is enough to pass the exam with these preparations:
 
@@ -36,7 +38,7 @@ During my learning journey, I've faced some troubles to set up my wireless card 
 
 My recommendation here is to do the same. Use Kali Linux Live USB to avoid any VM-specific problems. Set up a persistence storage in your live USB to store your data and progress. You can learn how to set up live OS with persistence on [Kali Linux documentation](https://www.kali.org/docs/usb/usb-persistence/).
 
-## Setup a Lab Network
+### Setup a Lab Network
 
 The course requires you to set up your own lab environment to do exercises. The requirements are:
 
@@ -48,7 +50,7 @@ The course exercises will require you to set up the lab network on your own for 
 
 I think it is possible to pass the exam without buying stuff and setting the lab. But the question here is what do you expect from the course? If you just want the certification, go on. But if you want to really learn something practical that you could use in real job, get the stuff and do the exercises. 
 
-# The Exam
+## The Exam
 
 The OSWP certification exam simulates a "live wireless network", which some of the scenarios may contain traffic to the Internet and similar AP’s client behavior in a real network.
 
@@ -58,7 +60,7 @@ There are **three** network scenarios available to attack. Only one scenario can
 
 You will be provided with an SSH/RDP access to Kali Linux machine. The machine has an injection-capable wireless card and is placed near victim access point and its clients.
 
-## Exam Resctrictions
+### Exam Resctrictions
 
 Be aware of the exam restricions:
 
@@ -66,13 +68,13 @@ Be aware of the exam restricions:
 
 The easier way to understand these restrictions is to only use aircrack-ng suite on the exam. It is enough to do all attack scenarios.
 
-## Prepare for the Exam
+### Prepare for the Exam
 
 The first thing you have to do is to **read carefully** the [OSWP exam guide](https://help.offsec.com/hc/en-us/articles/360046904731-OSWP-Exam-Guide). It will give you an understanding of what to expect from the exam.
 
 The second thing is to **prepare cheatsheets for every attack**. Be aware that you don't have much time, so you have to reproduce them very quickly. Also, OffSec wants you to be able to do all your stuff in terminal, even connecting to the cracked networks. So it is crucial to prepare cheatsheets with commands and configurations to connect to different networks.
 
-## Documentation
+### Documentation
 
 While doing the exam, document each step of your attacks with commands in text and screenshots of the results. The mandatory here is to take screenshots of the cracked key and the obtained flag. But I recommend to document every step performed to compromise the network. It is easier to write a report with every step covered without blind zones of your attack, which can nullify your exam points.
 
@@ -95,7 +97,7 @@ For code formatting I use Microsoft Word's [Easy Code Formatter](https://appsour
 
 With these tips I was able to make a reproduceable guide on each scenario.
 
-## My Exam
+### My Exam
 
 I've scheduled my exam one week after the course was done. I've taken time to review my notes and prepare cheatsheets for the exam. Also, I've taken 1-day off before the exam to chill and prepare myself to work hard. At the time of the exam, I've connected to the proctor's session 15 minutes before the exam and done preparations. After that, my exam has started.
 
@@ -110,20 +112,20 @@ The methodology for each scenario was pretty simple:
 
 I've solved first 2 scenarios in one hour and stucked with the last for 2 hours because of tools were not working properly. But after 3 times of repeating the commands I was able to do the last scenario and sucessfully ended the exam.
 
-# Tips and Tricks
+## Tips and Tricks
 
-## PEN-210 Discord Channel
+### PEN-210 Discord Channel
 
 OffSec provides a discord channel for every student. Check discord channel for PEN-210 course. Like with OSCP, the discord channel already has answers for all possible questions (without spoilers) for your course and exam journey. I recommend you to read it before the exam to get clear understanding of what to expect on the exam.
 
-## Review Existing Cheatsheets
+### Review Existing Cheatsheets
 
 There are several well-prepaired cheatsheet for OSWP exam and pentesting Wi-Fi networks on the Internet. I've mention here the ones I did use in my journey. Big respect for authors for sharing.
 
 - [Wi-Fi-Pentesting-Cheatsheet](https://github.com/dh0ck/Wi-Fi-Pentesting-Cheatsheet). Obsidian vault with cheatsheets for different scenarios. I think it can be used to pass the exam without any modifications.
 - [WiFi Hacking Cheatsheets](https://github.com/koutto/pi-pwnbox-rogueap/wiki). Interesting guide for Wi-Fi pentesting with Wi-Fi theory and example commands. Also, there is a cool mindmap for Wi-Fi pentesting. I think this one can be used in real work.
 
-## Prepare your Cheatsheet
+### Prepare your Cheatsheet
 
 As mentioned before, **prepare cheatsheets for every possible task**, like attacking specific Wireless Security mechanism or connecting to the network from command line.
 
@@ -133,11 +135,11 @@ I prepare my own cheatsheets in 2 steps: at first, I do the course and take note
 
 After the course and exam were done, I reviewed my notes and cheatsheets to update my offensive security wiki to use that information in my future work.
 
-## Other Tips
+### Other Tips
 
 The basic of all OffSec courses is the Mindset. And tips for these course and exam are the same as for the OSCP. Refer to [My OSCP Journey blog post](https://vflame6.github.io/posts/my-oscp-journey/) here for more tips on OffSec's certifications.
 
-# Conclusion
+## Conclusion
 
 In this post I've shared with you my journey with the PEN-210 course and the OSWP certification exam. It was a great journey and I'd like to thank the OffSec for their incredible job on making their course. I hope to take new courses/exams as soon as I can to learn new things and take new challenges on labs and the real job. 
 

@@ -1,13 +1,13 @@
 ---
 layout: post
 title: HackTheBox - Support
-category: HackTheBox
+categories: [HackTheBox, Easy]
 date: 2022-12-19 15:44 +0300
+image:
+  path: /assets/hackthebox/support/Support.png
 ---
 
-![Machine logo](/assets/hackthebox/support/Support.png){:height="414px" width="615px"}
-
-# Configuration
+## Configuration
 
 If you're using your own machine like me, you have to access HTB network via `OpenVPN`:
 
@@ -24,9 +24,9 @@ echo '10.10.11.174    support' | sudo tee -a /etc/hosts
 10.10.11.174    support
 ```
 
-# Reconnaissance
+## Reconnaissance
 
-## Port scan
+### Port scan
 
 I like to scan ports with `masscan` and then enumerate the ports found with `nmap`. Sometimes this is really faster than just start nmap with -p- flag.
 
@@ -105,7 +105,7 @@ It is an `Active Directory` domain server. There is also `SMB` enabled. Let's up
 
 > 10.10.11.174    support support.htb
 
-## SMB shares
+### SMB shares
 
 We have found SMB server on the machine, let's explore it's shares with `crackmapexec`. I set random credentials to login like anonymous user
 
@@ -146,9 +146,9 @@ smb: \> mget *
 
 We've found a lot of files there, many of them are just tools and not interesting for us, but `UserInfo.exe.zip` sounds like something unusual...
 
-# user.txt
+## user.txt
 
-## Enumeration
+### Enumeration
 
 ![UserInfo.exe.zip](/assets/hackthebox/support/userinfo_zip.png)
 
@@ -195,7 +195,7 @@ $ python getPassword.py
 [*] Result: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-## Exploitation
+### Exploitation
 
 With LDAP credentials we are able to extract domain users info by using `ldapsearch` tool. ldapsearch is a tool to query ldap server with filters. We specify our filters with `Users` common name to get users info.
 
@@ -216,9 +216,9 @@ It worked! We've got the user flag!
 *Evil-WinRM* PS C:\Users\support> type Desktop/user.txt
 ```
 
-# root.txt
+## root.txt
 
-## Exploring
+### Exploring
 
 With some basic enumeration we can see nothing interesting. So I've decided to use `BloodHound` here and uploaded a `SharpHound.exe` collector to get domain info.
 
@@ -261,7 +261,7 @@ And we can see possible attack path for us. User support is a member of "SHARED 
 
 ![Attack path](/assets/hackthebox/support/attack_path.png)
 
-## Privilege escalation
+### Privilege escalation
 
 We have a plan of this attack:
 
@@ -352,7 +352,7 @@ $ smbexec.py  support.htb/administrator@dc.support.htb -no-pass -k
 
 ![root.txt](/assets/hackthebox/support/root_txt.png)
 
-# Conclusion
+## Conclusion
 
 It was a really cool box. I've enjoyed it. I had several problems with privesc, I've tried to perform an attack with [Rubeus](https://github.com/GhostPack/Rubeus) tool, but the tickets haven't worked. I think it's because of evil-winrm. Also I had a problem with decompiler, I couldn't re-compile the application and I think I was able to.
 
