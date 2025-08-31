@@ -2,7 +2,7 @@
 layout: post
 title: HackTheBox - Shared
 date: 2022-11-12 22:50 +0300
-categories: [HackTheBox, Medium]
+categories: [CTF, HackTheBox]
 image:
   path: /assets/hackthebox/shared/Shared.png
 ---

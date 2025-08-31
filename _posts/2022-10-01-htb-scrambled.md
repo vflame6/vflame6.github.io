@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Scrambled
-categories: [HackTheBox, Medium]
+categories: [CTF, HackTheBox]
 date: 2022-10-01 18:31 +0300
 image:
   path: /assets/hackthebox/scrambled/Scrambled.png

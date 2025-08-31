@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Timelapse
-categories: [HackTheBox, Easy]
+categories: [CTF, HackTheBox]
 date: 2022-08-25 17:18 +0300
 image:
   path: /assets/hackthebox/timelapse/Timelapse.png

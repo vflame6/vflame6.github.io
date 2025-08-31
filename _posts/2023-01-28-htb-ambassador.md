@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Ambassador
-categories: [HackTheBox, Medium]
+categories: [CTF, HackTheBox]
 date: 2023-01-28 20:28 +0300
 image:
   path: /assets/hackthebox/ambassador/Ambassador.png

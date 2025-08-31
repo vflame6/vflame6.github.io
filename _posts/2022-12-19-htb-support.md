@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Support
-categories: [HackTheBox, Easy]
+categories: [CTF, HackTheBox]
 date: 2022-12-19 15:44 +0300
 image:
   path: /assets/hackthebox/support/Support.png

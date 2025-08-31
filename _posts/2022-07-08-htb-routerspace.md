@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HackTheBox - RouterSpace
-categories: [HackTheBox, Easy]
+categories: [CTF, HackTheBox]
 date: 2022-07-08 22:36 +0300
 image:
   path: /assets/hackthebox/routerspace/RouterSpace.png

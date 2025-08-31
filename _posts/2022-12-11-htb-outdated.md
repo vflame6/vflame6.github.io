@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Outdated
-categories: [HackTheBox, Medium]
+categories: [CTF, HackTheBox]
 date: 2022-12-11 10:33 +0300
 image:
   path: /assets/hackthebox/outdated/Outdated.png

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HackTheBox - RedPanda
-categories: [HackTheBox, Easy]
+categories: [CTF, HackTheBox]
 date: 2022-11-26 22:03 +0300
 image:
   path: /assets/hackthebox/redpanda/RedPanda.png

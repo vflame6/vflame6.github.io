@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HackTheBox - StreamIO
-categories: [HackTheBox, Medium]
+categories: [CTF, HackTheBox]
 date: 2022-09-17 15:35 +0300
 image:
   path: /assets/hackthebox/streamio/StreamIO.png

@@ -2,7 +2,7 @@
 layout: post
 title: HackTheBox - Faculty
 date: 2022-10-27 15:02 +0300
-categories: [HackTheBox, Medium]
+categories: [CTF, HackTheBox]
 image:
   path: /assets/hackthebox/faculty/Faculty.png
 ---
