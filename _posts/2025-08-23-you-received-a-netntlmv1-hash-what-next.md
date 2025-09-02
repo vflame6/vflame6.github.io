@@ -12,7 +12,7 @@ Some time ago, during one of my job interviews, I was asked: **“You received a
 
 On a whim, I replied, “Brute force it or send it to crack.sh to search their pre-compiled tables.” To which they replied, “What else?” And I didn't know 😅. Actually, because of this situation, I went to figure out what I can do with NetNTLMv1.
 
-## NetNTLMv1 attacks
+## **NetNTLMv1 attacks**
 
 ### **Well-known challenge**
 
@@ -50,7 +50,7 @@ BUT. **The use of online services creates leakage risks for both the customer an
 
 As a result, we obtain the NTLM hash of the user's password, which can be used in Pass-The-Hash and Overpass-The-Hash attacks on network services.
 
-### NTLM relay (SMB → LDAP)
+### **NTLM relay (SMB → LDAP)**
 
 As is well known, it is impossible to perform an NTLM relay attack from SMBv2+ to LDAP, since SMBv2 and higher protocols require a signature via a session key. This signature cannot be removed, otherwise a Message Integrity Code (MIC) validation error will occur. Where, how, and to what extent relaying is possible is well described in [an article by hackndo](https://en.hackndo.com/ntlm-relay/).
 
@@ -80,7 +80,7 @@ To protect against NetNTLMv1 in the domain infrastructure, you need to roll out 
 
 Or, for isolated machines, go to the registry: under `HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa`, find the `LmCompativilityLevel` key and set the DWORD value to 3 for the client (Send NTLMv2 response only) or 5 for the server (Send NTLMv2 response only. Refuse LM & NTLM).
 
-## Conclusion
+## **Conclusion**
 
 Thus, when NetNTLMv1 is used in the infrastructure or we can force the victim to lower the level from NetNTLMv2, we can use this not only to recover the user's original password, but also for NTLM relay attacks.
 
