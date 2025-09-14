@@ -1,7 +1,7 @@
 ---
 layout: post
 title: AI Red Teaming or What Marketing has done to Penetration Testing
-category: Blog
+categories: [Pentest, Market]
 description: Several considerations on market shift from classic security research to red teaming everything.
 date: 2025-09-12 01:00 +0300
 ---
