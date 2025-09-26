@@ -17,7 +17,6 @@ In my opinion, this whole situation with red teaming instead of security researc
 Let's start with the classic Red Team, a little history:
 
 > The concept of Red Teaming originated during the Cold War, when the “red team” simulated enemy actions and the “blue team” defended itself. Later, this approach moved into the world of IT and cybersecurity.
-> 
 
 A full-fledged Red Teaming service has emerged in the cybersecurity market: The contractor must attempt to penetrate the organization's infrastructure and, if agreed in advance, carry out an unacceptable event. All this is done with the protection measures enabled and the customer's cybersecurity department operating as usual. In general, to put it simply, it is a simulation of a real attack on an organization.
 
@@ -31,7 +30,6 @@ Here we can see the discrepancy between the goals of classic red teaming and AI 
 Next, let's look at the definition of the already familiar [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/):
 
 > The WSTG is a comprehensive guide to testing the security of web applications and web services. Created by the collaborative efforts of cybersecurity professionals and dedicated volunteers, the WSTG provides a framework of best practices used by penetration testers and organizations all over the world.
-> 
 
 It is easy to see that there is no particular difference here from GenAI Red Teaming. Only security testing has been replaced with adversarial testing. **Why then is one called pentesting and the other red teaming?** I don't have an answer to that...
 

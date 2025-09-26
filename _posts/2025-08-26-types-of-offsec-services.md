@@ -6,13 +6,13 @@ description: My vision on describing and categorizing types of offensive securit
 date: 2025-09-19 01:00 +0300
 ---
 
-After the previous post on “AI Red Teaming,” one question remained unanswered: what is the difference, and what should a potential customer of offensive security services choose? It seems that red teaming gives the “coolest” results, so does that mean everything else is unnecessary?
+After the [previous post on “AI Red Teaming”](https://maksimradaev.com/posts/ai-redteaming-marketing/), one question remained unanswered: what is the difference, and what should a potential customer of offensive security services choose? It seems that red teaming gives the “coolest” results, so does that mean everything else is unnecessary?
 
 > This is a rather “sensitive” topic, so here's a disclaimer: everything in this post is my personal opinion, and I do not claim to have the absolute truth on this topic. I think that many companies and specialists may have a different understanding of the differences between these services, and that's fine. I am simply expressing my vision, which I believe is effective for solving the tasks of our customers.
 
 To understand this issue, we first need to answer two questions: determine the goals of the customer requesting the service and determine the current level of information security maturity in the company. Let's start with the goals.
 
-## On a hard subject — the goals for Penetration Testing
+## **Goals for the Penetration Testing**
 
 If the goal is to be cool, like in movies about hackers, then there is no point in the event. In such cases, there is no talk of increasing the level of security of the organization, or things that would be interesting to check, or the effectiveness of the implemented security measures. The same can be said about situations where the goal is to “punish our security guys.”
 
@@ -24,7 +24,7 @@ What can I say, I'm guilty myself — I had experience participating in a “pen
 
 Therefore, it is very important to agree on goals and expectations at the project discussion stage. We talked about how it was done wrong, but what are the right goals? They will be closely related to the current level of information security maturity in the company.
 
-## Levels of information security maturity
+## **Levels of information security maturity**
 
 Usually, when it comes to the level of information security maturity in a company for the selection of offensive services, three main levels are discussed:
 
@@ -46,7 +46,7 @@ The highest level of expertise. The customer's company has fully developed passi
 
 In this situation, the goals will be to check the effectiveness of proactive security and evaluate the effectiveness of the set of information security measures. Services: red teaming and purple teaming.
 
-## What does the market offer?
+## **What does the market offer?**
 
 Next, let's look at what can be offered as an offensive security service. The image shows the differences between the main types of services. They differ in the breadth of coverage and depth of expertise. Here, it is easy to see the correlation between the level of information security maturity in the customer's company and the most effective service for their needs.
 
@@ -54,7 +54,7 @@ Next, let's look at what can be offered as an offensive security service. The im
 
 So, there are three main types of services and one relatively new one (not shown in the figure):
 
-### Vulnerability assessment (automated testing)
+### **Vulnerability assessment (automated testing)**
 
 The process is simple: get an access to the target → run the scanner → analyze the report → leave. Performed in a white box format, without protection. Takes 1-2 weeks with a report.
 
@@ -71,7 +71,7 @@ During the security analysis, commercial vulnerability scanners are used, their 
 
 No specific expertise is usually required from the contractor for security analysis. But now everyone likes to require contractors to have OSCP certification, so let's focus on that.
 
-### Penetration testing (manual testing)
+### **Penetration testing (manual testing)**
 
 Classic penetration testing. Performed in a gray/black box format. Security measures are usually disabled, but if they are enabled, they are not quarantined so as not to block further work. Duration: 2-4 weeks with a report.
 
@@ -95,7 +95,7 @@ Although some vendors offer to include bypassing security measures in the scope 
 
 In terms of the contractor's qualifications for performing pentesting, OSCP certification is usually required as a baseline, as well as certification in the domain areas of the object of study, such as OSWE for web applications or eMAPT for mobile applications.
 
-### Red Teaming (adversarial simulation)
+### **Red Teaming (adversarial simulation)**
 
 Simulation of a real attack on a company. Performed in a black box format, with security measures enabled, including active monitoring and blocking. Duration: 3 months with a report.
 
@@ -111,7 +111,7 @@ Here, bypassing the customer's security measures becomes a mandatory requirement
 
 To confirm the contractor's qualifications, for the most part, they use their existing, public experience in successfully implementing red team projects. If they look at certifications, they look at the number of certifications specifically related to malware development and targeted attacks, such as OSEP, CRTO/CRTE, MalDev academy.
 
-### Purple Teaming (cyber training)
+### **Purple Teaming (cyber training)**
 
 A relatively new service for the CIS market. Simulation of various attack scenarios on a company. Performed in a black box format, with protection measures enabled, including active alerting and blocking. The timing and report are determined by the coverage and format of interaction, usually from 1 month.
 
