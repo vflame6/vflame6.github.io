@@ -16,13 +16,8 @@ Sometimes I write to my blog (EN) [https://maksimradaev.com/](https://maksimrada
 
 I hope you will enjoy this blog! Let's become better together :)
 
----
-
-## Disclaimer
-
-All information contained in this blog is provided for educational and research purposes only. The author is not responsible for any illegal use of any information published on the pages of this blog.
-
----
+> All information contained in this blog is provided for educational and research purposes only. The author is not responsible for any illegal use of any information published on the pages of this blog.
+{: .prompt-warning }
 
 ## Links
 
@@ -38,9 +33,7 @@ All information contained in this blog is provided for educational and research 
   <a href="https://standoff365.com/profile/vflame6/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="118.75" height="28" role="img" aria-label="STANDOFF365"><title>STANDOFF365</title><g shape-rendering="crispEdges"><rect width="118.75" height="28" fill="#6e4d8f"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100"><text transform="scale(.1)" x="593.75" y="175" textLength="947.5" fill="#fff" font-weight="bold">STANDOFF365</text></g></svg></a>
 </p>
 
----
-
-## Contact
+## Contact me
 
 <p align="left">
   <a href="https://www.linkedin.com/in/maksim-radaev/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="91" height="28" role="img" aria-label="LINKEDIN"><title>LINKEDIN</title><g shape-rendering="crispEdges"><rect width="91" height="28" fill="#0a66c2"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100"><text transform="scale(.1)" x="455" y="175" textLength="670" fill="#fff" font-weight="bold">LINKEDIN</text></g></svg></a>
@@ -51,8 +44,6 @@ All information contained in this blog is provided for educational and research 
 ## Support
 
 You can also support me if you feel like it. Several methods are available below:
-
-
 
 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="vflame6" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
 
