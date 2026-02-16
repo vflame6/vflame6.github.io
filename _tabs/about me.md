@@ -1,25 +1,61 @@
 ---
-title: About
+title: About me
 icon: fas fa-info-circle
 order: 3
 ---
 
-## whoami
-
 {% include certifications.html %}
 
-Hi! I'm vflame6. I work as a penetration tester and I'm interested in Penetration Testing and Red Teaming exercises. 
+## whoami
 
-I provide various services in penetration testing: external network, internal network, web/mobile applications, social engineering and complex red teaming. I do these projects from zero to hero, starting with preparing the assessment, performing the actual testing and ending with my report and results presentation. 
+---
 
-Sometimes I write to my blog (EN) [https://maksimradaev.com/](https://maksimradaev.com/) and telegram channel (RU) [https://t.me/vflame6](https://t.me/vflame6).
+Hi! I'm **Maksim Radaev**, also known as **vflame6**. I'm a penetration tester specializing in offensive security operations, with a particular focus on network infrastructure, Active Directory environments, and web application security.
 
-I hope you will enjoy this blog! Let's become better together :)
+I conduct comprehensive security assessments from start to finish - from initial scoping and reconnaissance through exploitation and post-exploitation, to delivering detailed reports and presenting actionable findings to clients. My approach combines technical expertise with clear communication to help organizations understand and remediate their security weaknesses.
+
+Beyond client work, I'm passionate about developing open-source security tools, sharing knowledge through my blog and [Telegram channel](https://t.me/vflame6), and continuously expanding my skills in red teaming and adversary simulation.
 
 > All information contained in this blog is provided for educational and research purposes only. The author is not responsible for any illegal use of any information published on the pages of this blog.
 {: .prompt-warning }
 
+## Professional Services
+
+---
+
+I offer comprehensive offensive security services tailored to your organization's needs:
+
+- **External Network Penetration Testing**: Assessment of your internet-facing infrastructure to identify vulnerabilities before attackers do. 
+- **Internal Network Assessments**: Deep dive into your internal network security posture.
+- **Web Application Security Testing**: Thorough security assessment of web applications following OWASP methodology.
+- **Mobile Application Testing**: Security evaluation of iOS and Android applications.
+- **Social Engineering**: Assessing your organization's human security layer.
+- **Red Team Operations**: Advanced adversary simulation exercises designed to test your organization's detection and response capabilities. 
+
+Looking for professional penetration testing or red team services? Contact me via [LinkedIn](https://www.linkedin.com/in/maksim-radaev/) or [Telegram](https://t.me/vflame9).
+
+## Projects
+
+---
+
+### Open Source Development 
+
+I develop and maintain security tools that automate common pentesting tasks:
+
+- [leaker](https://github.com/vflame6/leaker): Passive leak enumeration tool that discovers and validates credential leaks from public sources. Inspired by subfinder, it automates the discovery of compromised credentials during external assessments.
+- [sharefinder](https://github.com/vflame6/sharefinder): SMB shares enumeration and access analysis tool designed for Active Directory environments. Built to handle network-scale scanning with minimal noise.
+
+More tools and projects are available on my [GitHub profile](https://github.com/vflame6).
+
+### Blog and Telegram Channel
+
+I regularly publish technical articles on this blog covering things I find interesting in the offensive security field. You can browse all my posts in the [Archives](/archives/) or by [Categories](/categories/).
+
+I share shorter updates, quick tips, and Russian-language content on my [Telegram channel](https://t.me/vflame6), where I discuss ongoing research and industry developments.
+
 ## Links
+
+---
 
 <p align="left">
   <a href="https://github.com/vflame6" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="95.5" height="28" role="img" aria-label="GITHUB"><title>GITHUB</title><g shape-rendering="crispEdges"><rect width="95.5" height="28" fill="#555555"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100"><image x="9" y="7" width="14" height="14" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZXNtb2tlIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+"/><text transform="scale(.1)" x="577.5" y="175" textLength="515" fill="#fff" font-weight="bold">GITHUB</text></g></svg></a>
@@ -35,20 +71,24 @@ I hope you will enjoy this blog! Let's become better together :)
 
 ## Contact me
 
+---
+
+I'm always open to discussing security projects, collaborating on research, or simply connecting with fellow security professionals.
+
 <p align="left">
   <a href="https://www.linkedin.com/in/maksim-radaev/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="91" height="28" role="img" aria-label="LINKEDIN"><title>LINKEDIN</title><g shape-rendering="crispEdges"><rect width="91" height="28" fill="#0a66c2"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100"><text transform="scale(.1)" x="455" y="175" textLength="670" fill="#fff" font-weight="bold">LINKEDIN</text></g></svg></a>
   <a href="https://t.me/vflame9" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="114" height="28" role="img" aria-label="TELEGRAM"><title>TELEGRAM</title><g shape-rendering="crispEdges"><rect width="114" height="28" fill="#26a5e4"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100"><image x="9" y="7" width="14" height="14" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZSIgcm9sZT0iaW1nIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlRlbGVncmFtPC90aXRsZT48cGF0aCBkPSJNMTEuOTQ0IDBBMTIgMTIgMCAwIDAgMCAxMmExMiAxMiAwIDAgMCAxMiAxMiAxMiAxMiAwIDAgMCAxMi0xMkExMiAxMiAwIDAgMCAxMiAwYTEyIDEyIDAgMCAwLS4wNTYgMHptNC45NjIgNy4yMjRjLjEtLjAwMi4zMjEuMDIzLjQ2NS4xNGEuNTA2LjUwNiAwIDAgMSAuMTcxLjMyNWMuMDE2LjA5My4wMzYuMzA2LjAyLjQ3Mi0uMTggMS44OTgtLjk2MiA2LjUwMi0xLjM2IDguNjI3LS4xNjguOS0uNDk5IDEuMjAxLS44MiAxLjIzLS42OTYuMDY1LTEuMjI1LS40Ni0xLjktLjkwMi0xLjA1Ni0uNjkzLTEuNjUzLTEuMTI0LTIuNjc4LTEuOC0xLjE4NS0uNzgtLjQxNy0xLjIxLjI1OC0xLjkxLjE3Ny0uMTg0IDMuMjQ3LTIuOTc3IDMuMzA3LTMuMjMuMDA3LS4wMzIuMDE0LS4xNS0uMDU2LS4yMTJzLS4xNzQtLjA0MS0uMjQ5LS4wMjRjLS4xMDYuMDI0LTEuNzkzIDEuMTQtNS4wNjEgMy4zNDUtLjQ4LjMzLS45MTMuNDktMS4zMDIuNDgtLjQyOC0uMDA4LTEuMjUyLS4yNDEtMS44NjUtLjQ0LS43NTItLjI0NS0xLjM0OS0uMzc0LTEuMjk3LS43ODkuMDI3LS4yMTYuMzI1LS40MzcuODkzLS42NjMgMy40OTgtMS41MjQgNS44My0yLjUyOSA2Ljk5OC0zLjAxNCAzLjMzMi0xLjM4NiA0LjAyNS0xLjYyNyA0LjQ3Ni0xLjYzNXoiLz48L3N2Zz4="/><text transform="scale(.1)" x="670" y="175" textLength="700" fill="#fff" font-weight="bold">TELEGRAM</text></g></svg></a>
   <a href="https://discordapp.com/users/355932707827744779" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="104.75" height="28" role="img" aria-label="DISCORD"><title>DISCORD</title><g shape-rendering="crispEdges"><rect width="104.75" height="28" fill="#5865f2"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100"><image x="9" y="7" width="14" height="14" href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZSIgcm9sZT0iaW1nIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPkRpc2NvcmQ8L3RpdGxlPjxwYXRoIGQ9Ik0yMC4zMTcgNC4zNjk4YTE5Ljc5MTMgMTkuNzkxMyAwIDAwLTQuODg1MS0xLjUxNTIuMDc0MS4wNzQxIDAgMDAtLjA3ODUuMDM3MWMtLjIxMS4zNzUzLS40NDQ3Ljg2NDgtLjYwODMgMS4yNDk1LTEuODQ0Ny0uMjc2Mi0zLjY4LS4yNzYyLTUuNDg2OCAwLS4xNjM2LS4zOTMzLS40MDU4LS44NzQyLS42MTc3LTEuMjQ5NWEuMDc3LjA3NyAwIDAwLS4wNzg1LS4wMzcgMTkuNzM2MyAxOS43MzYzIDAgMDAtNC44ODUyIDEuNTE1LjA2OTkuMDY5OSAwIDAwLS4wMzIxLjAyNzdDLjUzMzQgOS4wNDU4LS4zMTkgMTMuNTc5OS4wOTkyIDE4LjA1NzhhLjA4MjQuMDgyNCAwIDAwLjAzMTIuMDU2MWMyLjA1MjggMS41MDc2IDQuMDQxMyAyLjQyMjggNS45OTI5IDMuMDI5NGEuMDc3Ny4wNzc3IDAgMDAuMDg0Mi0uMDI3NmMuNDYxNi0uNjMwNC44NzMxLTEuMjk1MiAxLjIyNi0xLjk5NDJhLjA3Ni4wNzYgMCAwMC0uMDQxNi0uMTA1N2MtLjY1MjgtLjI0NzYtMS4yNzQzLS41NDk1LTEuODcyMi0uODkyM2EuMDc3LjA3NyAwIDAxLS4wMDc2LS4xMjc3Yy4xMjU4LS4wOTQzLjI1MTctLjE5MjMuMzcxOC0uMjkxNGEuMDc0My4wNzQzIDAgMDEuMDc3Ni0uMDEwNWMzLjkyNzggMS43OTMzIDguMTggMS43OTMzIDEyLjA2MTQgMGEuMDczOS4wNzM5IDAgMDEuMDc4NS4wMDk1Yy4xMjAyLjA5OS4yNDYuMTk4MS4zNzI4LjI5MjRhLjA3Ny4wNzcgMCAwMS0uMDA2Ni4xMjc2IDEyLjI5ODYgMTIuMjk4NiAwIDAxLTEuODczLjg5MTQuMDc2Ni4wNzY2IDAgMDAtLjA0MDcuMTA2N2MuMzYwNC42OTguNzcxOSAxLjM2MjggMS4yMjUgMS45OTMyYS4wNzYuMDc2IDAgMDAuMDg0Mi4wMjg2YzEuOTYxLS42MDY3IDMuOTQ5NS0xLjUyMTkgNi4wMDIzLTMuMDI5NGEuMDc3LjA3NyAwIDAwLjAzMTMtLjA1NTJjLjUwMDQtNS4xNzctLjgzODItOS42NzM5LTMuNTQ4NS0xMy42NjA0YS4wNjEuMDYxIDAgMDAtLjAzMTItLjAyODZ6TTguMDIgMTUuMzMxMmMtMS4xODI1IDAtMi4xNTY5LTEuMDg1Ny0yLjE1NjktMi40MTkgMC0xLjMzMzIuOTU1NS0yLjQxODkgMi4xNTctMi40MTg5IDEuMjEwOCAwIDIuMTc1NyAxLjA5NTIgMi4xNTY4IDIuNDE5IDAgMS4zMzMyLS45NTU1IDIuNDE4OS0yLjE1NjkgMi40MTg5em03Ljk3NDggMGMtMS4xODI1IDAtMi4xNTY5LTEuMDg1Ny0yLjE1NjktMi40MTkgMC0xLjMzMzIuOTU1NC0yLjQxODkgMi4xNTY5LTIuNDE4OSAxLjIxMDggMCAyLjE3NTcgMS4wOTUyIDIuMTU2OCAyLjQxOSAwIDEuMzMzMi0uOTQ2IDIuNDE4OS0yLjE1NjggMi40MTg5WiIvPjwvc3ZnPg=="/><text transform="scale(.1)" x="623.75" y="175" textLength="607.5" fill="#fff" font-weight="bold">DISCORD</text></g></svg></a>
 </p>
 
-## Support
+## Support My Work
 
-You can also support me if you feel like it. Several methods are available below:
+---
 
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="vflame6" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+If you find my research, tools, or content helpful, consider supporting my work. Your support helps me dedicate more time to creating quality content and developing open-source security tools.
 
-<style type="text/css">
-  .bmc-btn {
-    height: 40px;
-  }
-</style>
+[**Support options available here →**](/support/)
+
+---
+
+*Thank you for visiting my blog. Let's make the security community stronger together!*
