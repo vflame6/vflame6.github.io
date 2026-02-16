@@ -1,0 +1,53 @@
+<!-- Support Button - right sidebar panel, styled -->
+<section class="support-wrapper">
+  <a href="/support/" class="support-link">
+    <svg class="support-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <span class="support-btn">Support me</span>
+  </a>
+</section>
+
+<style>
+  .support-wrapper {
+    margin-top: 1.5rem;
+  }
+
+  .support-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border: 2px solid #93c2fd;
+    border-radius: 12px;
+    background: var(--sidebar-bg);
+    text-decoration: none !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .support-link:hover {
+    border-color: #d2603a;
+    box-shadow: 0 0 12px rgba(109, 131, 242, 0.15);
+  }
+
+  .support-icon {
+    color: var(--label-color);
+    transition: transform 0.3s ease;
+  }
+
+  .support-link:hover .support-icon {
+    transform: scale(1.3);
+  }
+
+  .support-btn {
+    display: inline-block;
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--label-color) !important;
+    background: var(--sidebar-bg);
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+</style>
