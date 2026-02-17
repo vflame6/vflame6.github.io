@@ -14,10 +14,8 @@ I accept cryptocurrency donations at the following addresses:
 
 - Bitcoin (`BTC`): bc1qrhkwcy83xdt7rxlfm4z59fx89plc2t0xmtn5fz
 - Etherium (`ETH`): 0xccc94d37ebf3b12fc4a52ecfcf6b9736f8ea7473
-- Ripple (`XRP`): rPo1spqGbbt2wmDurRomezoBR9mCaiA4sC
 - Solana (`SOL`): EP35y7EW3amjb4v6CXrxD73ZFNfMYxnhKjm1RvqU1X8i
 - Tron (`TRX`): TUGuCPcJd4UbhsttCdq144sLocS7UcQnmJ
-- Dogecoin (`DOGE`): D979Bsa4AQK46oVMnRHdR2o3dvRfaW5T4D
 - Toncoin (`TON`): UQA7U0BhZ5iM-bKwFMRTRj-FeOuQ1a139nMmtiOqXkQTb5P7
 - Monero (`XMR`): 48oxVs4kzQ3gVrseDD9DaW61gz4bETn9K9MH4FU8X3C5eDzV3yNvf6v59z1sbfwskdL1SuqnUfhHiipdHzVnHKoZ9MxsPEc
 
