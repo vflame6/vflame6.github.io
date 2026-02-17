@@ -27,13 +27,14 @@ You can also support me through the following platforms:
 
 <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
 
-<iframe src="https://github.com/sponsors/vflame6/button" title="Sponsor vflame6" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+<iframe src="https://github.com/sponsors/vflame6/button" title="Sponsor vflame6" height="32" width="215" style="border: 0; border-radius: 6px;"></iframe>
 
 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="vflame6" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
 
 <style type="text/css">
   .bmc-btn {
     height: 40px;
+    width: 215px;
   }
 </style>
 
