@@ -35,7 +35,7 @@ Read the full research about finding and exploiting OpenClaw gateways here: [x.c
 
 `Recon ClawHub` → `Craft evasive skill` → `User installs` → `Code executes` → `Persists` → `Harvests credentials`
 
-An attacker publishes a skill on ClawHub that looks useful — maybe a "better weather skill" or "enhanced web scraper." You install it. The skill contains hidden code that runs with your agent's full permissions, persists across restarts via skill hooks, and quietly exfiltrates your API keys and credentials. This is the supply chain attack, and it's the #1 reason the [Skill Vetting](#skill-vetting-dont-install-blindly) section exists.
+An attacker publishes a skill on ClawHub that looks useful — maybe a "better weather skill" or "enhanced web scraper." You install it. The skill contains hidden code that runs with your agent's full permissions, persists across restarts via skill hooks, and quietly exfiltrates your API keys and credentials. This is the supply chain attack, and it's the #1 reason the [Skill Vetting](#skill-vetting) section exists.
 
 The security researchers have already shown that the risk is real. The author of the following research built a simulated but safe, backdoored clawdbot "skill" for ClawdHub, inflated its download count to 4,000+ making it the #1 downloaded skill using a trivial vulnerability, and then watched as real developers from 7 different countries executed arbitrary commands on their machines thinking they were downloading and running a real skill.
 
@@ -51,7 +51,7 @@ Even worse than a fake skill: an attacker compromises a *legitimate* skill publi
 
 `Access via channel` → `Inject prompt` → `Manipulate approval` → `Bypass exec checks` → `Execute commands`
 
-Someone gets access to a channel your bot reads (a group chat, a forwarded message, even a web page the agent fetches). They inject a prompt that convinces the agent to run a shell command. If the agent has exec access without proper approval gates, this goes straight from "text in a chat" to "code running on your machine." This is why [Prompt Injection Defense](#prompt-injection-defense) and [Approval Gates](#approval-gates-for-sensitive-actions) are non-negotiable.
+Someone gets access to a channel your bot reads (a group chat, a forwarded message, even a web page the agent fetches). They inject a prompt that convinces the agent to run a shell command. If the agent has exec access without proper approval gates, this goes straight from "text in a chat" to "code running on your machine." This is why [Prompt Injection Defense](#prompt-injection-defense) and [Approval Gates](#approval-gates) are non-negotiable.
 
 ### Indirect Injection
 
@@ -73,7 +73,7 @@ If an attacker gets your gateway auth token (from a leaked config file, a git co
 
 `Gain channel access` → `Inject prompts` → `Enumerate financial tools` → `Execute fraud`
 
-If your agent has access to payment APIs, e-commerce accounts, or financial services, prompt injection becomes a direct financial attack. The injected instructions make the agent discover what financial tools are available and then use them — placing orders, transferring funds, or making purchases. [Approval Gates](#approval-gates-for-sensitive-actions) is the last line of defense here.
+If your agent has access to payment APIs, e-commerce accounts, or financial services, prompt injection becomes a direct financial attack. The injected instructions make the agent discover what financial tools are available and then use them — placing orders, transferring funds, or making purchases. [Approval Gates](#approval-gates) is the last line of defense here.
 
 There is already an example of this type of risk becoming a real world's issue. On 22 February 2026, an autonomous crypto "agent" called Lobstar Wilde, run through an automated agent framework and connected to a live Solana wallet, sent 52.439 million LOBSTAR tokens (about 5% of total supply) to an X reply account that posted a melodramatic request for "4 SOL" for an uncle's tetanus treatment. 
 
@@ -424,7 +424,7 @@ Create dedicated accounts for the agent's external services:
 - A separate email for automation (not your personal email)
 - Separate API keys scoped to what the agent actually needs
 
-This way, if a token leaks, it only exposes the agent's scoped access — not your personal accounts. Worth to mention that it was covered in The Threat Landscape section, see [Financial Fraud Chain](#financial-fraud-chain) section.
+This way, if a token leaks, it only exposes the agent's scoped access — not your personal accounts. Worth to mention that it was covered in The Threat Landscape section, see [Financial Fraud Chain](#financial-fraud) section.
 
 ---
 
