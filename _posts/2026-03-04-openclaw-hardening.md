@@ -452,7 +452,7 @@ openclaw uninstall
 
 After uninstalling the gateway, you can run the service as the right dedicated user.
 
-#### Sandbox Configuration
+### Sandbox Configuration
 
 Sandbox mode is used to create layered isolation. In `openclaw.json`:
 
