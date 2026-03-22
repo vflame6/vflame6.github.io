@@ -88,7 +88,3 @@ I'm always open to discussing security projects, collaborating on research, or s
 If you find my research, tools, or content helpful, consider supporting my work. Your support helps me dedicate more time to creating quality content and developing open-source security tools.
 
 [**Support options available here →**](/support/)
-
----
-
-*Thank you for visiting my blog. Let's make the security community stronger together!*
