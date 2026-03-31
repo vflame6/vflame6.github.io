@@ -58,4 +58,4 @@ The best free way to support is by sharing my blog posts, tools, and research wi
 
 ### Hire Me
 
-Looking for professional penetration testing or red team services? Check out my [services](/about-me/#whoami) and contact me via [LinkedIn](https://www.linkedin.com/in/maksim-radaev/) or [Telegram](https://t.me/vflame9).
+Looking for professional penetration testing or red team services? Check out my [services](/about-me/#whoami) and contact me if you're interested.

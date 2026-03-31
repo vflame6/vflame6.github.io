@@ -58,6 +58,31 @@ The result is [bruter](https://github.com/vflame6/bruter).
 
 ![bruters help menu](/assets/posts/pentest/introducing-bruter/bruter_help.png)
 
+### Install
+
+That's why it was built. One command:
+
+```bash
+go install -v github.com/vflame6/bruter@latest
+```
+
+Or grab a binary from [Releases](https://github.com/vflame6/bruter/releases).
+
+Build from source:
+
+```bash
+git clone https://github.com/vflame6/bruter.git
+cd bruter
+go build -o bruter main.go
+```
+
+Build with Docker:
+
+```bash
+docker build -t bruter .
+docker run --rm bruter ssh -t 10.0.0.1 -u admin -p passwords.txt
+```
+
 ### 55 protocol modules
 
 bruter covers everything you'd encounter on an internal network:
@@ -331,32 +356,6 @@ var serviceMap = map[string]string{
 Build, test, done. Your new module immediately gets parallel execution, SOCKS5 proxy support, TLS probing, live progress, JSONL output, combo wordlists, scan file integration, and host-level concurrent services (`-N`). The full feature set, for free.
 
 ![bruter's clickhouse module](/assets/posts/pentest/introducing-bruter/bruter_clickhouse.png)
-
----
-## Install
-
-One command:
-
-```bash
-go install -v github.com/vflame6/bruter@latest
-```
-
-Or grab a binary from [Releases](https://github.com/vflame6/bruter/releases).
-
-Build from source:
-
-```bash
-git clone https://github.com/vflame6/bruter.git
-cd bruter
-go build -o bruter main.go
-```
-
-Build with Docker:
-
-```bash
-docker build -t bruter .
-docker run --rm bruter ssh -t 10.0.0.1 -u admin -p passwords.txt
-```
 
 ---
 

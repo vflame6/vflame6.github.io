@@ -16,7 +16,7 @@ timezone: Europe/Moscow
 
 title: Maksim 'vflame6' Radaev
 
-tagline: "Cybersecurity enthusiast, penetration tester. This is my personal blog about things I find interesting. Looking for red team, pentest or DevSecOps services? Contact via LinkedIn or Telegram"
+tagline: "Cybersecurity enthusiast, penetration tester. This is my personal blog about things I find interesting. Looking for red team, pentest or DevSecOps services? Contact on vflame6x@gmail.com"
 
 description: >-
   Maksim 'vflame6' Radaev bloggin about cybersecurity, pentest, and CTFs related content.
@@ -33,7 +33,7 @@ twitter:
 
 social:
   name: vflame6
-  email: 
+  email: vflame6x@gmail.com
   links:
     # The first element serves as the copyright owner's link
     # - https://twitter.com/username      # change to your twitter homepage

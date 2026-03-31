@@ -12,27 +12,14 @@ order: 3
 
 Hi! I'm **Maksim Radaev**, also known as **vflame6**. I'm a penetration tester specializing in offensive security operations, with a particular focus on network infrastructure, Active Directory environments, and web application security.
 
-I conduct comprehensive security assessments from start to finish - from initial scoping and reconnaissance through exploitation and post-exploitation, to delivering detailed reports and presenting actionable findings to clients. My approach combines technical expertise with clear communication to help organizations understand and remediate their security weaknesses.
+I conduct comprehensive security assessments from start to finish - from initial scoping and reconnaissance through exploitation and post-exploitation, to delivering detailed reports and presenting actionable findings to clients. My approach combines technical expertise with clear communication to help organizations understand and remediate their security weaknesses. 
 
-Beyond client work, I'm passionate about developing open-source security tools, sharing knowledge through my blog and [Telegram channel](https://t.me/vflame6), and continuously expanding my skills in red teaming and adversary simulation.
+Currently I offer `network` (external/internal), `application` (web/mobile), `social-engineering` penetration testing projects and `red team` operations. Looking for professional penetration testing or red team services? See contact options in [Contacts](#contact-me) section.
+
+Beyond client work, I'm passionate about developing open-source security tools, sharing knowledge through my [Blog](/) and [Telegram channel](https://t.me/vflame6), and continuously expanding my skills in red teaming and adversary simulation.
 
 > All information contained in this blog is provided for educational and research purposes only. The author is not responsible for any illegal use of any information published on the pages of this blog.
 {: .prompt-warning }
-
-## Professional Services
-
----
-
-I offer comprehensive offensive security services tailored to your organization's needs:
-
-- **External Network Penetration Testing**: Assessment of your internet-facing infrastructure to identify vulnerabilities before attackers do. 
-- **Internal Network Assessments**: Deep dive into your internal network security posture.
-- **Web Application Security Testing**: Thorough security assessment of web applications following OWASP methodology.
-- **Mobile Application Testing**: Security evaluation of iOS and Android applications.
-- **Social Engineering**: Assessing your organization's human security layer.
-- **Red Team Operations**: Advanced adversary simulation exercises designed to test your organization's detection and response capabilities. 
-
-Looking for professional penetration testing or red team services? Contact me via [LinkedIn](https://www.linkedin.com/in/maksim-radaev/) or [Telegram](https://t.me/vflame9).
 
 ## Projects
 
@@ -42,10 +29,11 @@ Looking for professional penetration testing or red team services? Contact me vi
 
 I develop and maintain security tools that automate common pentesting tasks:
 
-- [leaker](https://github.com/vflame6/leaker): Passive leak enumeration tool that discovers and validates credential leaks from public sources. Inspired by subfinder, it automates the discovery of compromised credentials during external assessments.
-- [sharefinder](https://github.com/vflame6/sharefinder): SMB shares enumeration and access analysis tool designed for Active Directory environments. Built to handle network-scale scanning with minimal noise.
+- **[leaker](https://github.com/vflame6/leaker)**: Passive leak enumeration tool that discovers and validates credential leaks from public sources. Inspired by subfinder, it automates the discovery of compromised credentials during external assessments.
+- **[bruter](https://github.com/vflame6/bruter)**: Active network services bruteforce tool. Designed as modular framework to support extensibility and provide a lot of features like concurrency handling, logging and included wordlists.
+- **[sharefinder](https://github.com/vflame6/sharefinder)**: SMB shares enumeration and access analysis tool designed for Active Directory environments. Built to handle network-scale scanning with minimal noise.
 
-More tools and projects are available on my [GitHub profile](https://github.com/vflame6).
+More tools and projects are available on my [Projects page](/projects/).
 
 ### Blog and Telegram Channel
 
@@ -73,7 +61,7 @@ I share shorter updates, quick tips, and Russian-language content on my [Telegra
 
 ---
 
-I'm always open to discussing security projects, collaborating on research, or simply connecting with fellow security professionals.
+I'm always open to discussing security projects, collaborating on research, or simply connecting with fellow security professionals. You can email me on <a href="mailto:vflame6x@gmail.com">vflame6x@gmail.com</a>.
 
 <p align="left">
   <a href="https://www.linkedin.com/in/maksim-radaev/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="91" height="28" role="img" aria-label="LINKEDIN"><title>LINKEDIN</title><g shape-rendering="crispEdges"><rect width="91" height="28" fill="#0a66c2"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100"><text transform="scale(.1)" x="455" y="175" textLength="670" fill="#fff" font-weight="bold">LINKEDIN</text></g></svg></a>
