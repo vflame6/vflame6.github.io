@@ -16,7 +16,7 @@ I accept cryptocurrency donations at the following addresses:
 - Etherium (`ETH`): 0xccc94d37ebf3b12fc4a52ecfcf6b9736f8ea7473
 - Solana (`SOL`): EP35y7EW3amjb4v6CXrxD73ZFNfMYxnhKjm1RvqU1X8i
 - Tron (`TRX`): TUGuCPcJd4UbhsttCdq144sLocS7UcQnmJ
-- Toncoin (`TON`): UQA7U0BhZ5iM-bKwFMRTRj-FeOuQ1a139nMmtiOqXkQTb5P7
+- Toncoin (`TON`): UQBl6PlSVLTgJYXVd3dmuK1WHXPiGtZaNLupVDZdMMvvILQQ
 - Monero (`XMR`): 48oxVs4kzQ3gVrseDD9DaW61gz4bETn9K9MH4FU8X3C5eDzV3yNvf6v59z1sbfwskdL1SuqnUfhHiipdHzVnHKoZ9MxsPEc
 
 ## Subscription platforms
