@@ -4,6 +4,8 @@ title: Introducing leaker - Passive Leak Enumeration Tool
 description: Introducing a new tool to find and enumerate public leaks via passive sources.
 categories: [Pentest, Development]
 date: 2026-01-11 12:49 +0300
+image:
+  path: /assets/posts/pentest/introducing-leaker/leaker.png
 ---
 
 ## Introduction
@@ -11,8 +13,6 @@ date: 2026-01-11 12:49 +0300
 Hi! Today I want to share my new tool - `leaker`. It is a leak discovery tool that returns valid credential leaks for emails, using passive online sources. In this blog post I will show its installation, functionality and discuss some ways to improve it in the future.
 
 `leaker` is already available on my GitHub - [https://github.com/vflame6/leaker](https://github.com/vflame6/leaker).
-
-![Introducing leaker](/assets/posts/pentest/introducing-leaker/leaker.png)
 
 ### subfinder, but for leaks
 

@@ -4,6 +4,8 @@ title: "Major Update in leaker - New Sources and Search Types"
 description: Major update to leaker - from 2 to 9 sources, new search types, JSONL output, and many quality-of-life improvements.
 categories: [Pentest, Development]
 date: 2026-02-28 10:00 +0500
+image:
+  path: /assets/posts/pentest/leaker-updates-1-3-0/new_leaker.png
 ---
 
 ## Introduction
@@ -17,8 +19,6 @@ I've finally had the time to do a proper research for additional leak sources. T
 I also want to take a moment to thank the community. When I published leaker, I honestly did not expect it to get much attention. Seeing the project grow past 250 stars on GitHub was a surprise and a great motivation to keep improving it. Thank you for the support, bug reports, and ideas - it means a lot.
 
 In this post, I will walk through everything that changed since v1.0.0.
-
-![leaker v1.3.0](/assets/posts/pentest/leaker-updates-1-3-0/new_leaker.png)
 
 ## From 2 to 9 Sources
 
