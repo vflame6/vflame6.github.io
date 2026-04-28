@@ -52,7 +52,7 @@
         !function(n){var o,r;"function"==typeof define&&define.amd?define(["jquery","datatables.net"],function(t){return n(t,window,document)}):"object"==typeof exports?(o=require("jquery"),r=function(t,e){e.fn.dataTable||require("datatables.net")(t,e)},"undefined"==typeof window?module.exports=function(t,e){return t=t||window,e=e||o(t),r(t,e),n(e,0,t.document)}:(r(window,o),module.exports=n(o,window,window.document))):n(jQuery,window,document)}(function(d,t,e){"use strict";var n=d.fn.dataTable;return d.extend(!0,n.defaults,{renderer:"bootstrap"}),d.extend(!0,n.ext.classes,{container:"dt-container dt-bootstrap5",search:{input:"form-control form-control-sm"},length:{select:"form-select form-select-sm"},processing:{container:"dt-processing card"},layout:{row:"row mt-2 justify-content-between",cell:"d-md-flex justify-content-between align-items-center",tableCell:"col-12",start:"dt-layout-start col-md-auto me-auto",end:"dt-layout-end col-md-auto ms-auto",full:"dt-layout-full col-md"}}),n.ext.renderer.pagingButton.bootstrap=function(t,e,n,o,r){var a=["dt-paging-button","page-item"],o=(o&&a.push("active"),r&&a.push("disabled"),d("<li>").addClass(a.join(" ")));return{display:o,clicker:d("<button>",{class:"page-link",role:"link",type:"button"}).html(n).appendTo(o)}},n.ext.renderer.pagingContainer.bootstrap=function(t,e){return d("<ul/>").addClass("pagination").append(e)},n});
     </script>
 
-
+    
     <script>
          
 
@@ -134,28 +134,32 @@
             return DataTable;
         }));
     </script>
-
     <style>
         body {
             padding-top: 56px;  
+            background-color: #fafbfc;
         }
         .footer {
             margin-top:56px;
-            padding-top:56px;
+            padding-top:32px;
+            padding-bottom:32px;
             width: 100%;
-            height: 160px;
             background-color: #f5f5f5;
         }
         .panel-heading {
             display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
         }
-        .bi-chevron-down {
-            font-size: 1rem;
-            margin-right: 3px;
+        .panel-heading:hover {
+            background-color: #f0f1f3;
         }
+        .bi-chevron-down,
         .bi-chevron-right {
             font-size: 1rem;
-            margin-right: 3px;
+            margin-right: 6px;
+            color: #6c757d;
         }
         h2 {
             padding-top: 24px;
@@ -165,6 +169,43 @@
         }
         h6 {
             padding-top: 4px;
+        }
+        .stat-card {
+            background: #fff;
+            border: 1px solid #e6e8eb;
+            border-radius: .5rem;
+            padding: .85rem 1rem;
+            height: 100%;
+        }
+        .stat-card .stat-label {
+            font-size: .75rem;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: #6c757d;
+        }
+        .stat-card .stat-value {
+            font-size: 1.6rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-top: .15rem;
+        }
+        .stat-card.stat-warn .stat-value { color: #997404; }
+        .stat-card.stat-danger .stat-value { color: #b02a37; }
+        .stat-card.stat-success .stat-value { color: #146c43; }
+        .command-box {
+            background: #1e1e1e;
+            color: #f1f1f1;
+            border-radius: .5rem;
+            padding: .9rem 1.1rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: .9rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin: 0;
+        }
+        .command-box .cmd-prompt {
+            color: #6cb6ff;
+            user-select: none;
         }
     </style>
 
@@ -224,10 +265,49 @@
 </nav>
 
 <div id="content" class="container-md">
-    <div id="summary" class="mt-4 p-5 bg-light rounded">
-        <h1>Sharefinder Scan Report</h1>
-        <h2 class="text-muted pt-0">sharefinder v1.2.2</h2>
-        <p id="summary-time" class="lead">01/01/2026 10:18:29 - 01/01/2026 10:18:29</p>
+    <div id="summary" class="mt-4 p-4 p-md-5 bg-light rounded">
+        <h1 class="mb-1">Sharefinder Scan Report</h1>
+        <p class="text-muted mb-4">sharefinder v1.4.0 &middot; 28/04/2026 13:07:17 – 28/04/2026 13:07:19</p>
+
+        
+        <div class="mb-4">
+            <div class="text-muted small text-uppercase mb-1" style="letter-spacing:.04em;">Executed command</div>
+            <pre class="command-box"><span class="cmd-prompt">$ </span>sharefinder hunt -u north.sevenkingdoms.local\hodor -p *** --list --recurse --forest --output-all tmp/result 192.168.10.11</pre>
+        </div>
+        
+
+        <div class="row g-2">
+            <div class="col-6 col-md">
+                <div class="stat-card">
+                    <div class="stat-label">Hosts</div>
+                    <div class="stat-value">3</div>
+                </div>
+            </div>
+            <div class="col-6 col-md">
+                <div class="stat-card">
+                    <div class="stat-label">Shares</div>
+                    <div class="stat-value">5</div>
+                </div>
+            </div>
+            <div class="col-6 col-md">
+                <div class="stat-card stat-warn">
+                    <div class="stat-label">Readable</div>
+                    <div class="stat-value">5</div>
+                </div>
+            </div>
+            <div class="col-6 col-md">
+                <div class="stat-card stat-danger">
+                    <div class="stat-label">Writable</div>
+                    <div class="stat-value">2</div>
+                </div>
+            </div>
+            <div class="col-6 col-md">
+                <div class="stat-card stat-success">
+                    <div class="stat-label">Admin</div>
+                    <div class="stat-value">0</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     
@@ -241,27 +321,57 @@
                 <th>Domain</th>
                 <th>Version</th>
                 <th>Signing</th>
+                <th>Admin</th>
                 <th>Shares</th>
             </tr>
             </thead>
             <tbody>
                 
                 <tr>
-                    <td><a href="#192.168.56.22">192.168.56.22</a></td>
+                    <td><a href="#192.168.10.22">192.168.10.22</a></td>
                     <td>CASTELBLACK</td>
                     <td class="text-break">north.sevenkingdoms.local</td>
                     <td>Windows NT 10.0 Build 17763</td>
-                    <td>false</td>
+                    <td>
+                        <span class="badge text-bg-warning">Not required</span>
+                    </td>
+                    <td>
+                        <span class="badge text-bg-secondary">No</span>
+                        
+                    </td>
                     <td>2</td>
                 </tr>
                 
                 <tr>
-                    <td><a href="#192.168.56.11">192.168.56.11</a></td>
+                    <td><a href="#192.168.10.11">192.168.10.11</a></td>
                     <td>WINTERFELL</td>
                     <td class="text-break">north.sevenkingdoms.local</td>
                     <td>Windows NT 10.0 Build 17763</td>
-                    <td>true</td>
+                    <td>
+                        <span class="badge text-bg-success">Required</span>
+                        
+                    </td>
+                    <td>
+                        <span class="badge text-bg-secondary">No</span>
+                        
+                    </td>
                     <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td><a href="#192.168.10.10">192.168.10.10</a></td>
+                    <td>KINGSLANDING</td>
+                    <td class="text-break">sevenkingdoms.local</td>
+                    <td>Windows NT 10.0 Build 17763</td>
+                    <td>
+                        <span class="badge text-bg-success">Required</span>
+                        
+                    </td>
+                    <td>
+                        <span class="badge text-bg-secondary">No</span>
+                        
+                    </td>
+                    <td>2</td>
                 </tr>
                 
             </tbody>
@@ -276,15 +386,15 @@
     </script>
 
     
-    <h2>Shares</h2>
+    <h2 class="mb-2">Shares</h2>
     <div id="shares">
         
-        <div class="panel panel-default border rounded pt-2 mt-1 bg-light">
-            <div onclick="toggleChevron(this)" class="panel-heading px-3" data-bs-toggle="collapse" data-bs-target="#192.168.56.22" role="button">
+        <div class="panel panel-default border rounded pt-2 mb-2 bg-light">
+            <div onclick="toggleChevron(this)" class="panel-heading px-3" data-bs-toggle="collapse" data-bs-target="#192.168.10.22" role="button">
                 <i class="bi bi-chevron-down"></i>
-                <h5 class="panel-title pt-0">192.168.56.22 (CASTELBLACK)</h5>
+                <h5 class="panel-title pt-0">192.168.10.22 (CASTELBLACK)</h5>
             </div>
-            <div class="panel-body collapse in show bg-white px-3 border-top border-bottom" id="192.168.56.22" aria-expanded="true">
+            <div class="panel-body collapse in show bg-white px-3 border-top border-bottom" id="192.168.10.22" aria-expanded="true">
                 <h5 class="pt-2">Host details</h5>
                 <table class="table table-bordered">
                     <thead>
@@ -294,16 +404,23 @@
                         <th>Domain</th>
                         <th>Version</th>
                         <th>Signing</th>
+                        <th>Admin</th>
                         <th>Shares</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>192.168.56.22</td>
+                        <td>192.168.10.22</td>
                         <td>CASTELBLACK</td>
                         <td class="text-break">north.sevenkingdoms.local</td>
                         <td>Windows NT 10.0 Build 17763</td>
-                        <td>false</td>
+                        <td>
+                            <span class="badge text-bg-warning">Not required</span>
+                        </td>
+                        <td>
+                            <span class="badge text-bg-secondary">No</span>
+                            
+                        </td>
                         <td>2</td>
                     </tr>
                     </tbody>
@@ -352,7 +469,7 @@
                                             <td>file</td>
                                             <td>arya.txt</td>
                                             <td>413</td>
-                                            <td>2025-03-02 19:48:54.324746 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:56:14.761234 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         
@@ -389,12 +506,12 @@
             </div>
         </div>
         
-        <div class="panel panel-default border rounded pt-2 mt-1 bg-light">
-            <div onclick="toggleChevron(this)" class="panel-heading px-3" data-bs-toggle="collapse" data-bs-target="#192.168.56.11" role="button">
+        <div class="panel panel-default border rounded pt-2 mb-2 bg-light">
+            <div onclick="toggleChevron(this)" class="panel-heading px-3" data-bs-toggle="collapse" data-bs-target="#192.168.10.11" role="button">
                 <i class="bi bi-chevron-down"></i>
-                <h5 class="panel-title pt-0">192.168.56.11 (WINTERFELL)</h5>
+                <h5 class="panel-title pt-0">192.168.10.11 (WINTERFELL)</h5>
             </div>
-            <div class="panel-body collapse in show bg-white px-3 border-top border-bottom" id="192.168.56.11" aria-expanded="true">
+            <div class="panel-body collapse in show bg-white px-3 border-top border-bottom" id="192.168.10.11" aria-expanded="true">
                 <h5 class="pt-2">Host details</h5>
                 <table class="table table-bordered">
                     <thead>
@@ -404,16 +521,24 @@
                         <th>Domain</th>
                         <th>Version</th>
                         <th>Signing</th>
+                        <th>Admin</th>
                         <th>Shares</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>192.168.56.11</td>
+                        <td>192.168.10.11</td>
                         <td>WINTERFELL</td>
                         <td class="text-break">north.sevenkingdoms.local</td>
                         <td>Windows NT 10.0 Build 17763</td>
-                        <td>true</td>
+                        <td>
+                            <span class="badge text-bg-success">Required</span>
+                            
+                        </td>
+                        <td>
+                            <span class="badge text-bg-secondary">No</span>
+                            
+                        </td>
                         <td>1</td>
                     </tr>
                     </tbody>
@@ -458,7 +583,7 @@
                                             <td>dir</td>
                                             <td>north.sevenkingdoms.local</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:48.51 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:06.53416 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         
@@ -491,21 +616,21 @@
                                             <td>dir</td>
                                             <td>DfsrPrivate</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:25:43.731717 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:06:30.936698 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>dir</td>
                                             <td>Policies</td>
                                             <td>0</td>
-                                            <td>2025-03-02 19:49:24.056213 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:57:45.833521 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>dir</td>
                                             <td>scripts</td>
                                             <td>0</td>
-                                            <td>2025-03-02 19:48:56.462258 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:56:17.364177 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -534,21 +659,21 @@
                                             <td>dir</td>
                                             <td>{31B2F340-016D-11D2-945F-00C04FB984F9}</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.393514 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>dir</td>
                                             <td>{6AC1786C-016F-11D2-945F-00C04fB984F9}</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.424754 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>dir</td>
-                                            <td>{6CB8F7E3-2EAE-4C0B-ADBB-68A2057429C5}</td>
+                                            <td>{90EC8CCF-5B2B-4C90-A89C-D4AA37404CBC}</td>
                                             <td>0</td>
-                                            <td>2025-03-02 19:49:24.087843 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:57:45.89606 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -577,21 +702,21 @@
                                             <td>dir</td>
                                             <td>MACHINE</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.393514 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>dir</td>
                                             <td>USER</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.377879 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>file</td>
                                             <td>GPT.INI</td>
                                             <td>22</td>
-                                            <td>2025-03-02 18:38:38.888108 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:16:34.731758 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -620,7 +745,7 @@
                                             <td>dir</td>
                                             <td>Microsoft</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.393514 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -649,7 +774,7 @@
                                             <td>dir</td>
                                             <td>Windows NT</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.393514 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -678,7 +803,7 @@
                                             <td>dir</td>
                                             <td>SecEdit</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:38:38.872451 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:16:34.653619 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -707,7 +832,7 @@
                                             <td>file</td>
                                             <td>GptTmpl.inf</td>
                                             <td>1192</td>
-                                            <td>2025-03-02 18:38:38.84119 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:16:34.637997 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -741,21 +866,21 @@
                                             <td>dir</td>
                                             <td>MACHINE</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.424754 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>dir</td>
                                             <td>USER</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.424754 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>file</td>
                                             <td>GPT.INI</td>
                                             <td>22</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.424754 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -784,7 +909,7 @@
                                             <td>dir</td>
                                             <td>Microsoft</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.424754 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -813,7 +938,7 @@
                                             <td>dir</td>
                                             <td>Windows NT</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.424754 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -842,7 +967,7 @@
                                             <td>dir</td>
                                             <td>SecEdit</td>
                                             <td>0</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:00:15.456013 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -870,8 +995,8 @@
                                         <tr>
                                             <td>file</td>
                                             <td>GptTmpl.inf</td>
-                                            <td>3764</td>
-                                            <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                                            <td>3860</td>
+                                            <td>2026-04-23 18:00:15.440378 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -885,7 +1010,7 @@
                                 
 
                                 
-                                <h5 class="text-break">north.sevenkingdoms.local\Policies\{6CB8F7E3-2EAE-4C0B-ADBB-68A2057429C5}</h5>
+                                <h5 class="text-break">north.sevenkingdoms.local\Policies\{90EC8CCF-5B2B-4C90-A89C-D4AA37404CBC}</h5>
 
                                 
                                 <div>
@@ -905,28 +1030,28 @@
                                             <td>dir</td>
                                             <td>Machine</td>
                                             <td>0</td>
-                                            <td>2025-03-02 19:49:24.494003 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:57:46.349141 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>dir</td>
                                             <td>User</td>
                                             <td>0</td>
-                                            <td>2025-03-02 19:49:24.447666 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:57:46.286639 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>file</td>
                                             <td>GPO.cmt</td>
                                             <td>32</td>
-                                            <td>2025-03-02 19:49:24.103269 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:57:45.89606 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>file</td>
                                             <td>GPT.INI</td>
                                             <td>64</td>
-                                            <td>2025-03-02 19:49:24.494003 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:57:46.364764 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -935,7 +1060,7 @@
                                 
 
                                 
-                                <h5 class="text-break">north.sevenkingdoms.local\Policies\{6CB8F7E3-2EAE-4C0B-ADBB-68A2057429C5}\Machine</h5>
+                                <h5 class="text-break">north.sevenkingdoms.local\Policies\{90EC8CCF-5B2B-4C90-A89C-D4AA37404CBC}\Machine</h5>
 
                                 
                                 <div>
@@ -955,7 +1080,7 @@
                                             <td>file</td>
                                             <td>Registry.pol</td>
                                             <td>200</td>
-                                            <td>2025-03-02 19:49:24.47898 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:57:46.333515 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -964,7 +1089,7 @@
                                 
 
                                 
-                                <h5 class="text-break">north.sevenkingdoms.local\Policies\{6CB8F7E3-2EAE-4C0B-ADBB-68A2057429C5}\User</h5>
+                                <h5 class="text-break">north.sevenkingdoms.local\Policies\{90EC8CCF-5B2B-4C90-A89C-D4AA37404CBC}\User</h5>
 
                                 
                                 <div>
@@ -984,7 +1109,7 @@
                                             <td>file</td>
                                             <td>Registry.pol</td>
                                             <td>202</td>
-                                            <td>2025-03-02 19:49:24.447666 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:57:46.271012 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
@@ -1013,19 +1138,618 @@
                                             <td>file</td>
                                             <td>script.ps1</td>
                                             <td>165</td>
-                                            <td>2025-03-02 19:48:53.25907 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:56:12.86422 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         <tr>
                                             <td>file</td>
                                             <td>secret.ps1</td>
                                             <td>869</td>
-                                            <td>2025-03-02 19:48:55.728352 &#43;0500 &#43;05</td>
+                                            <td>2026-04-23 18:56:16.332924 &#43;0500 &#43;05</td>
                                         </tr>
                                         
                                         </tbody>
                                     </table>
                                 </div>
+                                
+
+                                
+                            </td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="panel panel-default border rounded pt-2 mb-2 bg-light">
+            <div onclick="toggleChevron(this)" class="panel-heading px-3" data-bs-toggle="collapse" data-bs-target="#192.168.10.10" role="button">
+                <i class="bi bi-chevron-down"></i>
+                <h5 class="panel-title pt-0">192.168.10.10 (KINGSLANDING)</h5>
+            </div>
+            <div class="panel-body collapse in show bg-white px-3 border-top border-bottom" id="192.168.10.10" aria-expanded="true">
+                <h5 class="pt-2">Host details</h5>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="table-light">
+                        <th>IP</th>
+                        <th>Hostname</th>
+                        <th>Domain</th>
+                        <th>Version</th>
+                        <th>Signing</th>
+                        <th>Admin</th>
+                        <th>Shares</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>192.168.10.10</td>
+                        <td>KINGSLANDING</td>
+                        <td class="text-break">sevenkingdoms.local</td>
+                        <td>Windows NT 10.0 Build 17763</td>
+                        <td>
+                            <span class="badge text-bg-success">Required</span>
+                            
+                        </td>
+                        <td>
+                            <span class="badge text-bg-secondary">No</span>
+                            
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h5>Shares</h5>
+                
+                <table id="hostShares" class="table table-bordered">
+                    <thead>
+                        <tr class="table-light">
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Readable</th>
+                            <th>Writable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-warning" >
+                            <td>CertEnroll</td>
+                            <td>Active Directory Certificate Services share</td>
+                            <td>true</td>
+                            <td>false</td>
+                        </tr>
+
+                        
+                        <tr class="">
+                            <td colspan="4">
+                                <h5 class="text-break">Listing share: CertEnroll</h5>
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+
+                                        
+                                        
+                                        <tr>
+                                            <td>file</td>
+                                            <td>kingslanding.sevenkingdoms.local_SEVENKINGDOMS-CA.crt</td>
+                                            <td>897</td>
+                                            <td>2026-04-23 18:25:44.617028 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        
+                                        
+                                        <tr>
+                                            <td>file</td>
+                                            <td>nsrev_SEVENKINGDOMS-CA.asp</td>
+                                            <td>341</td>
+                                            <td>2026-04-23 18:25:49.398278 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        
+                                        
+                                        <tr>
+                                            <td>file</td>
+                                            <td>SEVENKINGDOMS-CA&#43;.crl</td>
+                                            <td>753</td>
+                                            <td>2026-04-27 18:25:46.237684 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        
+                                        
+                                        <tr>
+                                            <td>file</td>
+                                            <td>SEVENKINGDOMS-CA.crl</td>
+                                            <td>960</td>
+                                            <td>2026-04-23 18:25:46.023278 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                
+                            </td>
+                        </tr>
+                        
+                        
+                <table id="hostShares" class="table table-bordered">
+                    <thead>
+                        <tr class="table-light">
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Readable</th>
+                            <th>Writable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-warning" >
+                            <td>SYSVOL</td>
+                            <td>Logon server share </td>
+                            <td>true</td>
+                            <td>false</td>
+                        </tr>
+
+                        
+                        <tr class="">
+                            <td colspan="4">
+                                <h5 class="text-break">Listing share: SYSVOL</h5>
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>sevenkingdoms.local</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:49.979365 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        
+
+                                        
+                                        
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>DfsrPrivate</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:55:07.002644 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>Policies</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.05686 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>scripts</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:49.979365 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>{31B2F340-016D-11D2-945F-00C04FB984F9}</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.010003 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>{6AC1786C-016F-11D2-945F-00C04fB984F9}</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.05686 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>MACHINE</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.025612 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>USER</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.010003 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>file</td>
+                                            <td>GPT.INI</td>
+                                            <td>22</td>
+                                            <td>2026-04-23 18:16:26.474506 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\MACHINE</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>Microsoft</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.025612 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\MACHINE\Microsoft</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>Windows NT</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.025612 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\MACHINE\Microsoft\Windows NT</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>SecEdit</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 18:16:26.443256 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\MACHINE\Microsoft\Windows NT\SecEdit</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>file</td>
+                                            <td>GptTmpl.inf</td>
+                                            <td>1192</td>
+                                            <td>2026-04-23 18:16:26.427631 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\USER</h5>
+
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>MACHINE</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.05686 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>USER</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.05686 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>file</td>
+                                            <td>GPT.INI</td>
+                                            <td>22</td>
+                                            <td>2026-04-23 18:25:17.195152 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}\MACHINE</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>Microsoft</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.05686 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}\MACHINE\Microsoft</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>Windows NT</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 17:48:59.05686 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}\MACHINE\Microsoft\Windows NT</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>dir</td>
+                                            <td>SecEdit</td>
+                                            <td>0</td>
+                                            <td>2026-04-23 18:25:17.195152 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}\MACHINE\Microsoft\Windows NT\SecEdit</h5>
+
+                                
+                                <div>
+                                    <table class="hostFiles table table-hover table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Size</th>
+                                            <th>Last Modified</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                        <tr>
+                                            <td>file</td>
+                                            <td>GptTmpl.inf</td>
+                                            <td>4638</td>
+                                            <td>2026-04-23 18:25:17.163901 &#43;0500 &#43;05</td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}\USER</h5>
+
+                                
+
+                                
+                                <h5 class="text-break">sevenkingdoms.local\scripts</h5>
+
                                 
 
                                 
@@ -1061,12 +1785,12 @@
             
             
             <tr>
-                <td>192.168.56.22</td>
+                <td>192.168.10.22</td>
                 <td>all</td>
                 <td>arya.txt</td>
                 <td class="text-break"></td>
                 <td>413</td>
-                <td>2025-03-02 19:48:54.324746 &#43;0500 &#43;05</td>
+                <td>2026-04-23 18:56:14.761234 &#43;0500 &#43;05</td>
             </tr>
             
             
@@ -1111,12 +1835,12 @@
             
             
             <tr>
-                <td>192.168.56.11</td>
+                <td>192.168.10.11</td>
                 <td>SYSVOL</td>
                 <td style="white-space:pre-wrap; word-wrap:break-word;">GPT.INI</td>
                 <td class="text-break">north.sevenkingdoms.local\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}</td>
                 <td>22</td>
-                <td>2025-03-02 18:38:38.888108 &#43;0500 &#43;05</td>
+                <td>2026-04-23 18:16:34.731758 &#43;0500 &#43;05</td>
             </tr>
             
             
@@ -1136,12 +1860,12 @@
             
             
             <tr>
-                <td>192.168.56.11</td>
+                <td>192.168.10.11</td>
                 <td>SYSVOL</td>
                 <td style="white-space:pre-wrap; word-wrap:break-word;">GptTmpl.inf</td>
                 <td class="text-break">north.sevenkingdoms.local\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\MACHINE\Microsoft\Windows NT\SecEdit</td>
                 <td>1192</td>
-                <td>2025-03-02 18:38:38.84119 &#43;0500 &#43;05</td>
+                <td>2026-04-23 18:16:34.637997 &#43;0500 &#43;05</td>
             </tr>
             
             
@@ -1155,12 +1879,12 @@
             
             
             <tr>
-                <td>192.168.56.11</td>
+                <td>192.168.10.11</td>
                 <td>SYSVOL</td>
                 <td style="white-space:pre-wrap; word-wrap:break-word;">GPT.INI</td>
                 <td class="text-break">north.sevenkingdoms.local\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}</td>
                 <td>22</td>
-                <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                <td>2026-04-23 18:00:15.424754 &#43;0500 &#43;05</td>
             </tr>
             
             
@@ -1180,12 +1904,12 @@
             
             
             <tr>
-                <td>192.168.56.11</td>
+                <td>192.168.10.11</td>
                 <td>SYSVOL</td>
                 <td style="white-space:pre-wrap; word-wrap:break-word;">GptTmpl.inf</td>
                 <td class="text-break">north.sevenkingdoms.local\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}\MACHINE\Microsoft\Windows NT\SecEdit</td>
-                <td>3764</td>
-                <td>2025-03-02 18:14:59.599071 &#43;0500 &#43;05</td>
+                <td>3860</td>
+                <td>2026-04-23 18:00:15.440378 &#43;0500 &#43;05</td>
             </tr>
             
             
@@ -1199,23 +1923,23 @@
             
             
             <tr>
-                <td>192.168.56.11</td>
+                <td>192.168.10.11</td>
                 <td>SYSVOL</td>
                 <td style="white-space:pre-wrap; word-wrap:break-word;">GPO.cmt</td>
-                <td class="text-break">north.sevenkingdoms.local\Policies\{6CB8F7E3-2EAE-4C0B-ADBB-68A2057429C5}</td>
+                <td class="text-break">north.sevenkingdoms.local\Policies\{90EC8CCF-5B2B-4C90-A89C-D4AA37404CBC}</td>
                 <td>32</td>
-                <td>2025-03-02 19:49:24.103269 &#43;0500 &#43;05</td>
+                <td>2026-04-23 18:57:45.89606 &#43;0500 &#43;05</td>
             </tr>
             
             
             
             <tr>
-                <td>192.168.56.11</td>
+                <td>192.168.10.11</td>
                 <td>SYSVOL</td>
                 <td style="white-space:pre-wrap; word-wrap:break-word;">GPT.INI</td>
-                <td class="text-break">north.sevenkingdoms.local\Policies\{6CB8F7E3-2EAE-4C0B-ADBB-68A2057429C5}</td>
+                <td class="text-break">north.sevenkingdoms.local\Policies\{90EC8CCF-5B2B-4C90-A89C-D4AA37404CBC}</td>
                 <td>64</td>
-                <td>2025-03-02 19:49:24.494003 &#43;0500 &#43;05</td>
+                <td>2026-04-23 18:57:46.364764 &#43;0500 &#43;05</td>
             </tr>
             
             
@@ -1223,12 +1947,12 @@
             
             
             <tr>
-                <td>192.168.56.11</td>
+                <td>192.168.10.11</td>
                 <td>SYSVOL</td>
                 <td style="white-space:pre-wrap; word-wrap:break-word;">Registry.pol</td>
-                <td class="text-break">north.sevenkingdoms.local\Policies\{6CB8F7E3-2EAE-4C0B-ADBB-68A2057429C5}\Machine</td>
+                <td class="text-break">north.sevenkingdoms.local\Policies\{90EC8CCF-5B2B-4C90-A89C-D4AA37404CBC}\Machine</td>
                 <td>200</td>
-                <td>2025-03-02 19:49:24.47898 &#43;0500 &#43;05</td>
+                <td>2026-04-23 18:57:46.333515 &#43;0500 &#43;05</td>
             </tr>
             
             
@@ -1236,12 +1960,12 @@
             
             
             <tr>
-                <td>192.168.56.11</td>
+                <td>192.168.10.11</td>
                 <td>SYSVOL</td>
                 <td style="white-space:pre-wrap; word-wrap:break-word;">Registry.pol</td>
-                <td class="text-break">north.sevenkingdoms.local\Policies\{6CB8F7E3-2EAE-4C0B-ADBB-68A2057429C5}\User</td>
+                <td class="text-break">north.sevenkingdoms.local\Policies\{90EC8CCF-5B2B-4C90-A89C-D4AA37404CBC}\User</td>
                 <td>202</td>
-                <td>2025-03-02 19:49:24.447666 &#43;0500 &#43;05</td>
+                <td>2026-04-23 18:57:46.271012 &#43;0500 &#43;05</td>
             </tr>
             
             
@@ -1249,24 +1973,188 @@
             
             
             <tr>
-                <td>192.168.56.11</td>
+                <td>192.168.10.11</td>
                 <td>SYSVOL</td>
                 <td style="white-space:pre-wrap; word-wrap:break-word;">script.ps1</td>
                 <td class="text-break">north.sevenkingdoms.local\scripts</td>
                 <td>165</td>
-                <td>2025-03-02 19:48:53.25907 &#43;0500 &#43;05</td>
+                <td>2026-04-23 18:56:12.86422 &#43;0500 &#43;05</td>
             </tr>
             
             
             
             <tr>
-                <td>192.168.56.11</td>
+                <td>192.168.10.11</td>
                 <td>SYSVOL</td>
                 <td style="white-space:pre-wrap; word-wrap:break-word;">secret.ps1</td>
                 <td class="text-break">north.sevenkingdoms.local\scripts</td>
                 <td>869</td>
-                <td>2025-03-02 19:48:55.728352 &#43;0500 &#43;05</td>
+                <td>2026-04-23 18:56:16.332924 &#43;0500 &#43;05</td>
             </tr>
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            <tr>
+                <td>192.168.10.10</td>
+                <td>CertEnroll</td>
+                <td>kingslanding.sevenkingdoms.local_SEVENKINGDOMS-CA.crt</td>
+                <td class="text-break"></td>
+                <td>897</td>
+                <td>2026-04-23 18:25:44.617028 &#43;0500 &#43;05</td>
+            </tr>
+            
+            
+            
+            <tr>
+                <td>192.168.10.10</td>
+                <td>CertEnroll</td>
+                <td>nsrev_SEVENKINGDOMS-CA.asp</td>
+                <td class="text-break"></td>
+                <td>341</td>
+                <td>2026-04-23 18:25:49.398278 &#43;0500 &#43;05</td>
+            </tr>
+            
+            
+            
+            <tr>
+                <td>192.168.10.10</td>
+                <td>CertEnroll</td>
+                <td>SEVENKINGDOMS-CA&#43;.crl</td>
+                <td class="text-break"></td>
+                <td>753</td>
+                <td>2026-04-27 18:25:46.237684 &#43;0500 &#43;05</td>
+            </tr>
+            
+            
+            
+            <tr>
+                <td>192.168.10.10</td>
+                <td>CertEnroll</td>
+                <td>SEVENKINGDOMS-CA.crl</td>
+                <td class="text-break"></td>
+                <td>960</td>
+                <td>2026-04-23 18:25:46.023278 &#43;0500 &#43;05</td>
+            </tr>
+            
+            
+
+            
+
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <tr>
+                <td>192.168.10.10</td>
+                <td>SYSVOL</td>
+                <td style="white-space:pre-wrap; word-wrap:break-word;">GPT.INI</td>
+                <td class="text-break">sevenkingdoms.local\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}</td>
+                <td>22</td>
+                <td>2026-04-23 18:16:26.474506 &#43;0500 &#43;05</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <tr>
+                <td>192.168.10.10</td>
+                <td>SYSVOL</td>
+                <td style="white-space:pre-wrap; word-wrap:break-word;">GptTmpl.inf</td>
+                <td class="text-break">sevenkingdoms.local\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\MACHINE\Microsoft\Windows NT\SecEdit</td>
+                <td>1192</td>
+                <td>2026-04-23 18:16:26.427631 &#43;0500 &#43;05</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <tr>
+                <td>192.168.10.10</td>
+                <td>SYSVOL</td>
+                <td style="white-space:pre-wrap; word-wrap:break-word;">GPT.INI</td>
+                <td class="text-break">sevenkingdoms.local\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}</td>
+                <td>22</td>
+                <td>2026-04-23 18:25:17.195152 &#43;0500 &#43;05</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <tr>
+                <td>192.168.10.10</td>
+                <td>SYSVOL</td>
+                <td style="white-space:pre-wrap; word-wrap:break-word;">GptTmpl.inf</td>
+                <td class="text-break">sevenkingdoms.local\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}\MACHINE\Microsoft\Windows NT\SecEdit</td>
+                <td>4638</td>
+                <td>2026-04-23 18:25:17.163901 &#43;0500 &#43;05</td>
+            </tr>
+            
+            
+            
+            
             
             
             
@@ -1367,5 +2255,4 @@
 </footer>
 
 </body>
-
 </html>
