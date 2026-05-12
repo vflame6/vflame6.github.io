@@ -4,6 +4,8 @@ title: My Bachelor's Degree in Information Security
 description: My thoughts about obtaining a bachelor's degree and my future plans.
 categories: [Blog, Education]
 date: 2025-08-13 13:55 +0300
+lang: en
+ref: bachelors-degree-in-infosec
 image:
   path: /assets/posts/blog/bachelor-degree/1_diploma.jpeg
 ---

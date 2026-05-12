@@ -4,6 +4,8 @@ title: AI Red Teaming or What Marketing has done to Penetration Testing
 categories: [Pentest, Market]
 description: Several considerations on market shift from classic security research to red teaming everything.
 date: 2025-09-12 01:00 +0300
+lang: en
+ref: ai-redteaming-marketing
 ---
 
 In this post, I want to talk about the so-called “AI Red Teaming,” namely a certain trend that is leading the market away from security research/penetration testing and toward red teaming. In the screenshot below, for example, I have included a course from HackThebox with the corresponding name, but in fact, the term is used everywhere.

@@ -4,6 +4,8 @@ title: You received a NetNTLMv1 hash. What next?
 date: 2025-08-29 01:00 +0300
 categories: [Pentest, Research]
 description: Exploring several ways to abuse NetNTLMv1 in corporate networks.
+lang: en
+ref: you-received-a-netntlmv1-hash-what-next
 ---
 
 Some time ago, during one of my job interviews, I was asked: **“You received a NetNTLMv1 hash. What can you do with it right away?”**
