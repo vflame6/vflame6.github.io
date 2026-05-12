@@ -4,6 +4,8 @@ title: Types of Offensive Security Services
 categories: [Pentest, Market]
 description: My vision on describing and categorizing types of offensive security services with notes of when each category should be used.
 date: 2025-09-19 01:00 +0300
+lang: en
+ref: types-of-offsec-services
 ---
 
 After the [previous post on “AI Red Teaming”](https://maksimradaev.com/posts/ai-redteaming-marketing/), one question remained unanswered: what is the difference, and what should a potential customer of offensive security services choose? It seems that red teaming gives the “coolest” results, so does that mean everything else is unnecessary?

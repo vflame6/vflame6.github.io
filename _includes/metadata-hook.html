@@ -1,0 +1,18 @@
+{%- comment -%}
+  hreflang alternates for posts that have a Russian/English twin (see _includes/lang-switch.html).
+  Chirpy includes this file from `head.html` for every page, so `<link>` tags land in <head>
+  where Google's Search Central docs and Sylvain Durand's guide say they belong.
+{%- endcomment -%}
+{%- if page.ref -%}
+  {%- assign all_docs = site.posts | concat: site.translations -%}
+  {%- assign translations = all_docs | where: "ref", page.ref -%}
+  {%- if translations.size > 1 -%}
+    {%- for t in translations -%}
+<link rel="alternate" hreflang="{{ t.lang }}" href="{{ t.url | absolute_url }}">
+    {%- endfor -%}
+    {%- assign default_post = translations | where: "lang", "en" | first -%}
+    {%- if default_post -%}
+<link rel="alternate" hreflang="x-default" href="{{ default_post.url | absolute_url }}">
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

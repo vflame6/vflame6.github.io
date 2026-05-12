@@ -26,3 +26,7 @@ assets/js/dist
 .DS_Store
 .devcontainer/
 .editorconfig
+
+tmp/
+CLAUDE.md
+

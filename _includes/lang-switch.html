@@ -1,0 +1,35 @@
+{%- comment -%}
+  Renders a language toggle when the current post has a `ref` shared by at
+  least one other post. The `page.ref` guard prevents matching all the other
+  posts that have no `ref` set at all (Liquid's `where: "ref", nil` would
+  otherwise return every untagged post and produce a false toggle).
+{%- endcomment -%}
+{%- if page.ref -%}
+  {%- assign all_docs = site.posts | concat: site.translations -%}
+  {%- assign translations = all_docs | where: "ref", page.ref | sort: "lang" -%}
+  {%- if translations.size > 1 -%}
+    <div class="lang-switch mb-4">
+      {%- for t in translations -%}
+        {%- if t.lang == "en" -%}
+          {%- assign label = "🇬🇧 English" -%}
+        {%- elsif t.lang == "ru" -%}
+          {%- assign label = "🇷🇺 Русский" -%}
+        {%- else -%}
+          {%- assign label = t.lang -%}
+        {%- endif -%}
+        {%- if t.url == page.url -%}
+          <span class="lang-switch-active">{{ label }}</span>
+        {%- else -%}
+          <a href="{{ t.url | relative_url }}" hreflang="{{ t.lang }}" rel="alternate">{{ label }}</a>
+        {%- endif -%}
+        {%- unless forloop.last %} · {% endunless -%}
+      {%- endfor -%}
+    </div>
+    <style>
+      .lang-switch { font-size: 0.9rem; }
+      .lang-switch-active { font-weight: 600; color: var(--heading-color); }
+      .lang-switch a { color: var(--text-muted-color); }
+      .lang-switch a:hover { color: var(--link-color); }
+    </style>
+  {%- endif -%}
+{%- endif -%}

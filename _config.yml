@@ -16,7 +16,7 @@ timezone: Europe/Moscow
 
 title: Maksim 'vflame6' Radaev
 
-tagline: "Cybersecurity enthusiast, penetration tester. This is my personal blog about things I find interesting. Looking for red team, pentest or DevSecOps services? Contact on vflame6x@gmail.com"
+tagline: "Cybersecurity enthusiast, writing about things I find interesting. Looking for offensive security services? Contact on vflame6x@gmail.com"
 
 description: >-
   Maksim 'vflame6' Radaev bloggin about cybersecurity, pentest, and CTFs related content.
@@ -165,6 +165,13 @@ collections:
   tabs:
     output: true
     sort_by: order
+  # Translations live in their own collection so they're excluded from
+  # `site.posts` (which feeds listings, archives, sidebar, feed, search,
+  # and `jekyll-archives` category pages). They remain in `sitemap.xml`
+  # because the collection is `output: true`, and they're linked from
+  # the English version via hreflang alternates and the lang-switch.
+  translations:
+    output: true
 
 defaults:
   - scope:
@@ -187,6 +194,20 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  # i18n: every translation document inherits `layout: post` so the post
+  # template renders it; per-language defaults attach the language tag and
+  # the URL prefix. Russian lives under /ru/posts/:name/.
+  - scope:
+      path: ""
+      type: translations
+    values:
+      layout: post
+  - scope:
+      path: "_translations/ru"
+      type: translations
+    values:
+      lang: ru
+      permalink: /ru/posts/:name/
 
 sass:
   style: compressed
@@ -219,6 +240,3 @@ jekyll-archives:
   permalinks:
     # tag: /tags/:name/
     category: /categories/:name/
-
-plugins:
-  - jekyll-feed
