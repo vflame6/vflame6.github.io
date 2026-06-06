@@ -30,3 +30,4 @@ assets/js/dist
 tmp/
 CLAUDE.md
 docs/
+.playwright-mcp/
