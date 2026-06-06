@@ -1,0 +1,101 @@
+<!-- The paginator for post list on HomePage. -->
+<!-- Local override of the Chirpy gem version: builds page links from the
+     blog listing root (`/blog/`) instead of `/`, since the post listing was
+     moved off the site root. -->
+
+{% assign blog_root = '/blog/' | relative_url %}
+{% assign blog_paginate_path = '/blog/page:num/' %}
+
+<nav aria-label="Page Navigation">
+  <ul class="pagination align-items-center mt-4 mb-0">
+    <!-- left arrow -->
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+        {% assign prev_url = blog_root %}
+      {% else %}
+        {% assign prev_url = blog_paginate_path | replace: ':num', paginator.previous_page | relative_url %}
+      {% endif %}
+    {% else %}
+      {% assign prev_url = '#' %}
+    {% endif %}
+
+    <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
+      <a class="page-link" href="{{ prev_url }}" aria-label="previous-page">
+        <i class="fas fa-angle-left"></i>
+      </a>
+    </li>
+
+    <!-- page numbers -->
+    {% assign left_ellipsis = false %}
+    {% assign right_ellipsis = false %}
+
+    {% for i in (1..paginator.total_pages) %}
+      {% assign pre = paginator.page | minus: 1 %}
+      {% assign next = paginator.page | plus: 1 %}
+      {% assign pre_less = pre | minus: 1 %}
+      {% assign next_more = next | plus: 1 %}
+      {% assign show = false %}
+
+      {% if paginator.page == 1 %}
+        {% if i <= 3 or i == paginator.total_pages %}
+          {% assign show = true %}
+        {% endif %}
+      {% elsif paginator.page == paginator.total_pages %}
+        {% if i == 1 or i >= pre_less %}
+          {% assign show = true %}
+        {% endif %}
+      {% else %}
+        {% if i == 1 or i == paginator.total_pages %}
+          {% assign show = true %}
+        {% elsif i >= pre and i <= next %}
+          {% assign show = true %}
+        {% endif %}
+      {% endif %}
+
+      {% if show %}
+        <!-- show number -->
+        <li class="page-item {% if i == paginator.page %} active{% endif %}">
+          <a
+            class="page-link"
+            href="{% if i > 1 %}{{ blog_paginate_path | replace: ':num', i | relative_url }}{% else %}{{ blog_root }}{% endif %}"
+          >
+            {{- i -}}
+          </a>
+        </li>
+      {% else %}
+        <!-- hide number -->
+        {% if i < pre and left_ellipsis == false %}
+          <li class="page-item disabled">
+            <span class="page-link">...</span>
+          </li>
+          {% assign left_ellipsis = true %}
+        {% elsif i > next and right_ellipsis == false %}
+          <li class="page-item disabled">
+            <span class="page-link">...</span>
+          </li>
+          {% assign right_ellipsis = true %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- mobile pagination -->
+    <li class="page-index align-middle">
+      <span>{{ paginator.page }}</span>
+      <span class="text-muted">/ {{ paginator.total_pages }}</span>
+    </li>
+
+    <!-- right arrow -->
+    {% if paginator.next_page %}
+      {% assign next_url = blog_paginate_path | replace: ':num', paginator.next_page | relative_url %}
+    {% else %}
+      {% assign next_url = '#' %}
+    {% endif %}
+
+    <li class="page-item {% unless paginator.next_page %}disabled{% endunless %}">
+      <a class="page-link" href="{{ next_url }}" aria-label="next-page">
+        <i class="fas fa-angle-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+<!-- .pagination -->
