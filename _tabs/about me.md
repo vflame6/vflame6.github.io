@@ -16,24 +16,10 @@ I conduct comprehensive security assessments from start to finish - from initial
 
 Currently I offer `network` (external/internal), `application` (web/mobile), `social-engineering` penetration testing projects and `red team` operations. Looking for professional penetration testing or red team services? See contact options in [Contacts](#contact-me) section.
 
-Beyond client work, I'm passionate about developing open-source security tools, sharing knowledge through my [Blog](/) and [Telegram channel](https://t.me/vflame6), and continuously expanding my skills in red teaming and adversary simulation.
+Beyond client work, I'm passionate about developing security tools (see [Projects](/projects/)), sharing knowledge through my [Blog](/) and [Telegram channel](https://t.me/vflame6), and continuously expanding my skills in red teaming and adversary simulation.
 
 > All information contained in this blog is provided for educational and research purposes only. The author is not responsible for any illegal use of any information published on the pages of this blog.
 {: .prompt-warning }
-
-## Projects
-
----
-
-### Open Source Development 
-
-I develop and maintain security tools that automate common pentesting tasks. Public tools and projects are available on my [Projects page](/projects/).
-
-### Blog and Telegram Channel
-
-I regularly publish technical articles on this blog covering things I find interesting in the offensive security field. You can browse all my posts on the [Blog](/blog/) page or by [Categories](/categories/).
-
-I share shorter updates, quick tips, and Russian-language content on my [Telegram channel](https://t.me/vflame6), where I discuss ongoing research and industry developments.
 
 ## Links
 
