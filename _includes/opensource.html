@@ -104,16 +104,12 @@
             errorRepo.textContent = "Failed to fetch repositories";
             document.getElementById('github-repos').appendChild(errorRepo);
         } else {
-            const sortedRepos = jsonResponse.sort((a, b) => {
-                if (a.stargazers_count < b.stargazers_count) { 
-                    return 1; 
-                } else if (a.stargazers_count > b.stargazers_count) { 
-                    return -1; 
-                }
-                return 0;
-            });
+            const excludedNames = new Set(["vflame6.github.io", "vflame6"]);
+            const visibleRepos = jsonResponse
+                .filter(repo => !repo.fork && !excludedNames.has(repo.name))
+                .sort((a, b) => b.stargazers_count - a.stargazers_count);
 
-            for (var i=0, element; element=jsonResponse[i]; i++) {
+            for (var i=0, element; element=visibleRepos[i]; i++) {
                 linkBlock = document.createElement('a');
                 linkBlock.setAttribute("href", element.html_url);
                 linkBlock.setAttribute("target", "_blank");
