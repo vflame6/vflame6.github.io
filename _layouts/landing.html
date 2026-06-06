@@ -35,6 +35,10 @@
         min-height: 100vh;
         overflow-x: hidden;
       }
+      body.landing {
+        display: flex;
+        flex-direction: column;
+      }
       #networkCanvas {
         position: fixed;
         inset: 0;
@@ -85,14 +89,15 @@
       .landing-hero {
         position: relative;
         z-index: 1;
+        flex: 1;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        max-width: 1200px;
+        width: 100%;
+        max-width: 56rem;
         margin: 0 auto;
-        padding: 4rem 3rem 8rem;
-        min-height: calc(100vh - 6rem);
+        padding: 2rem 1.5rem;
       }
       .landing-whoami {
         color: var(--accent);
@@ -140,7 +145,7 @@
         animation: glitch-anim-1 0.3s infinite linear alternate-reverse;
       }
       .glitch-wrapper:hover .glitch-2 {
-        color: #22d3ee;
+        color: var(--accent);
         transform: translate(2px, 2px);
         animation: glitch-anim-2 0.3s infinite linear alternate-reverse;
       }
