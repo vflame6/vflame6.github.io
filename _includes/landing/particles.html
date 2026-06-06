@@ -1,30 +1,99 @@
-<script defer
-        src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@4.1.3/tsparticles.slim.bundle.min.js"
-        integrity="sha384-Heyud2Zc7UkMC1JuQhtQgjp7pwyW1fo7zTIBDPryVwN1lrRDe4X3+B3NqhKZABYC"
-        crossorigin="anonymous"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', function () {
-    if (typeof tsParticles === 'undefined') return;
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    tsParticles.load({
-      id: 'tsparticles',
-      options: {
-        background: { color: '#000000' },
-        fpsLimit: 60,
-        particles: {
-          number: { value: window.innerWidth < 768 ? 40 : 80 },
-          color:  { value: '#ef4444' },
-          opacity: { value: 0.6 },
-          size:   { value: { min: 1, max: 3 } },
-          links:  { enable: true, distance: 150, color: '#ef4444', opacity: 0.3, width: 1 },
-          move:   { enable: !reduced, speed: 0.5, outModes: 'bounce' }
-        },
-        interactivity: {
-          events: { onHover: { enable: !reduced, mode: 'grab' } },
-          modes:  { grab: { distance: 200, links: { opacity: 0.6 } } }
-        },
-        detectRetina: true
-      }
+(function () {
+  var canvas = document.getElementById('networkCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var w = 0, h = 0;
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  var lastInteraction = 0; // start in idle mode
+  function bump() { lastInteraction = Date.now(); }
+  window.addEventListener('mousemove', bump, { passive: true });
+  window.addEventListener('touchstart', bump, { passive: true });
+  window.addEventListener('touchmove', bump, { passive: true });
+  window.addEventListener('scroll', bump, { passive: true });
+
+  var count = window.innerWidth < 768 ? 40 : 80;
+  var linkDist = 150;
+  var particles = [];
+  for (var i = 0; i < count; i++) {
+    particles.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: (Math.random() - 0.5),
+      vy: (Math.random() - 0.5),
+      radius: Math.random() * 2 + 1
     });
-  });
+  }
+
+  var mx = 0, my = 0;
+  window.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; }, { passive: true });
+
+  function update() {
+    var active = Date.now() - lastInteraction < 2000;
+    for (var k = 0; k < particles.length; k++) {
+      var p = particles[k];
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      if (active) {
+        var dx = p.x - mx, dy = p.y - my;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 200 && dist > 0) {
+          var force = (200 - dist) / 200;
+          p.vx += (dx / dist) * force * 0.5;
+          p.vy += (dy / dist) * force * 0.5;
+        }
+        if (Math.sqrt(p.vx * p.vx + p.vy * p.vy) > 2) { p.vx *= 0.95; p.vy *= 0.95; }
+      } else {
+        if (Math.random() < 0.05) {
+          p.vx += (Math.random() - 0.5) * 0.5;
+          p.vy += (Math.random() - 0.5) * 0.5;
+        }
+        if (Math.sqrt(p.vx * p.vx + p.vy * p.vy) > 8) { p.vx *= 0.95; p.vy *= 0.95; }
+      }
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    var active = Date.now() - lastInteraction < 2000;
+    ctx.fillStyle = '#ef4444';
+    ctx.strokeStyle = 'rgba(239, 68, 68, 0.2)';
+    for (var k = 0; k < particles.length; k++) {
+      var p = particles[k];
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fill();
+      if (active) {
+        for (var j = k + 1; j < particles.length; j++) {
+          var q = particles[j];
+          var dx = p.x - q.x, dy = p.y - q.y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < linkDist) {
+            ctx.lineWidth = 1 - dist / linkDist;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+    requestAnimationFrame(function () {
+      if (!reduced) update();
+      draw();
+    });
+  }
+
+  draw();
+})();
 </script>

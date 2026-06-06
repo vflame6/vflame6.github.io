@@ -35,9 +35,13 @@
         min-height: 100vh;
         overflow-x: hidden;
       }
-      #tsparticles {
+      #networkCanvas {
         position: fixed;
         inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
         z-index: -1;
       }
       .landing-nav {
@@ -173,7 +177,7 @@
       <button class="landing-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="landing-primary-nav">&#9776;</button>
     </header>
 
-    <div id="tsparticles"></div>
+    <canvas id="networkCanvas" aria-hidden="true"></canvas>
 
     <main class="landing-hero">
       <p class="landing-whoami">&gt; WHOAMI</p>
