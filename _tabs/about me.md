@@ -27,13 +27,7 @@ Beyond client work, I'm passionate about developing open-source security tools, 
 
 ### Open Source Development 
 
-I develop and maintain security tools that automate common pentesting tasks:
-
-- **[leaker](https://github.com/vflame6/leaker)**: Passive leak enumeration tool that discovers and validates credential leaks from public sources. Inspired by subfinder, it automates the discovery of compromised credentials during external assessments.
-- **[bruter](https://github.com/vflame6/bruter)**: Active network services bruteforce tool. Designed as modular framework to support extensibility and provide a lot of features like concurrency handling, logging and included wordlists.
-- **[sharefinder](https://github.com/vflame6/sharefinder)**: SMB shares enumeration and access analysis tool designed for Active Directory environments. Built to handle network-scale scanning with minimal noise.
-
-More tools and projects are available on my [Projects page](/projects/).
+I develop and maintain security tools that automate common pentesting tasks. Public tools and projects are available on my [Projects page](/projects/).
 
 ### Blog and Telegram Channel
 
