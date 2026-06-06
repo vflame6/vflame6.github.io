@@ -37,7 +37,7 @@ More tools and projects are available on my [Projects page](/projects/).
 
 ### Blog and Telegram Channel
 
-I regularly publish technical articles on this blog covering things I find interesting in the offensive security field. You can browse all my posts in the [Archives](/archives/) or by [Categories](/categories/).
+I regularly publish technical articles on this blog covering things I find interesting in the offensive security field. You can browse all my posts on the [Blog](/blog/) page or by [Categories](/categories/).
 
 I share shorter updates, quick tips, and Russian-language content on my [Telegram channel](https://t.me/vflame6), where I discuss ongoing research and industry developments.
 
