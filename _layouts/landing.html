@@ -133,6 +133,13 @@
         background: var(--text);
         color: var(--bg);
       }
+      .landing-logo:focus-visible,
+      .landing-nav-items a:focus-visible,
+      .landing-nav-toggle:focus-visible,
+      .landing-socials a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
       @media (max-width: 767px) {
         .landing-nav { padding: 1.5rem; }
         .landing-nav-items { display: none; }
@@ -158,12 +165,12 @@
   <body class="landing">
     <header class="landing-nav">
       <a class="landing-logo" href="/">MR</a>
-      <nav class="landing-nav-items" aria-label="Primary">
+      <nav class="landing-nav-items" id="landing-primary-nav" aria-label="Primary">
         {% for item in page.nav %}
           <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
         {% endfor %}
       </nav>
-      <button class="landing-nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+      <button class="landing-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="landing-primary-nav">&#9776;</button>
     </header>
 
     <div id="tsparticles"></div>
@@ -192,11 +199,13 @@
           menu.classList.remove('open');
           toggle.setAttribute('aria-expanded', 'false');
           toggle.innerHTML = '&#9776;';
+          toggle.setAttribute('aria-label', 'Open menu');
         }
         function open() {
           menu.classList.add('open');
           toggle.setAttribute('aria-expanded', 'true');
           toggle.innerHTML = '&#10005;';
+          toggle.setAttribute('aria-label', 'Close menu');
         }
         toggle.addEventListener('click', function () {
           if (menu.classList.contains('open')) close(); else open();
