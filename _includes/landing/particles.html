@@ -71,27 +71,24 @@
 
   function draw() {
     ctx.clearRect(0, 0, w, h);
-    var active = Date.now() - lastInteraction < 2000;
     ctx.fillStyle = '#ef4444';
     for (var k = 0; k < particles.length; k++) {
       var p = particles[k];
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       ctx.fill();
-      if (active) {
-        for (var j = k + 1; j < particles.length; j++) {
-          var q = particles[j];
-          var dx = p.x - q.x, dy = p.y - q.y;
-          var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < linkDist) {
-            var t = 1 - dist / linkDist;
-            ctx.strokeStyle = 'rgba(239, 68, 68, ' + (t * 0.5).toFixed(3) + ')';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.stroke();
-          }
+      for (var j = k + 1; j < particles.length; j++) {
+        var q = particles[j];
+        var dx = p.x - q.x, dy = p.y - q.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < linkDist) {
+          var t = 1 - dist / linkDist;
+          ctx.strokeStyle = 'rgba(239, 68, 68, ' + (t * 0.5).toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.stroke();
         }
       }
     }
