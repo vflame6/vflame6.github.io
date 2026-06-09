@@ -50,18 +50,11 @@
       }
       .landing-nav {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         padding: 2rem 3rem;
         position: relative;
         z-index: 10;
-      }
-      .landing-logo {
-        color: var(--text);
-        text-decoration: none;
-        font-weight: 700;
-        letter-spacing: 0.15em;
-        font-size: 1.25rem;
       }
       .landing-nav-items {
         display: flex;
@@ -196,7 +189,6 @@
         background: var(--text);
         color: var(--bg);
       }
-      .landing-logo:focus-visible,
       .landing-nav-items a:focus-visible,
       .landing-nav-toggle:focus-visible,
       .landing-socials a:focus-visible {
@@ -204,7 +196,7 @@
         outline-offset: 2px;
       }
       @media (max-width: 767px) {
-        .landing-nav { padding: 1.5rem; }
+        .landing-nav { padding: 1.5rem; justify-content: flex-start; }
         .landing-nav-items { display: none; }
         .landing-nav-toggle { display: block; }
         .landing-hero { padding: 2rem 1.5rem 4rem; }
@@ -227,13 +219,12 @@
   </head>
   <body class="landing">
     <header class="landing-nav">
-      <a class="landing-logo" href="/">MR</a>
+      <button class="landing-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="landing-primary-nav">&#9776;</button>
       <nav class="landing-nav-items" id="landing-primary-nav" aria-label="Primary">
         {% for item in page.nav %}
           <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
         {% endfor %}
       </nav>
-      <button class="landing-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="landing-primary-nav">&#9776;</button>
     </header>
 
     <canvas id="networkCanvas" aria-hidden="true"></canvas>
