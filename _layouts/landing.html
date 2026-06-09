@@ -77,7 +77,10 @@
         font-size: 1.5rem;
         font-family: var(--mono);
         cursor: pointer;
-        padding: 0.5rem;
+        padding: 0.375rem 0.75rem;
+        line-height: 1;
+        position: relative;
+        z-index: 101;
       }
       .landing-hero {
         position: relative;
@@ -196,7 +199,11 @@
         outline-offset: 2px;
       }
       @media (max-width: 767px) {
-        .landing-nav { padding: 1.5rem; justify-content: flex-start; }
+        .landing-nav {
+          padding: 0 0.75rem;
+          height: 3rem;
+          justify-content: flex-start;
+        }
         .landing-nav-items { display: none; }
         .landing-nav-toggle { display: block; }
         .landing-hero { padding: 2rem 1.5rem 4rem; }
