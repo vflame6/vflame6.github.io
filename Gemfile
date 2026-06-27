@@ -2,7 +2,13 @@
 
 source "https://rubygems.org"
 
-gem "jekyll-theme-chirpy", "~> 7.5"
+# Pinned to the 7.5.x series. This repo overrides Chirpy includes (head, sidebar,
+# topbar, footer) but ships no _sass, so the theme's CSS/JS comes from the gem.
+# A newer minor (e.g. 7.6) changes that CSS/JS and breaks the frozen overrides —
+# and since Gemfile.lock is git-ignored, CI resolves the newest allowed version on
+# every build. `~> 7.5.0` allows 7.5.x patches but holds the minor. Re-sync the
+# overrides from the gem before bumping to 7.6+.
+gem "jekyll-theme-chirpy", "~> 7.5.0"
 
 gem "jekyll-paginate-v2"
 
