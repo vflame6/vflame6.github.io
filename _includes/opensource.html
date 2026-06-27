@@ -268,15 +268,18 @@
             errorRepo.textContent = 'Failed to fetch repositories from GitHub. Please try again later.';
             container.appendChild(errorRepo);
         } finally {
-            // Drop the loading bar once the request settles, whether it succeeded or failed.
+            /* Drop the loading bar once the request settles, whether it succeeded or failed.
+               NOTE: block comment, not //. Jekyll's compress_html collapses this inline
+               <script> onto one line, and a // comment would silently eat the rest of it. */
             if (loader) {
                 loader.remove();
             }
         }
     };
 
-    // Kick the fetch off without blocking page render; the loading bar above is
-    // already in the static HTML, so it shows immediately while this resolves.
+    /* Kick the fetch off without blocking page render; the loading bar above is
+       already in the static HTML, so it shows immediately while this resolves.
+       Block comment (not //) on purpose — see the compress_html note above. */
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', getGitHubRepositories);
     } else {
