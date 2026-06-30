@@ -148,23 +148,14 @@ pwa:
 # The base URL of your site
 baseurl: ""
 
-# Pagination is OPT-IN per page, not global. `blog/index.html` sets its own
-# `pagination: { enabled: true }`, so it paginates regardless of this flag.
-#
-# Global `enabled: true` (Chirpy's stock default) assumes the root `index.html`
-# IS the post listing. This site is different: the root is a standalone landing
-# page (`layout: landing`, permalink `/`) and the listing lives at `/blog/`. With
-# global pagination on, jekyll-paginate-v2 treats BOTH the landing `index.html`
-# and `blog/index.html` as paginate candidates and picks its target by
-# `site.pages` order — which is filesystem-readdir order and therefore
-# non-deterministic across CI runners. On the unlucky ordering it leaves
-# `_site/index.html` as the raw, unrendered source file (front matter shown as
-# plain text on the live homepage); html-proofer can't catch it (raw text has no
-# links), so the deploy reports success while the homepage is broken, and a
-# re-run "fixes" it only by chance. Keeping this `false` makes `blog/index.html`
-# the single paginate candidate, so the build is deterministic.
+# Global pagination MUST stay enabled. jekyll-paginate-v2's generator short-
+# circuits when `pagination.enabled` is false and then ignores every per-page
+# opt-in, so flipping this off blanks the blog: `paginator` becomes nil and
+# `_layouts/home.html` (which reads paginator.page / paginator.posts) renders
+# zero posts and no pager. `blog/index.html` opts in via its own
+# `pagination: { enabled: true }` and is the page that actually gets paginated.
 pagination:
-  enabled: false
+  enabled: true
   per_page: 20
   permalink: '/page:num/'
   title: ':title - page :num'
