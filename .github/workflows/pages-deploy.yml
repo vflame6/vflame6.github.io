@@ -17,10 +17,15 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
+# Allow only one concurrent deployment, skipping runs queued between the run
+# in-progress and latest queued. However, do NOT cancel in-progress runs — we
+# want production deployments to finish. Cancelling a run mid-deploy leaves the
+# server-side Pages deployment stuck "in progress", which makes the next run
+# fail with HTTP 400: "Deployment request failed ... due to in progress
+# deployment. Please cancel <sha> first or wait for it to complete."
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
