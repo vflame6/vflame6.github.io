@@ -29,6 +29,43 @@
         gap: 8px;
         margin-bottom: 12px;
     }
+    .repoNameGroup {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        min-width: 0;
+    }
+    /* Most-starred repo: a warm tint and a chip, kept quiet enough that the
+       hover state (full-accent border) is still the stronger signal. */
+    .linkBlock.repoFeatured {
+        border-color: rgba(210, 96, 58, 0.45) !important;
+    }
+    /* Needed explicitly: this rule and .linkBlock:hover have equal specificity,
+       so without it the later featured rule wins and this card alone loses its
+       hover feedback. */
+    .linkBlock.repoFeatured:hover {
+        border-color: #d2603a !important;
+    }
+    /* Layered as a background-image so it composites over whichever
+       background-color the theme already gave .repoDiv, instead of replacing
+       it (which left the card darker than its neighbours in dark mode). */
+    .linkBlock.repoFeatured .repoDiv {
+        background-image: linear-gradient(rgba(210, 96, 58, 0.08), rgba(210, 96, 58, 0.08));
+    }
+    .repoFeaturedChip {
+        flex-shrink: 0;
+        padding: 2px 8px;
+        border: 1px solid rgba(210, 96, 58, 0.35);
+        border-radius: 999px;
+        background-color: rgba(210, 96, 58, 0.12);
+        color: #d2603a;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
     .repoExternalIcon {
         display: flex;
         align-items: center;
@@ -183,12 +220,20 @@
                 .filter(repo => !repo.fork && !excludedNames.has(repo.name))
                 .sort((a, b) => b.stargazers_count - a.stargazers_count);
 
+            /* Only claim "most starred" when it is unambiguously true: more than
+               one repo to compare, at least one star, and no tie for the top. */
+            const featured = visibleRepos.length > 1
+                && visibleRepos[0].stargazers_count > 0
+                && visibleRepos[0].stargazers_count > visibleRepos[1].stargazers_count
+                ? visibleRepos[0]
+                : null;
+
             for (var i=0, element; element=visibleRepos[i]; i++) {
                 linkBlock = document.createElement('a');
                 linkBlock.setAttribute("href", element.html_url);
                 linkBlock.setAttribute("target", "_blank");
                 linkBlock.setAttribute("rel", "noopener noreferrer");
-                linkBlock.setAttribute("class", "linkBlock");
+                linkBlock.setAttribute("class", element === featured ? "linkBlock repoFeatured" : "linkBlock");
                 document.getElementById('github-repos').appendChild(linkBlock);
 
                 repoDiv = document.createElement('div');
@@ -199,10 +244,21 @@
                 repoIconName.setAttribute("class", "repoIconName");
                 repoDiv.appendChild(repoIconName);
 
+                repoNameGroup = document.createElement('div');
+                repoNameGroup.setAttribute("class", "repoNameGroup");
+                repoIconName.appendChild(repoNameGroup);
+
                 repoName = document.createElement('div');
                 repoName.setAttribute("class", "repoName");
-                repoName.innerHTML = element.name;
-                repoIconName.appendChild(repoName);
+                repoName.textContent = element.name;
+                repoNameGroup.appendChild(repoName);
+
+                if (element === featured) {
+                    repoFeaturedChip = document.createElement('span');
+                    repoFeaturedChip.setAttribute("class", "repoFeaturedChip");
+                    repoFeaturedChip.textContent = "Most starred";
+                    repoNameGroup.appendChild(repoFeaturedChip);
+                }
 
                 repoExternalIcon = document.createElement('div');
                 repoExternalIcon.setAttribute("class", "repoExternalIcon");

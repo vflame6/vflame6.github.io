@@ -3,7 +3,7 @@
         width: 100%;
         margin: 0 auto;
     }
-    
+
     .badgeContainer {
         width: 100%;
         margin-top: 8px;
@@ -11,24 +11,121 @@
         display: flex;
         flex-flow: row wrap;
         justify-content: start;
+        gap: 8px;
+    }
+
+    /* Reserve space so late-arriving third-party badges don't shift the page. */
+    .extBadge {
+        min-height: 50px;
+    }
+
+    .extBadge[hidden] {
+        display: none;
     }
 </style>
 
 <div class="certContainer">
-    <a href="https://www.credential.net/7c1a186f-a953-4b09-ac89-0756d48b7f81" target="_blank"><img src="/assets/certifications/OSCP-Badge.png" width="80px" height="80px" alt="OffSec Certified Professional (OSCP) badge"></a>
-    <a href="https://www.credential.net/ce3df16b-895d-44f7-804e-67bf794d3a49" target="_blank"><img src="/assets/certifications/OSWP-Badge.png" width="80px" height="80px" alt="OffSec Wireless Professional (OSWP) badge"></a>
-    <a href="https://www.credential.net/52977d30-87cd-4773-a4bd-634a99aa51f5" target="_blank"><img src="/assets/certifications/OSEP-Badge.png" width="80px" height="80px" alt="OffSec Expirienced Pentester (OSEP) badge"></a>
-    <a href="https://www.credential.net/457e8b9b-0023-40e0-ba84-f71620cd3d71" target="_blank"><img src="/assets/certifications/KLCP-Badge.png" width="80px" height="80px" alt="Kali Linux Certified Professional (KLCP) badge"></a>
+    <a href="https://www.credential.net/7c1a186f-a953-4b09-ac89-0756d48b7f81" target="_blank" rel="noopener"><img src="/assets/certifications/OSCP-Badge.png" width="80" height="80" loading="lazy" decoding="async" alt="OffSec Certified Professional (OSCP) badge"></a>
+    <a href="https://www.credential.net/ce3df16b-895d-44f7-804e-67bf794d3a49" target="_blank" rel="noopener"><img src="/assets/certifications/OSWP-Badge.png" width="80" height="80" loading="lazy" decoding="async" alt="OffSec Wireless Professional (OSWP) badge"></a>
+    <a href="https://www.credential.net/52977d30-87cd-4773-a4bd-634a99aa51f5" target="_blank" rel="noopener"><img src="/assets/certifications/OSEP-Badge.png" width="80" height="80" loading="lazy" decoding="async" alt="OffSec Expirienced Pentester (OSEP) badge"></a>
+    <a href="https://www.credential.net/457e8b9b-0023-40e0-ba84-f71620cd3d71" target="_blank" rel="noopener"><img src="/assets/certifications/KLCP-Badge.png" width="80" height="80" loading="lazy" decoding="async" alt="Kali Linux Certified Professional (KLCP) badge"></a>
 </div>
 
 <div class="badgeContainer">
-    <div>
-        <a href="https://app.hackthebox.com/profile/973692">
-            <img src="https://www.hackthebox.eu/badge/image/973692" alt="HackTheBox-Badge"> 
+    <div class="extBadge" id="htb-badge">
+        <a href="https://app.hackthebox.com/profile/973692" target="_blank" rel="noopener">
+            <img
+                src="https://www.hackthebox.com/badge/image/973692"
+                alt="HackTheBox-Badge"
+                width="220"
+                height="50"
+                loading="lazy"
+                decoding="async"
+                onerror="var b = this.closest('.extBadge'); if (b) { b.hidden = true; }"
+            >
         </a>
     </div>
 
-    <div>
-        <script src="https://tryhackme.com/badge/1026785"></script>
-    </div>
+    <div class="extBadge" id="thm-badge" hidden></div>
 </div>
+
+<script>
+  /*
+   * TryHackMe's badge is a third-party <script>. Inlined directly it is
+   * parser-blocking: the browser stops rendering the rest of the page until
+   * tryhackme.com answers, and that endpoint currently sits behind a bot
+   * challenge that can hang or return non-JS. Load it after `load` instead, so
+   * the page paints first and the badge fills in (or quietly disappears).
+   */
+  (function () {
+    var THM_SRC = 'https://tryhackme.com/badge/1026785';
+    /*
+     * Where the badge's relative asset paths actually resolve. Not
+     * tryhackme.com: that host answers /user-avatars/ with a bot challenge,
+     * so the avatar has to come from the media bucket behind it.
+     */
+    var THM_ASSETS = 'https://tryhackme-images.s3.amazonaws.com/';
+    var TIMEOUT_MS = 8000;
+
+    function loadThmBadge() {
+      var host = document.getElementById('thm-badge');
+      if (!host) {
+        return;
+      }
+
+      var realWrite = document.write;
+      var realWriteln = document.writeln;
+
+      /*
+       * The badge script emits its markup via document.write(). Called after
+       * parsing has finished that would blow away the whole document, so point
+       * it at the badge container while the badge script is in flight.
+       */
+      function captureWrite(markup) {
+        /*
+         * The badge markup points at its avatar with a relative path, so left
+         * alone it resolves against this page and 404s. Re-base any relative
+         * url()/src= onto the origin that actually serves them.
+         */
+        var rebased = markup
+          .replace(/url\((?!['"]?(?:https?:|data:|#))/g, 'url(' + THM_ASSETS)
+          .replace(/(\ssrc=")(?!https?:|data:|\/\/)/g, '$1' + THM_ASSETS);
+
+        host.insertAdjacentHTML('beforeend', rebased);
+        sync();
+      }
+
+      function sync() {
+        host.hidden = !host.firstChild;
+      }
+
+      document.write = captureWrite;
+      document.writeln = captureWrite;
+
+      var script = document.createElement('script');
+      script.src = THM_SRC;
+      script.async = true;
+      script.onload = sync;
+      script.onerror = sync;
+
+      /*
+       * Restore on a fixed timer rather than on load: a badge script that
+       * fetches first and writes afterwards would otherwise hit the real
+       * document.write and wipe the page.
+       */
+      setTimeout(function () {
+        document.write = realWrite;
+        document.writeln = realWriteln;
+        sync();
+      }, TIMEOUT_MS);
+
+      document.head.appendChild(script);
+    }
+
+    if (document.readyState === 'complete') {
+      loadThmBadge();
+    } else {
+      window.addEventListener('load', loadThmBadge);
+    }
+  })();
+</script>
