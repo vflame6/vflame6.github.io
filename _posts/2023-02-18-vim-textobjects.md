@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vim Text Objects
+description: "How Vim text objects let you act on a word, sentence, paragraph, block, tag or quoted string in one keystroke."
 categories: [Programming, Vim]
 date: 2023-02-18 09:04 +0300
 ---

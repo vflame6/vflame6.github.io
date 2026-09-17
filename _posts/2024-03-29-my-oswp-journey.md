@@ -3,7 +3,7 @@ layout: post
 title: My OSWP Journey
 categories: [Blog, Education]
 date: 2024-03-29 10:00 +0300
-description: My journey on studying and passing the OSWP exam.
+description: "Passing PEN-210 and the OSWP on the first attempt: building a wireless lab, preparing a cheat sheet, and what the exam expects."
 image:
   path: /assets/certifications/OSWP-Certificate.jpg
   alt: My OSWP certificate

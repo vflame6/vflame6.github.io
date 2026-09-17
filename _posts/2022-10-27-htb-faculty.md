@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Faculty
+description: "HackTheBox Faculty: SQL injection for a foothold, sudo meta-git for lateral movement, then gdb capabilities for root."
 date: 2022-10-27 15:02 +0300
 categories: [CTF, HackTheBox]
 image:

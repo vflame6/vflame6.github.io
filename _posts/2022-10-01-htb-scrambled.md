@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Scrambled
+description: "HackTheBox Scrambled: a domain with NTLM disabled, kerberoasting into MSSQL, then a .NET deserialization attack."
 categories: [CTF, HackTheBox]
 date: 2022-10-01 18:31 +0300
 image:

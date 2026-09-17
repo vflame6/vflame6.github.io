@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Support
+description: "HackTheBox Support: reversing UserInfo.exe with dnSpy for LDAP credentials, then resource-based constrained delegation."
 categories: [CTF, HackTheBox]
 date: 2022-12-19 15:44 +0300
 image:

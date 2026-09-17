@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Windows File Transfers
+description: "A cheat sheet for moving files to and from Windows hosts with base64, certutil, bitsadmin, curl, SMB and FTP."
 categories: [Pentest, CheatSheets]
 date: 2023-10-24 10:25 +0300
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Timelapse
+description: "HackTheBox Timelapse: a password-protected PFX from an open SMB share into WinRM, then LAPS reader rights for Administrator."
 categories: [CTF, HackTheBox]
 date: 2022-08-25 17:18 +0300
 image:

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: RingZer0 CTF - Xor Me If You Can
+description: "Scripting a RingZer0 challenge in Python: scrape the page, base64-decode the message and XOR it back inside the three-second limit."
 categories: [CTF, RingZer0]
 date: 2022-06-30 16:25 +0300
 ---

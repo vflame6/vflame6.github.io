@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Shared
+description: "HackTheBox Shared: UNION SQL injection in a shop cookie, an iPython CVE for lateral movement, then a root-owned Redis."
 date: 2022-11-12 22:50 +0300
 categories: [CTF, HackTheBox]
 image:

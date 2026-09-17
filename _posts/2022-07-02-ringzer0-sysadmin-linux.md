@@ -1,6 +1,7 @@
 ---
 layout: post
 title: RingZer0 CTF - SysAdmin Linux
+description: "Working through all eight levels of the RingZer0 SysAdmin Linux track over SSH, one enumeration trick at a time."
 categories: [CTF, RingZer0]
 date: 2022-07-02 18:32 +0300
 ---

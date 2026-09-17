@@ -159,6 +159,9 @@
         100% { left: 100%; }
     }
     .repoError {
+        /* Span every column: this sits inside the repo grid, so without it the
+           message is boxed into a single cell and wraps at half width. */
+        grid-column: 1 / -1;
         color: var(--text-muted-color);
     }
     @media (prefers-reduced-motion: reduce) {
@@ -206,7 +209,21 @@
             });
 
             if (!response.ok) {
-                throw new Error("GitHub API responded with status " + response.status);
+                /* GitHub signals both its primary limit (remaining === 0) and its
+                   secondary one (Retry-After) as 403 or 429. All of these headers
+                   are CORS-exposed by the API, so they are readable from here. */
+                const remaining = response.headers.get('X-RateLimit-Remaining');
+                const retryAfter = response.headers.get('Retry-After');
+                const rateLimited = (response.status === 403 || response.status === 429)
+                    && (remaining === '0' || retryAfter !== null);
+
+                const error = new Error("GitHub API responded with status " + response.status);
+                if (rateLimited) {
+                    error.rateLimited = true;
+                    const reset = Number(response.headers.get('X-RateLimit-Reset'));
+                    error.resetAt = reset > 0 ? new Date(reset * 1000) : null;
+                }
+                throw error;
             }
 
             const jsonResponse = await response.json();
@@ -333,7 +350,17 @@
         } catch (error) {
             const errorRepo = document.createElement('div');
             errorRepo.className = 'repoError';
-            errorRepo.textContent = 'Failed to fetch repositories from GitHub. Please try again later.';
+            if (error && error.rateLimited) {
+                /* Say plainly whose limit this is: the list is fetched from the
+                   visitor's own browser, so the cap is on their network, not the site. */
+                let message = 'GitHub is rate-limiting requests from your network, so the repository list could not be loaded. This is a limit on GitHub’s side, not a problem with this site.';
+                if (error.resetAt) {
+                    message += ' It resets at ' + error.resetAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '.';
+                }
+                errorRepo.textContent = message;
+            } else {
+                errorRepo.textContent = 'Failed to fetch repositories from GitHub. Please try again later.';
+            }
             container.appendChild(errorRepo);
         } finally {
             /* Drop the loading bar once the request settles, whether it succeeded or failed.

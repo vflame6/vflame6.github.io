@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to install Microsoft Store applications without Microsoft Store
+description: "Installing Microsoft Store apps without the Store, by turning on Developer Mode and sideloading the package."
 categories: [Programming, Tips]
 date: 2023-03-28 10:53 +0300
 ---

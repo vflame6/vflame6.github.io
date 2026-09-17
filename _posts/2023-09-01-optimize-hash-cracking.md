@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Optimize Hash Cracking
+description: "Getting more out of hash cracking: dictionary masks, better wordlists, distributed rigs, cloud GPUs and online databases."
 categories: [Pentest, Research]
 date: 2023-09-01 09:12 +0300
 ---

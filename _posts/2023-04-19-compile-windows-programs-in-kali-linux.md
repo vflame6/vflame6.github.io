@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Compile Windows Programs in Kali Linux
+description: "Cross-compiling Windows binaries from Kali Linux with mingw-w64, plus the prebuilt ones Kali already ships."
 categories: [Pentest, Research]
 date: 2023-04-19 20:51 +0300
 ---

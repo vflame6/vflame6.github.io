@@ -1,6 +1,7 @@
 ---
 layout: post
 title: RingZer0 CTF - Classic Sudoku
+description: "Automating a RingZer0 SSH challenge with a Python pty: parse the board, solve the Sudoku and reply in under ten seconds."
 categories: [CTF, RingZer0]
 date: 2022-07-19 12:25 +0300
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: RingZer0 CTF - I Hate Mathematics
+description: "Solving a RingZer0 speed-math challenge with a Tampermonkey userscript instead of Python."
 categories: [CTF, RingZer0]
 date: 2022-08-21 20:34 +0300
 ---

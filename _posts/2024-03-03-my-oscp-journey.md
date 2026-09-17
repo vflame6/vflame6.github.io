@@ -3,7 +3,7 @@ layout: post
 title: My OSCP Journey
 categories: [Blog, Education]
 date: 2024-03-03 10:00 +0300
-description: My journey on studying and passing the OSCP exam.
+description: "Passing PEN-200 and the OSCP on the first attempt: how I prepared, how I kept notes, what exam day was like, and what it changed at work."
 image:
   path: /assets/certifications/OSCP-Certificate.jpg
   alt: My OSCP certificate

@@ -1,0 +1,52 @@
+/* Tabbed content blocks, emitted by `_plugins/tabs.rb`. */
+
+.tabs {
+  margin-bottom: 1.25rem;
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    border-bottom: 1px solid var(--main-border-color);
+  }
+
+  &__tab {
+    appearance: none;
+    padding: 0.4rem 0.75rem;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    background: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--text-muted-color);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--text-color);
+    }
+
+    &[aria-selected='true'] {
+      color: var(--link-color);
+      border-bottom-color: var(--link-color);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--link-color);
+      outline-offset: -2px;
+    }
+  }
+
+  &__panel {
+    padding-top: 1rem;
+
+    &[hidden] {
+      display: none;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

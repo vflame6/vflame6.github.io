@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vim Settings
+description: "A walkthrough of the most useful .vimrc settings, from number and cursorline to tab width and indentation."
 categories: [Programming, Vim]
 date: 2023-03-07 18:58 +0300
 image:

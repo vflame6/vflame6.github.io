@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Outdated
+description: "HackTheBox Outdated: a Follina payload mailed to IT support, then shadow credentials and WSUS abuse for domain admin."
 categories: [CTF, HackTheBox]
 date: 2022-12-11 10:33 +0300
 image:

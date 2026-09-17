@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - RouterSpace
+description: "HackTheBox RouterSpace: proxying an Android app through Burp to reach command injection, then a public exploit for root."
 categories: [CTF, HackTheBox]
 date: 2022-07-08 22:36 +0300
 image:

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - RedPanda
+description: "HackTheBox RedPanda: Java template injection for a shell, then an XXE in a root-run log parser to steal the SSH key."
 categories: [CTF, HackTheBox]
 date: 2022-11-26 22:03 +0300
 image:

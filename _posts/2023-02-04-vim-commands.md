@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vim Commands
+description: "A beginner's tour of Vim: installing it, then moving by characters, words, lines, matching brackets and counts."
 categories: [Programming, Vim]
 date: 2023-02-04 03:18 +0300
 image:

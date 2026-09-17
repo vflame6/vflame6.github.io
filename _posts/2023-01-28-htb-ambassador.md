@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - Ambassador
+description: "HackTheBox Ambassador: Grafana path traversal CVE-2021-43798 for database credentials, then root through the Consul API."
 categories: [CTF, HackTheBox]
 date: 2023-01-28 20:28 +0300
 image:

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: HackTheBox - StreamIO
+description: "HackTheBox StreamIO: sqlmap on the login page and an LFI turned RCE, then granting ourselves ReadLAPSPassword."
 categories: [CTF, HackTheBox]
 date: 2022-09-17 15:35 +0300
 image:
