@@ -10,9 +10,11 @@ order: 3
 
 ---
 
-Hi! I'm **Maksim Radaev**, also known as **vflame6**. I'm a penetration tester specializing in offensive security operations, with a particular focus on network infrastructure, Active Directory environments, and web application security.
+I'm Maksim 'vflame6' Radaev — a lead penetration tester and red team operator.
 
-I conduct comprehensive security assessments from start to finish - from initial scoping and reconnaissance through exploitation and post-exploitation, to delivering detailed reports and presenting actionable findings to clients. My approach combines technical expertise with clear communication to help organizations understand and remediate their security weaknesses. 
+I've spent 4+ years in offensive security: external and internal network pentesting, Active Directory attacks, web and mobile application testing, cloud and Kubernetes red teaming, social engineering, and custom offensive tooling in Go and Python. Most recently I built and led a bank's offensive security function — and a team of 5 — from scratch.
+
+Certifications: OSCP, OSEP, OSAI, OSWP, plus multi-cloud and Kubernetes red team certs.
 
 Currently I offer `network` (external/internal), `application` (web/mobile), `social-engineering` penetration testing projects and `red team` operations. Looking for professional penetration testing or red team services? See contact options in [Contacts](#contact-me) section.
 
