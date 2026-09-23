@@ -148,7 +148,7 @@ Uncial ships as a Homebrew cask from a tap served by the repository itself:
 ```bash
 brew tap vflame6/uncial https://github.com/vflame6/uncial
 brew trust vflame6/uncial
-brew install --cask --no-quarantine uncial
+brew install --cask uncial
 ```
 
 Homebrew 7 wants third-party taps trusted explicitly before it runs their cask code; the second line does that. `--no-quarantine` skips the Gatekeeper prompt described below; drop it if you prefer to allow the app by hand. The zip is also on the [Releases page](https://github.com/vflame6/uncial/releases) as `Uncial-<version>.zip`.
