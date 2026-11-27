@@ -10,7 +10,7 @@ order: 3
 
 ---
 
-I'm Maksim 'vflame6' Radaev — a lead penetration tester and red team operator.
+I'm Maksim 'vflame6' Radaev, a lead penetration tester and red team operator. I test how attackers get into companies from the outside, and I open-source the tools I build doing it.
 
 I've spent 4+ years in offensive security: external and internal network pentesting, Active Directory attacks, web and mobile application testing, cloud and Kubernetes red teaming, social engineering, and custom offensive tooling in Go and Python. Most recently I built and led a bank's offensive security function — and a team of 5 — from scratch.
 

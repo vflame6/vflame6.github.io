@@ -19,10 +19,10 @@ timezone: Europe/Moscow
 
 title: Maksim 'vflame6' Radaev
 
-tagline: "Cybersecurity enthusiast, writing about things I find interesting. Looking for offensive security services? Contact on vflame6x@gmail.com"
+tagline: "Lead penetration tester and red team operator. I build and break things. Looking for offensive security services? Contact on vflame6x@gmail.com"
 
 description: >-
-  Maksim 'vflame6' Radaev bloggin about cybersecurity, pentest, and CTFs related content.
+  I'm Maksim 'vflame6' Radaev, a lead penetration tester and red team operator. I test how attackers get into companies from the outside, and I open-source the tools I build doing it.
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -35,7 +35,7 @@ twitter:
   username: MaksimRadaev            
 
 social:
-  name: vflame6
+  name: Maksim 'vflame6' Radaev
   email: vflame6x@gmail.com
   links:
     # The first element serves as the copyright owner's link

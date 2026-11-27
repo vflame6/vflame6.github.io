@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducting bruter - Customizable BruteForce Framework"
+title: "Introducing bruter - Customizable BruteForce Framework"
 description: "Introducing bruter: 55 protocols, scan file auto-detection, embedded bad SSH keys, and a module interface so simple you can add a new protocol in 50 lines."
 categories: [Pentest, Development]
 date: 2026-03-29 12:00 +0500
